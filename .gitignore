@@ -1,0 +1,11 @@
+# Python caches
+__pycache__/
+*.py[cod]
+# Webots caches and transient files
+*.cache
+# Editor backups
+*.bak
+*.tmp
+*.swp
+# New simulation output logs (review before deleting existing CSVs)
+# Do not globally ignore *.csv: controller inputs depend on CSV files.

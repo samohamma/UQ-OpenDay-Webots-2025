@@ -1,0 +1,31 @@
+
+From driver's perspective:
+
+Viewpoint {
+  orientation 0.006122502807031222 0.9966541893813942 0.08150424374162528 3.4395585625307845
+  position -3770.2001891054133 1.5551333951133754 -17938.45546429973
+  near 1
+  follow "veh-driver"
+  followSmoothness 0
+}
+
+Ring road #1: merge section
+
+
+Viewpoint {
+  orientation -0.003309218316427494 0.9938580560617766 0.11061289922626864 3.190604611456291
+  position -3530.6432698852623 77.9266707583059 -17378.50253247059
+  near 1
+  follow "veh-driver"
+  followSmoothness 0
+}
+
+The connection link between Ring roads #1 and #2
+
+Viewpoint {
+  orientation -0.003309218316427494 0.9938580560617766 0.11061289922626864 3.190604611456291
+  position -3480.226900866171 133.54655895277682 -8925.015662178588
+  near 1
+  follow "veh-driver"
+  followSmoothness 0
+}

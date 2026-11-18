@@ -1,0 +1,118 @@
+fileID = fopen('A01-WebotsCAVs.txt','w');
+NumVehs=12;
+
+  translation =RR_translation(1,:);
+  BMW_rotation= [0 1 0 0];
+
+X_veh=0.4+zeros(numberOfLanes,NumVehs);
+Y_veh=0.4+zeros(numberOfLanes,NumVehs);
+Z_veh=0.4+zeros(numberOfLanes,NumVehs);
+
+X_shif=-5.5;
+X_start=translation(1)+X_shif;
+Y_start=translation(2)+0.38;
+Z_Start=translation(3);
+
+
+% Road_data=readtable('Data_Dictionary.xlsx','Sheet','RR1');
+% LaneWidth=Road_data.Lane_width(1)
+
+% LaneWidth=3.65;
+InitialGap=30;
+
+%Create 
+    for j=1:NumVehs
+        for i=1:numberOfLanes
+
+        Col=rand(1,3);
+
+        X_veh(i,j)=X_start+(i-1)*LaneWidth;
+        Y_veh(i,j)=Y_Geometry+0.4-0.02;
+        Z_veh(i,j)=Z_Start+(j-1)*InitialGap;
+
+        BMW_line= ['BmwX5 {'];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line = [strjoin({' ','translation',...
+            num2str(X_veh(i,j)),num2str(Y_veh(i,j)),num2str(Z_veh(i,j))})] ;
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ','rotation',...
+            num2str(BMW_rotation(1)),num2str(BMW_rotation(2)),...
+            num2str(BMW_rotation(3)),num2str(BMW_rotation(4))})] ;
+        fprintf(fileID,'%s\r', BMW_line)
+
+
+        BMW_line= [strjoin({' ','color',...
+            num2str(Col(1)),num2str(Col(2)),num2str(Col(3))})] ;
+        fprintf(fileID,'%s\r', BMW_line)
+
+
+        BMW_name=strrep(strjoin({'"Lane',num2str(i),'_veh',num2str(NumVehs-(j-1)),')"'}),' ','')
+        BMW_line = [strjoin({' ','name '}),BMW_name];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ','controller','"auto-ringroad"'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ','supervisor','TRUE'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ','sensorsSlotFront','['})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'  ','Radar','{'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'    ','minRange','2'})];
+        fprintf(fileID,'%s\r', BMW_line)
+ 
+        BMW_line= [strjoin({'    ','maxRange','80'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'    ','horizontalFieldOfView','0.05'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'    ','verticalFieldOfView','0.002'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+
+        BMW_line= [strjoin({'  ','}'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ',']'})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ','sensorsSlotTop','['})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'  ','GPS','{'})];
+        fprintf(fileID,'%s\r', BMW_line)
+        BMW_line= [strjoin({'  ','}',})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'  ','Receiver','{'})];
+        fprintf(fileID,'%s\r', BMW_line)
+        BMW_line= [strjoin({'  ','}',})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({'  ','Emitter','{'})];
+        fprintf(fileID,'%s\r', BMW_line)
+        BMW_line= [strjoin({'  ','}',})];
+        fprintf(fileID,'%s\r', BMW_line)
+
+        BMW_line= [strjoin({' ',']'})];
+        fprintf(fileID,'%s\r', BMW_line)
+        fprintf(fileID,'%s\r',' interior FALSE')
+        fprintf(fileID,'%s\r',' dynamicSpeedDisplay FALSE')
+        fprintf(fileID,'%s\r',' indicatorLevers FALSE')
+        fprintf(fileID,'%s\r',' completeInterior FALSE')
+        fprintf(fileID,'%s\r',' rightWingMirror FALSE')
+        fprintf(fileID,'%s\r',' leftWingMirror FALSE')
+        fprintf(fileID,'%s\r',' rearMirror FALSE')
+
+        LineText ='}' ;
+        fprintf(fileID,'%s\r', LineText)
+    end
+end
+fclose(fileID);

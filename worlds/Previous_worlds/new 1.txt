@@ -1,0 +1,10 @@
+
+From driver's perspective:
+
+Viewpoint {
+  orientation 0.006122502807031222 0.9966541893813942 0.08150424374162528 3.4395585625307845
+  position -3770.2001891054133 1.5551333951133754 -17938.45546429973
+  near 1
+  follow "veh-driver"
+  followSmoothness 0
+}

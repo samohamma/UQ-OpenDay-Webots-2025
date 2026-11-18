@@ -1,0 +1,2786 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 50
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.01871064967829209 0.9947588282077269 0.10052256110648153 3.5355293198691466
+  position -3695.3603245053105 1.804019886655068 -17825.35480159546
+  near 1
+  follow "veh-driver)"
+  followSmoothness 0
+}
+TexturedBackground {
+  texture "noon_building_overcast"
+}
+TexturedBackgroundLight {
+  texture "noon_cloudy_empty"
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "textures/ground_grass.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 10000 50000
+      }
+      castShadows FALSE
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}DEF RR1 Solid {
+ translation -3500 0.13 -18000
+ rotation 0 1 0 -1.5708
+ children [
+    DEF RR1_Sec0_Onramp_1 StraightRoadSegment {
+      name "RR1_Sec0_Onramp_1"
+      translation 340.4959 0 -37.5934 
+      rotation 0 1 0 1.5308
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 600.5
+    }
+    DEF RR1_Sec0_Onramp_2 CurvedRoadSegment {
+      name "RR1_Sec0_Onramp_2"
+      translation 1000 0 -1512.4 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      curvatureRadius 1500
+      totalAngle 0.04
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+    }
+    DEF RR1_Sec1_StartCAVs StraightRoadSegment {
+      name "RR1_Sec1_StartCAVs"
+      translation 0 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1000.5
+    }
+    DEF RR1_Sec2_Merge_1 LaneSeparation {
+      name "RR1_Sec2_Merge_1"
+      translation 1200 0 -7.2 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      newLaneLeft FALSE
+      length 200.5
+    }
+    DEF RR1_Sec3_Merge_2 AddLanesRoadSegment {
+      name "RR1_Sec3_Merge_2"
+      translation 1800 0 0 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      newLaneLeft FALSE
+      length 600.5
+    }
+    DEF RR1_Sec4_HumanDriven StraightRoadSegment {
+      name "RR1_Sec4_HumanDriven"
+      translation 1800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1500.5
+    }
+    DEF RR1_Sec5_Autodriving StraightRoadSegment {
+      name "RR1_Sec5_Autodriving"
+      translation 3300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 4000.5
+    }
+    DEF RR1_Sec6_TakeOver StraightRoadSegment {
+      name "RR1_Sec6_TakeOver"
+      translation 7300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 2000.5
+    }
+    DEF RR1_Sec7_Diverge_1 AddLanesRoadSegment {
+      name "RR1_Sec7_Diverge_1"
+      translation 9300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      length 400.5
+    }
+    DEF RR1_Sec7_Diverge_2 LaneSeparation {
+      name "RR1_Sec7_Diverge_2"
+      translation 9700 0 -7.2 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      length 100.5
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      name "RR1_Sec9_End"
+      translation 9800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+ ]
+ name "solid(1)"
+}
+DEF RR1_exit_upramp Solid {
+ translation -3487.6           0.13          -8000
+ children [
+    DEF SLOPE Road{
+      translation 0 0 -200
+      rotation 0 1 0 0
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF MIDDLE StraightRoadSegment {
+      translation 0 5 0
+      width 7.2
+      lines [
+        RoadLine {
+         type "continuous"
+        }
+      ]
+      bottom TRUE
+      length 170
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+      roadBoundingObject TRUE
+    }
+    DEF EST_CURVE CurvedRoadSegment {
+      translation  -10000 5 170
+      name  "road(5)"
+      width 7.2
+      bottom TRUE
+      curvatureRadius 10000
+      totalAngle 0.04
+      subdivision 32
+      tilt 0.3
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF SLOPE Road {
+      translation -7.9989 5 569.8933
+      rotation 0 1 0 -0.04
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 -5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+ ]
+ name "solid(4)"
+}
+DEF RR2 Solid {
+ translation -3521.1956 0.13 -8070.3626
+ rotation 0 1 0 -1.5708
+ children [
+    DEF RR2_Sec0_Onramp_1 StraightRoadSegment {
+      name "RR2_Sec0_Onramp_1"
+      translation 840.096 0 -17.5988 
+      rotation 0 1 0 1.5308
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+    DEF RR2_Sec0_Onramp_2 CurvedRoadSegment {
+      name "RR2_Sec0_Onramp_2"
+      translation 1000 0 -1512.4 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      curvatureRadius 1500
+      totalAngle 0.04
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+    }
+    DEF RR2_Sec1_StartCAVs StraightRoadSegment {
+      name "RR2_Sec1_StartCAVs"
+      translation 0 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1000.5
+    }
+    DEF RR2_Sec2_Merge_1 LaneSeparation {
+      name "RR2_Sec2_Merge_1"
+      translation 1200 0 -7.2 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      newLaneLeft FALSE
+      length 200.5
+    }
+    DEF RR2_Sec3_Merge_2 AddLanesRoadSegment {
+      name "RR2_Sec3_Merge_2"
+      translation 1800 0 0 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      newLaneLeft FALSE
+      length 600.5
+    }
+    DEF RR2_Sec4_HumanDriven StraightRoadSegment {
+      name "RR2_Sec4_HumanDriven"
+      translation 1800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1500.5
+    }
+    DEF RR2_Sec5_Autodriving StraightRoadSegment {
+      name "RR2_Sec5_Autodriving"
+      translation 3300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 4000.5
+    }
+    DEF RR2_Sec6_TakeOver StraightRoadSegment {
+      name "RR2_Sec6_TakeOver"
+      translation 7300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 2000.5
+    }
+    DEF RR2_Sec7_Diverge_1 AddLanesRoadSegment {
+      name "RR2_Sec7_Diverge_1"
+      translation 9300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      length 400.5
+    }
+    DEF RR2_Sec7_Diverge_2 LaneSeparation {
+      name "RR2_Sec7_Diverge_2"
+      translation 9700 0 -7.2 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      length 100.5
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      name "RR1_Sec9_End"
+      translation 9800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+ ]
+ name "solid(2)"
+}
+DEF RR2_exit_upramp Solid {
+ translation -3508.7956           0.13      1929.6374
+ children [
+    DEF SLOPE Road{
+      translation 0 0 -200
+      rotation 0 1 0 0
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF MIDDLE StraightRoadSegment {
+      translation 0 5 0
+      width 7.2
+      lines [
+        RoadLine {
+         type "continuous"
+        }
+      ]
+      bottom TRUE
+      length 170
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+      roadBoundingObject TRUE
+    }
+    DEF EST_CURVE CurvedRoadSegment {
+      translation  -10000 5 170
+      name  "road(5)"
+      width 7.2
+      bottom TRUE
+      curvatureRadius 10000
+      totalAngle 0.04
+      subdivision 32
+      tilt 0.3
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF SLOPE Road {
+      translation -7.9989 5 569.8933
+      rotation 0 1 0 -0.04
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 -5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+ ]
+ name "solid(4)"
+}
+DEF RR3 Solid {
+ translation -3542.3911 0.13 1859.2748
+ rotation 0 1 0 -1.5708
+ children [
+    DEF RR3_Sec0_Onramp_1 StraightRoadSegment {
+      name "RR3_Sec0_Onramp_1"
+      translation 840.096 0 -17.5988 
+      rotation 0 1 0 1.5308
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+    DEF RR3_Sec0_Onramp_2 CurvedRoadSegment {
+      name "RR3_Sec0_Onramp_2"
+      translation 1000 0 -1512.4 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      curvatureRadius 1500
+      totalAngle 0.04
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+    }
+    DEF RR3_Sec1_StartCAVs StraightRoadSegment {
+      name "RR3_Sec1_StartCAVs"
+      translation 0 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1000.5
+    }
+    DEF RR3_Sec2_Merge_1 LaneSeparation {
+      name "RR3_Sec2_Merge_1"
+      translation 1200 0 -7.2 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      newLaneLeft FALSE
+      length 200.5
+    }
+    DEF RR3_Sec3_Merge_2 AddLanesRoadSegment {
+      name "RR3_Sec3_Merge_2"
+      translation 1800 0 0 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      newLaneLeft FALSE
+      length 600.5
+    }
+    DEF RR3_Sec4_HumanDriven StraightRoadSegment {
+      name "RR3_Sec4_HumanDriven"
+      translation 1800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1500.5
+    }
+    DEF RR3_Sec5_Autodriving StraightRoadSegment {
+      name "RR3_Sec5_Autodriving"
+      translation 3300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 4000.5
+    }
+    DEF RR3_Sec6_TakeOver StraightRoadSegment {
+      name "RR3_Sec6_TakeOver"
+      translation 7300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 2000.5
+    }
+    DEF RR3_Sec7_Diverge_1 AddLanesRoadSegment {
+      name "RR3_Sec7_Diverge_1"
+      translation 9300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      length 400.5
+    }
+    DEF RR3_Sec7_Diverge_2 LaneSeparation {
+      name "RR3_Sec7_Diverge_2"
+      translation 9700 0 -7.2 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      length 100.5
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      name "RR1_Sec9_End"
+      translation 9800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+ ]
+ name "solid(3)"
+}
+DEF RR3_exit_upramp Solid {
+ translation -3529.99115            0.13      11859.2748
+ children [
+    DEF SLOPE Road{
+      translation 0 0 -200
+      rotation 0 1 0 0
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF MIDDLE StraightRoadSegment {
+      translation 0 5 0
+      width 7.2
+      lines [
+        RoadLine {
+         type "continuous"
+        }
+      ]
+      bottom TRUE
+      length 170
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+      roadBoundingObject TRUE
+    }
+    DEF EST_CURVE CurvedRoadSegment {
+      translation  -10000 5 170
+      name  "road(5)"
+      width 7.2
+      bottom TRUE
+      curvatureRadius 10000
+      totalAngle 0.04
+      subdivision 32
+      tilt 0.3
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF SLOPE Road {
+      translation -7.9989 5 569.8933
+      rotation 0 1 0 -0.04
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 -5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+ ]
+ name "solid(4)"
+}
+DEF RR4 Solid {
+ translation -3563.5867 0.13 11788.9121
+ rotation 0 1 0 -1.5708
+ children [
+    DEF RR4_Sec0_Onramp_1 StraightRoadSegment {
+      name "RR4_Sec0_Onramp_1"
+      translation 840.096 0 -17.5988 
+      rotation 0 1 0 1.5308
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+    DEF RR4_Sec0_Onramp_2 CurvedRoadSegment {
+      name "RR4_Sec0_Onramp_2"
+      translation 1000 0 -1512.4 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 2
+      width 7.2
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      curvatureRadius 1500
+      totalAngle 0.04
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+    }
+    DEF RR4_Sec1_StartCAVs StraightRoadSegment {
+      name "RR4_Sec1_StartCAVs"
+      translation 0 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1000.5
+    }
+    DEF RR4_Sec2_Merge_1 LaneSeparation {
+      name "RR4_Sec2_Merge_1"
+      translation 1200 0 -7.2 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      newLaneLeft FALSE
+      length 200.5
+    }
+    DEF RR4_Sec3_Merge_2 AddLanesRoadSegment {
+      name "RR4_Sec3_Merge_2"
+      translation 1800 0 0 
+      rotation 0 1 0 -1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      newLaneLeft FALSE
+      length 600.5
+    }
+    DEF RR4_Sec4_HumanDriven StraightRoadSegment {
+      name "RR4_Sec4_HumanDriven"
+      translation 1800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 1500.5
+    }
+    DEF RR4_Sec5_Autodriving StraightRoadSegment {
+      name "RR4_Sec5_Autodriving"
+      translation 3300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 4000.5
+    }
+    DEF RR4_Sec6_TakeOver StraightRoadSegment {
+      name "RR4_Sec6_TakeOver"
+      translation 7300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 2000.5
+    }
+    DEF RR4_Sec7_Diverge_1 AddLanesRoadSegment {
+      name "RR4_Sec7_Diverge_1"
+      translation 9300 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfNewLanes 2
+      length 400.5
+    }
+    DEF RR4_Sec7_Diverge_2 LaneSeparation {
+      name "RR4_Sec7_Diverge_2"
+      translation 9700 0 -7.2 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 6
+      width 21.6
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      numberOfleavingLanes 2
+      length 100.5
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      name "RR1_Sec9_End"
+      translation 9800 0 0 
+      rotation 0 1 0 1.5708
+      roadBorderHeight 0.3
+      numberOfLanes 4
+      width 14.4
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+          ""
+      ]
+      rightBorderBoundingObject TRUE 
+      leftBorderBoundingObject TRUE 
+      roadBoundingObject TRUE 
+      length 100.5
+    }
+ ]
+ name "solid(4)"
+}
+DEF RR4_exit_upramp Solid {
+ translation -3551.18672            0.13      21788.9121
+ children [
+    DEF SLOPE Road{
+      translation 0 0 -200
+      rotation 0 1 0 0
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF MIDDLE StraightRoadSegment {
+      translation 0 5 0
+      width 7.2
+      lines [
+        RoadLine {
+         type "continuous"
+        }
+      ]
+      bottom TRUE
+      length 170
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+      roadBoundingObject TRUE
+    }
+    DEF EST_CURVE CurvedRoadSegment {
+      translation  -10000 5 170
+      name  "road(5)"
+      width 7.2
+      bottom TRUE
+      curvatureRadius 10000
+      totalAngle 0.04
+      subdivision 32
+      tilt 0.3
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+    DEF SLOPE Road {
+      translation -7.9989 5 569.8933
+      rotation 0 1 0 -0.04
+      name "road(1)"
+      width 7.2
+      bottom TRUE
+      wayPoints [
+        0 0 0
+        0 -5 200
+      ]
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      castShadows TRUE
+    }
+ ]
+ name "solid(4)"
+}
+DEF TL_start GenericTrafficLight {
+  translation -3593.08              -3          -17500
+  name "trafficlights'"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_0 GenericTrafficLight {
+  translation -3507.4 0.13 -17000
+  name "trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_1 GenericTrafficLight {
+  translation -3528.5956 0.13 -7070.3626
+  name "trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_2 GenericTrafficLight {
+  translation -3549.7911 0.13 2859.2748
+  name "trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_3 GenericTrafficLight {
+  translation -3570.9867 0.13 12788.9121
+  name "trafficlight3"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+BmwX5 {
+  translation 340.6959 840.476 840.096
+  rotation 0 1 0 0.04
+  color 0.1 0.11 0.1
+  name "veh-driver"
+  controller "auto-ringroad-driver"
+  supervisor TRUE
+  rearMirror TRUE
+  leftWingMirror TRUE
+  rightWingMirror TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  sensorsSlotCenter [
+    Display {
+      width 300
+      height 150
+    }
+  ]
+}BmwX5 {
+  translation -3505.5 0.51 -18000
+  rotation 0 1 0 0
+  color 0.50094 0.332 0.17388
+  name "Lane1_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -18000
+  rotation 0 1 0 0
+  color 0.62564 0.57513 0.75099
+  name "Lane2_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -18000
+  rotation 0 1 0 0
+  color 0.15352 0.35679 0.14395
+  name "Lane3_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -18000
+  rotation 0 1 0 0
+  color 0.85061 0.33787 0.2752
+  name "Lane4_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17970
+  rotation 0 1 0 0
+  color 0.006011 0.80191 0.49741
+  name "Lane1_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17970
+  rotation 0 1 0 0
+  color 0.53784 0.87091 0.72284
+  name "Lane2_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17970
+  rotation 0 1 0 0
+  color 0.66809 0.17883 0.5505
+  name "Lane3_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17970
+  rotation 0 1 0 0
+  color 0.95988 0.59602 0.80857
+  name "Lane4_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17940
+  rotation 0 1 0 0
+  color 0.98453 0.88592 0.21384
+  name "Lane1_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17940
+  rotation 0 1 0 0
+  color 0.03463 0.45112 0.013795
+  name "Lane2_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17940
+  rotation 0 1 0 0
+  color 0.47371 0.9512 0.24895
+  name "Lane3_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17940
+  rotation 0 1 0 0
+  color 0.38642 0.43143 0.83089
+  name "Lane4_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17910
+  rotation 0 1 0 0
+  color 0.82465 0.453 0.38056
+  name "Lane1_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17910
+  rotation 0 1 0 0
+  color 0.92587 0.74084 0.73763
+  name "Lane2_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17910
+  rotation 0 1 0 0
+  color 0.94692 0.5101 0.79188
+  name "Lane3_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17910
+  rotation 0 1 0 0
+  color 0.45217 0.8492 0.39043
+  name "Lane4_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17880
+  rotation 0 1 0 0
+  color 0.73838 0.97644 0.5233
+  name "Lane1_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17880
+  rotation 0 1 0 0
+  color 0.42992 0.20716 0.3234
+  name "Lane2_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17880
+  rotation 0 1 0 0
+  color 0.11087 0.37521 0.3299
+  name "Lane3_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17880
+  rotation 0 1 0 0
+  color 0.34211 0.81712 0.53169
+  name "Lane4_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17850
+  rotation 0 1 0 0
+  color 0.52112 0.77431 0.12026
+  name "Lane1_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17850
+  rotation 0 1 0 0
+  color 0.62545 0.34665 0.33462
+  name "Lane2_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17850
+  rotation 0 1 0 0
+  color 0.57462 0.86394 0.19856
+  name "Lane3_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17850
+  rotation 0 1 0 0
+  color 0.67245 0.90183 0.19916
+  name "Lane4_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17820
+  rotation 0 1 0 0
+  color 0.29828 0.49652 0.8899
+  name "Lane1_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17820
+  rotation 0 1 0 0
+  color 0.50141 0.277 0.53396
+  name "Lane2_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17820
+  rotation 0 1 0 0
+  color 0.57425 0.4128 0.014764
+  name "Lane3_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17820
+  rotation 0 1 0 0
+  color 0.70276 0.50675 0.38127
+  name "Lane4_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17790
+  rotation 0 1 0 0
+  color 0.064932 0.35858 0.23425
+  name "Lane1_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17790
+  rotation 0 1 0 0
+  color 0.2035 0.81378 0.39343
+  name "Lane2_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17790
+  rotation 0 1 0 0
+  color 0.053575 0.37505 0.77499
+  name "Lane3_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17790
+  rotation 0 1 0 0
+  color 0.1653 0.91222 0.31921
+  name "Lane4_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17760
+  rotation 0 1 0 0
+  color 0.32978 0.20424 0.76721
+  name "Lane1_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17760
+  rotation 0 1 0 0
+  color 0.069973 0.95003 0.15821
+  name "Lane2_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17760
+  rotation 0 1 0 0
+  color 0.28645 0.68713 0.14115
+  name "Lane3_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17760
+  rotation 0 1 0 0
+  color 0.51209 0.72133 0.92885
+  name "Lane4_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17730
+  rotation 0 1 0 0
+  color 0.7321 0.74985 0.40732
+  name "Lane1_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17730
+  rotation 0 1 0 0
+  color 0.23949 0.52085 0.21908
+  name "Lane2_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17730
+  rotation 0 1 0 0
+  color 0.84239 0.66293 0.81624
+  name "Lane3_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17730
+  rotation 0 1 0 0
+  color 0.79388 0.46911 0.30952
+  name "Lane4_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17700
+  rotation 0 1 0 0
+  color 0.68758 0.98685 0.76993
+  name "Lane1_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17700
+  rotation 0 1 0 0
+  color 0.82958 0.70608 0.59534
+  name "Lane2_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17700
+  rotation 0 1 0 0
+  color 0.75287 0.49672 0.86513
+  name "Lane3_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17700
+  rotation 0 1 0 0
+  color 0.068028 0.96855 0.098756
+  name "Lane4_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.5 0.51 -17670
+  rotation 0 1 0 0
+  color 0.54698 0.40297 0.10704
+  name "Lane1_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.9 0.51 -17670
+  rotation 0 1 0 0
+  color 0.72417 0.61368 0.78297
+  name "Lane2_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.3 0.51 -17670
+  rotation 0 1 0 0
+  color 0.56662 0.81132 0.57678
+  name "Lane3_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.7 0.51 -17670
+  rotation 0 1 0 0
+  color 0.94403 0.87145 0.5076
+  name "Lane4_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+   Radar {
+     minRange 2
+     maxRange 80
+     horizontalFieldOfView 0.05
+     verticalFieldOfView 0.002
+   }
+  ]
+  sensorsSlotTop [
+   GPS {
+   }
+   Receiver {
+   }
+   Emitter {
+   }
+  ]
+ interior FALSE
+ dynamicSpeedDisplay FALSE
+ indicatorLevers FALSE
+ completeInterior FALSE
+ rightWingMirror FALSE
+ leftWingMirror FALSE
+ rearMirror FALSE
+ completeInterior FALSE
+}

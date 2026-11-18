@@ -1,0 +1,2513 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 50
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.0011237110691630853 0.9991406858053747 0.04143220054255688 3.3798598672036486
+  position -3770.780437218423 1.4361247518405003 -17938.77377450594
+  near 1
+  follow "veh-driver"
+  followOrientation TRUE
+  followSmoothness 0
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF EST_LOWER_LOOP Solid {
+  translation -3507.29 0.02 -17000.1
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    DEF INPUT1 StraightRoadSegment {
+      translation -110 0 90.42
+      rotation 0 1 0 1.5708
+      name "road(4)"
+      length 390
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF COURVE_SOUTH CurvedRoadSegment {
+      translation -6.4 0.02 604
+      rotation 0 1 0 -4.42315
+      width 7.1
+      lines [
+        RoadLine {
+        }
+        RoadLine {
+        }
+      ]
+      roadBorderHeight 0
+      curvatureRadius 600
+      totalAngle 0.3
+      subdivision 1000
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF INPUT3 AddLanesRoadSegment {
+      translation 500.17 0 -7.4
+      rotation 0 1 0 -1.5707953071795862
+      name "road(6)"
+      width 14.3
+      length 402
+      numberOfLanes 4
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF OUTPUT2 LaneSeparation {
+      translation 100 0 -0.3
+      rotation 0 1 0 -1.5708
+      name "RR1_EntryArea"
+      id "RR1_EntryArea_ID"
+      width 21.4
+      length 100
+      numberOfLanes 6
+      roadBorderHeight 0
+      roadBorderWidth 0.4
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      centralBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(1)"
+}
+DEF Diverge Solid {
+  translation -3492.7 0.02 -8500
+  rotation 0 1 0 1.5708
+  children [
+    DEF NORTH_EST StraightRoadSegment {
+      translation 0 0 -7.4
+      rotation 0 1 0 -1.5707996938995747
+      name "road(7)"
+      width 14.4
+      numberOfLanes 4
+      length 150
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF INPUT3 AddLanesRoadSegment {
+      translation 500.17 0 -7.4
+      rotation 0 1 0 -1.5707953071795862
+      name "road(6)"
+      width 14.3
+      length 402
+      numberOfLanes 4
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF OUTPUT2 LaneSeparation {
+      translation 100 0 -0.3
+      rotation 0 1 0 -1.5708
+      name "RR1_Exit_diverge_Lane_Separation"
+      id "RR1_EntryArea_ID"
+      width 21.4
+      length 100
+      numberOfLanes 6
+      roadBorderHeight 0
+      roadBorderWidth 0.4
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      centralBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(2)"
+}
+DEF RR2_rmp_merge Solid {
+  translation -3406.02 0.02 -7957.86
+  rotation 0 1 0 -1.5708
+  children [
+    DEF NORTH_EST StraightRoadSegment {
+      translation 0 0 -7.4
+      rotation 0 1 0 -1.5707996938995747
+      name "road(7)"
+      width 14.4
+      numberOfLanes 4
+      length 50
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF INPUT3 AddLanesRoadSegment {
+      translation 500.17 0 -7.4
+      rotation 0 1 0 -1.5707953071795862
+      name "road(6)"
+      width 14.3
+      length 402
+      numberOfLanes 4
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF OUTPUT2 LaneSeparation {
+      translation 100 0 -0.3
+      rotation 0 1 0 -1.5708
+      name "RR2_Entry_Lane_Separation"
+      id "RR1_EntryArea_ID"
+      width 21.4
+      length 100
+      numberOfLanes 6
+      roadBorderHeight 0
+      roadBorderWidth 0.4
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+      centralBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(3)"
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "textures/ground_grass.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 20000 40000
+      }
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+BmwX5 {
+  translation -3770.66 0.4 -17938.5
+  rotation 0 1 0 0.30159265359
+  color 0.1 0.11 0.1
+  name "veh-driver"
+  controller "racing_wheel_com"
+  supervisor TRUE
+  rearMirror TRUE
+  leftWingMirror TRUE
+  rightWingMirror TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  sensorsSlotCenter [
+    Display {
+      width 300
+      height 150
+    }
+  ]
+}
+Road {
+  translation -3500 0.02 -18000
+  name "RR1_enter"
+  id "RR1_enter"
+  endJunction "RR1_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  roadBorderHeight 0
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3536.2 0.02 -17177.5
+  rotation 0 1 0 -2.84
+  name "RR1_start"
+  id "RR1_start"
+  endJunction "RR1_EntryArea"
+  width 7.3
+  numberOfLanes 0
+  roadBorderHeight 0
+  wayPoints [
+    0 0 0
+    0 0 800
+  ]
+}
+DEF TL_0 GenericTrafficLight {
+  translation -3507.42 0 -17009.5
+  rotation 0 1 0 0.2
+  name "trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3500 0.02 -16500
+  rotation 0 -1 0 0
+  name "RR1_edge_hd"
+  id "RR1_edge_hd"
+  startJunction "RR1_merge_edge_hd"
+  endJunction "RR1_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+  endingAngle [
+    0
+  ]
+  startLine [
+    ""
+  ]
+  endLine [
+    ""
+  ]
+}
+Road {
+  translation -3500 0.02 -15000
+  rotation 0 -1 0 0
+  name "RR1_edge_cad"
+  id "RR1_edge_cad"
+  startJunction "RR1_edge_hd_cad"
+  endJunction "RR1_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3500 0.02 -10000
+  rotation 0 -1 0 0
+  name "RR1_edge_takeover"
+  id "RR1_edge_takeover"
+  startJunction "RR1_edge_cad_takeover"
+  endJunction "RR1_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3600 0.02 -9000
+  rotation 0 -1 0 0
+  name "RR1_diverge"
+  id "RR1_diverge"
+  startJunction "RR1_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Crossroad {
+  translation -3510.95 0.02 -17000
+  name "RR1_start_merge_enter"
+  id "RR1_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR1_merge"
+    "RR1_enter"
+    "RR1_start"
+  ]
+}
+Crossroad {
+  translation -3510.95 0.02 -16900
+  name "RR1_start_merge_enter_1"
+  id "RR1_start_merge_enter_1"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_merge"
+    "RR1_merge_1"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -16500
+  name "RR1_merge_edge_hd"
+  id "RR1_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_hd"
+    "RR1_merge_1"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -15000
+  name "RR1_edge_hd_cad"
+  id "RR1_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_hd"
+    "RR1_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -10000
+  name "RR1_edge_cad_takeover"
+  id "RR1_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_cad"
+    "RR1_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -9000
+  name "RR1_edge_takeover_diverge"
+  id "RR1_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_takeover"
+    "RR1_diverge"
+  ]
+}
+Road {
+  translation -3490.925 0.02 -8500
+  rotation 0 1 0 3.1415
+  name "RR2_onramp"
+  id "RR2_onramp"
+  startJunction "RR1_Exit_diverge_Lane_Separation"
+  endJunction "RR2_Entry_Lane_Separation"
+  speedLimit 50
+  wayPoints [
+    -2 0.02 0
+    -9.35 0.02 -23.93
+    -81 0.02 -542.6
+  ]
+  startingAngle [
+    3
+  ]
+  endingAngle [
+    3.1
+  ]
+  startLine [
+    "textures/road_line_dashed.png"
+    "textures/road_line_triangle.png"
+  ]
+  splineSubdivision 200
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+Road {
+  translation -3398.6 0.02 -9007.6
+  name "RR2_enter"
+  id "RR2_enter"
+  endJunction "RR2_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+DEF TL_1 GenericTrafficLight {
+  translation -3410.6 0 -8037.6
+  rotation 0 1 0 0.2
+  name "trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3398.6 0.02 -7507.6
+  rotation 0 -1 0 0
+  name "RR2_edge_hd"
+  id "RR2_edge_hd"
+  startJunction "RR2_merge_edge_hd"
+  endJunction "RR2_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3398.6 0.02 -6007.6
+  rotation 0 -1 0 0
+  name "RR2_edge_cad"
+  id "RR2_edge_cad"
+  startJunction "RR2_edge_hd_cad"
+  endJunction "RR2_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3398.6 0.02 -1007.6
+  rotation 0 -1 0 0
+  name "RR2_edge_takeover"
+  id "RR2_edge_takeover"
+  startJunction "RR2_edge_cad_takeover"
+  endJunction "RR2_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3396.775 0.02 -7.6
+  rotation 0 -1 0 0
+  name "RR2_diverge"
+  id "RR2_diverge"
+  startJunction "RR2_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3389.525 0.02 492.4
+  rotation 0 -1 0 -0.1665
+  name "RR2_to_RR3"
+  id "RR2_to_RR3"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 499.5
+  ]
+}
+Crossroad {
+  translation -3409.55 0.02 -8007.6
+  name "RR2_start_merge_enter"
+  id "RR2_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR2_merge"
+    "RR2_enter"
+    "RR2_start"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -7507.6
+  name "RR2_merge_edge_hd"
+  id "RR2_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_hd"
+    "RR2_merge"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -6007.6
+  name "RR2_edge_hd_cad"
+  id "RR2_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_hd"
+    "RR2_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -1007.6
+  name "RR2_edge_cad_takeover"
+  id "RR2_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_cad"
+    "RR2_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -7.6
+  name "RR2_edge_takeover_diverge"
+  id "RR2_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_takeover"
+    "RR2_diverge"
+  ]
+}
+Road {
+  translation -3297.2 0.02 -15.2
+  name "RR3_enter"
+  id "RR3_enter"
+  endJunction "RR3_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3299.025 0.02 984.8
+  name "RR3_merge"
+  id "RR3_merge"
+  startJunction "RR3_start_merge_enter"
+  endJunction "RR3_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_2 GenericTrafficLight {
+  translation -3309.2 0 954.8
+  rotation 0 1 0 0.2
+  name "trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3297.2 0.02 1484.8
+  rotation 0 -1 0 0
+  name "RR3_edge_hd"
+  id "RR3_edge_hd"
+  startJunction "RR3_merge_edge_hd"
+  endJunction "RR3_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3297.2 0.02 2984.8
+  rotation 0 -1 0 0
+  name "RR3_edge_cad"
+  id "RR3_edge_cad"
+  startJunction "RR3_edge_hd_cad"
+  endJunction "RR3_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3297.2 0.02 7984.8
+  rotation 0 -1 0 0
+  name "RR3_edge_takeover"
+  id "RR3_edge_takeover"
+  startJunction "RR3_edge_cad_takeover"
+  endJunction "RR3_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3295.375 0.02 8984.8
+  rotation 0 -1 0 0
+  name "RR3_diverge"
+  id "RR3_diverge"
+  startJunction "RR3_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3288.125 0.02 9484.8
+  rotation 0 -1 0 -0.1745
+  name "RR3_to_RR4"
+  id "RR3_to_RR4"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Crossroad {
+  translation -3308.15 0.02 984.8
+  name "RR3_start_merge_enter"
+  id "RR3_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR3_merge"
+    "RR3_enter"
+    "RR3_start"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 1484.8
+  name "RR3_merge_edge_hd"
+  id "RR3_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_hd"
+    "RR3_merge"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 2984.8
+  name "RR3_edge_hd_cad"
+  id "RR3_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_hd"
+    "RR3_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 7984.8
+  name "RR3_edge_cad_takeover"
+  id "RR3_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_cad"
+    "RR3_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 8984.8
+  name "RR3_edge_takeover_diverge"
+  id "RR3_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_takeover"
+    "RR3_diverge"
+  ]
+}
+RandomBuilding {
+  translation -3648.52 0.4 -17168.7
+  rotation 0 1 0 -1.047195307179586
+  name "building(11)"
+  corners [
+    0 0
+    -40.06 -1.2
+    -40.4 65.97
+    -30.38 66.27
+    -30.25 70.99
+    -29.27 75.74
+    -26.57 78.6
+    -22.4 78.72
+    -17.92 77.74
+    -15.3 74.21
+    -14.53 67.02
+    -1.19 67.97
+  ]
+  roofShape "flat roof"
+}
+RandomBuilding {
+  translation -3528.89 -33.9515 -17083.1
+  rotation 0 0 -1 0.785395307179586
+  corners [
+    0 0
+    0.66 -22.19
+    -21.56 -23.96
+    -23.37 -0.7
+  ]
+}
+Auditorium {
+  translation -3294.525 0.4 -17670
+}
+BuildingUnderConstruction {
+  translation -3194.525 0.4 -17670
+}
+CyberboticsTower {
+  translation -3094.525 0.4 -17670
+}
+TheThreeTowers {
+  translation -3548.55 0.4 -16969.4
+  rotation 0 1 0 1.5708
+}
+TheThreeTowers {
+  translation -3541.23 0.4 -16667.6
+  rotation 0 1 0 1.5708
+  name "three towers(1)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -16432
+  rotation 0 1 0 1.5708
+  name "three towers(2)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -16183.7
+  rotation 0 1 0 1.5708
+  name "three towers(3)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -15895.9
+  rotation 0 1 0 1.5708
+  name "three towers(4)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -15423.3
+  rotation 0 1 0 1.5708
+  name "three towers(5)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -14764.7
+  rotation 0 1 0 1.5708
+  name "three towers(6)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -13967
+  rotation 0 1 0 1.5708
+  name "three towers(7)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -13097.9
+  rotation 0 1 0 1.5708
+  name "three towers(8)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -12282.1
+  rotation 0 1 0 1.5708
+  name "three towers(9)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -11628.2
+  rotation 0 1 0 1.5708
+  name "three towers(10)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -11017.9
+  rotation 0 1 0 1.5708
+  name "three towers(11)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -10280.8
+  rotation 0 1 0 1.5708
+  name "three towers(12)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -9681.32
+  rotation 0 1 0 1.5708
+  name "three towers(13)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -9170.68
+  rotation 0 1 0 1.5708
+  name "three towers(14)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -8868.13
+  rotation 0 1 0 1.5708
+  name "three towers(15)"
+}
+TheThreeTowers {
+  translation -3537.04 0.4 -8643.19
+  rotation 0 1 0 1.5708
+  name "three towers(16)"
+}
+ResidentialBuilding {
+  translation -3594.525 0.4 -17770
+  rotation 0 1 0 0.261799
+}
+ModernHouse {
+  translation -3594.525 0.4 -17570
+  rotation 0 1 0 3.40339
+  appearance PBRAppearance {
+    baseColor 0.796674 0.545708 0.419577
+    roughness 1
+    metalness 0
+  }
+}
+FastFoodRestaurant {
+  translation -3470.93 0.4 -16759.1
+  rotation 0 1 0 2.0944
+  height 5
+  length 12
+  width 12
+  brand "subway"
+  numberOfSides 2
+}
+FastFoodRestaurant {
+  translation -3603.57 0.4 -17303.2
+  rotation 0 1 0 6.0213859
+  name "fast food restaurant(1)"
+  height 5
+  length 12
+  width 12
+  brand "subway"
+  numberOfSides 2
+}
+SpeedLimitSign {
+  translation -3539.04 -0.22 -17200
+  rotation 0 1 0 1.5708
+  signBoards [
+    SpeedLimitPanel {
+      translation 0 0.43 0
+      rotation 0 1 0 -1.3089953071795861
+      signImage [
+        "textures/signs/us/speed_limit_40.jpg"
+      ]
+    }
+  ]
+}
+SimpleTree {
+  translation -3489 -0.04 -17012
+  name "tree(1)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16912
+  name "tree(2)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16812
+  name "tree(3)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16712
+  name "tree(4)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16612
+  name "tree(5)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16512
+  name "tree(6)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16412
+  name "tree(7)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16312
+  name "tree(8)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16212
+  name "tree(9)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16112
+  name "tree(10)"
+}
+SimpleTree {
+  translation -3489 -0.04 -16012
+  name "tree(11)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15912
+  name "tree(12)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15812
+  name "tree(13)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15712
+  name "tree(14)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15612
+  name "tree(15)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15512
+  name "tree(16)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15412
+  name "tree(17)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15312
+  name "tree(18)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15212
+  name "tree(19)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15112
+  name "tree(20)"
+}
+SimpleTree {
+  translation -3489 -0.04 -15012
+  name "tree(21)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14912
+  name "tree(22)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14812
+  name "tree(23)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14712
+  name "tree(24)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14612
+  name "tree(25)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14512
+  name "tree(26)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14412
+  name "tree(27)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14312
+  name "tree(28)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14212
+  name "tree(29)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14112
+  name "tree(30)"
+}
+SimpleTree {
+  translation -3489 -0.04 -14012
+  name "tree(31)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13912
+  name "tree(32)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13812
+  name "tree(33)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13712
+  name "tree(34)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13612
+  name "tree(35)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13512
+  name "tree(36)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13412
+  name "tree(37)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13312
+  name "tree(38)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13212
+  name "tree(39)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13112
+  name "tree(40)"
+}
+SimpleTree {
+  translation -3489 -0.04 -13012
+  name "tree(41)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12912
+  name "tree(42)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12812
+  name "tree(43)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12712
+  name "tree(44)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12612
+  name "tree(45)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12512
+  name "tree(46)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12412
+  name "tree(47)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12312
+  name "tree(48)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12212
+  name "tree(49)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12112
+  name "tree(50)"
+}
+SimpleTree {
+  translation -3489 -0.04 -12012
+  name "tree(51)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11912
+  name "tree(52)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11812
+  name "tree(53)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11712
+  name "tree(54)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11612
+  name "tree(55)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11512
+  name "tree(56)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11412
+  name "tree(57)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11312
+  name "tree(58)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11212
+  name "tree(59)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11112
+  name "tree(60)"
+}
+SimpleTree {
+  translation -3489 -0.04 -11012
+  name "tree(61)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10912
+  name "tree(62)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10812
+  name "tree(63)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10712
+  name "tree(64)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10612
+  name "tree(65)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10512
+  name "tree(66)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10412
+  name "tree(67)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10312
+  name "tree(68)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10212
+  name "tree(69)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10112
+  name "tree(70)"
+}
+SimpleTree {
+  translation -3489 -0.04 -10012
+  name "tree(71)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9912
+  name "tree(72)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9812
+  name "tree(73)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9712
+  name "tree(74)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9612
+  name "tree(75)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9512
+  name "tree(76)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9412
+  name "tree(77)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9312
+  name "tree(78)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9212
+  name "tree(79)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9112
+  name "tree(80)"
+}
+SimpleTree {
+  translation -3489 -0.04 -9012
+  name "tree(81)"
+}
+SimpleTree {
+  translation -3489 -0.04 -8912
+  name "tree(82)"
+}
+SimpleTree {
+  translation -3489 -0.04 -8812
+  name "tree(83)"
+}
+SimpleTree {
+  translation -3489 -0.04 -8712
+  name "tree(84)"
+}
+SimpleTree {
+  translation -3489 -0.04 -8612
+  name "tree(85)"
+}
+BmwX5 {
+  translation -3505.47 0.04 -18000
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.63236 0.09754 0.2785
+  name "Lane1_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17970
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.54688 0.95751 0.96489
+  name "Lane1_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17940
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.15761 0.97059 0.95717
+  name "Lane1_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17910
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.48538 0.80028 0.14189
+  name "Lane1_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.42176 0.91574 0.79221
+  name "Lane1_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.95949 0.65574 0.035712
+  name "Lane1_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.84913 0.93399 0.67874
+  name "Lane1_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.75774 0.74313 0.39223
+  name "Lane1_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.65548 0.17119 0.70605
+  name "Lane1_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.031833 0.27692 0.046171
+  name "Lane1_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.097132 0.82346 0.69483
+  name "Lane1_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.47 0.04 -17670
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.3171 0.95022 0.034446
+  name "Lane1_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -18000
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.43874 0.38156 0.76552
+  name "Lane2_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17970
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.7952 0.18687 0.48976
+  name "Lane2_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17940
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.44559 0.64631 0.70936
+  name "Lane2_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17910
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.75469 0.27603 0.6797
+  name "Lane2_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.6551 0.16261 0.119
+  name "Lane2_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.49836 0.95974 0.34039
+  name "Lane2_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.58527 0.22381 0.75127
+  name "Lane2_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.2551 0.50596 0.69908
+  name "Lane2_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.8909 0.95929 0.54722
+  name "Lane2_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.13862 0.14929 0.25751
+  name "Lane2_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.84072 0.25428 0.81428
+  name "Lane2_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.82 0.04 -17670
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.24352 0.92926 0.34998
+  name "Lane2_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -18000
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.1966 0.25108 0.61604
+  name "Lane3_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17970
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.47329 0.35166 0.83083
+  name "Lane3_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17940
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.58526 0.54972 0.91719
+  name "Lane3_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17910
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.28584 0.7572 0.75373
+  name "Lane3_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.38045 0.56782 0.075854
+  name "Lane3_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.05395 0.5308 0.77917
+  name "Lane3_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.93401 0.12991 0.56882
+  name "Lane3_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.46939 0.011902 0.33712
+  name "Lane3_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.16218 0.79428 0.31122
+  name "Lane3_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.52853 0.16565 0.60198
+  name "Lane3_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.26297 0.65408 0.68921
+  name "Lane3_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.17 0.04 -17670
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.74815 0.45054 0.083821
+  name "Lane3_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -18000
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.22898 0.91334 0.15238
+  name "Lane4_veh12)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17970
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.82582 0.53834 0.99613
+  name "Lane4_veh11)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17940
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.078176 0.44268 0.10665
+  name "Lane4_veh10)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17910
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.9619 0.0046342 0.77491
+  name "Lane4_veh9)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.8173 0.86869 0.084436
+  name "Lane4_veh8)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.39978 0.25987 0.80007
+  name "Lane4_veh7)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.43141 0.91065 0.18185
+  name "Lane4_veh6)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.2638 0.14554 0.13607
+  name "Lane4_veh5)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.86929 0.5797 0.54986
+  name "Lane4_veh4)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.14495 0.85303 0.62206
+  name "Lane4_veh3)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.35095 0.51325 0.40181
+  name "Lane4_veh2)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.52 0.04 -17670
+  rotation 0 1 0 4.692820414042842e-06
+  color 0.075967 0.23992 0.12332
+  name "Lane4_veh1)"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 2
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}

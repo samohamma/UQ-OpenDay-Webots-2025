@@ -1,0 +1,1958 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 50
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.0090578705481267 -0.9947532245053837 -0.10190180232593896 2.969852207383317
+  position -3595.5720347188662 1.5655040689045365 -17491.06328026048
+  near 1
+  follow "veh-driver"
+  followOrientation TRUE
+  followSmoothness 0
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        baseColorMap ImageTexture {
+          url [
+            "./textures/ground.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 20000 40000
+      }
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+BmwX5 {
+  hidden position_0_0 7.629671171618033e-06
+  hidden position2_0_0 1.3830788245695542e-12
+  hidden position_0_1 7.6293387553013295e-06
+  hidden position2_0_1 4.991117300731054e-13
+  hidden position_0_2 1.4532276368708292e-15
+  hidden position_0_3 -2.3775769769301064e-15
+  hidden position_0_8 7.629510948348184e-05
+  hidden position_0_9 1.2551998758434016e-30
+  hidden linearVelocity_0 -9.64952218390075e-13 1.1750671546906234e-13 -1.4690643101999967e-11
+  hidden angularVelocity_0 5.546772296188e-13 -3.4318448636226485e-12 -6.836312471235546e-13
+  hidden rotation_1 0.9999999999999836 1.812763346483137e-07 6.915394122847657e-13 7.62968556400829e-06
+  hidden linearVelocity_1 -9.03660942707308e-09 -3.091957686891466e-14 1.5899904424600423e-09
+  hidden angularVelocity_1 5.776052181544697e-09 3.2705582484205846e-10 3.2758916229576986e-08
+  hidden rotation_2 -0.9999999999999978 -6.542005094791081e-08 2.4955586503655216e-13 7.629336323371666e-06
+  hidden linearVelocity_2 9.033035427857233e-09 -2.789866992703914e-15 -1.5935575538395855e-09
+  hidden angularVelocity_2 -5.774332606250408e-09 -4.038309007489518e-11 -3.275799522868238e-08
+  hidden linearVelocity_3 3.69630867184862e-12 1.5442462123852844e-14 2.031334327665346e-12
+  hidden angularVelocity_3 2.91259197148017e-13 -3.309303412653075e-12 -2.175871765014684e-12
+  hidden linearVelocity_4 9.027027863237096e-13 8.668621376273223e-14 5.403300016891344e-12
+  hidden angularVelocity_4 5.066798118648708e-13 -3.3099516191053286e-12 -9.544087158707839e-13
+  hidden rotation_26 0 -0.3205961743168832 0.9472159695726095 7.629510946146276e-05
+  translation -3595.9302787056963 0.31106415348719896 -17491.201580746187
+  rotation 0.028188923349424612 -0.9995995722265597 -0.002465726034880513 -0.17456956625681955
+  color 0.1 0.11 0.1
+  name "veh-driver"
+  controller "racing_wheel_com"
+  supervisor TRUE
+  rearMirror TRUE
+  leftWingMirror TRUE
+  rightWingMirror TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+Road {
+  translation -3500 0.02 -18000
+  name "RR1_enter"
+  id "RR1_enter"
+  endJunction "RR1_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3501.825 0.02 -17000
+  name "RR1_merge"
+  id "RR1_merge"
+  startJunction "RR1_start_merge_enter"
+  endJunction "RR1_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3596.25 0.02 -17492.5
+  rotation 0 -1 0 -0.1745
+  name "RR1_start"
+  id "RR1_start"
+  endJunction "RR1_start_merge_enter"
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_0 GenericTrafficLight {
+  translation -3512 0 -17030
+  rotation 0 1 0 0.2
+  name "trafficlight0"
+  state "green"
+  controller "traffic_light_green"
+  controllerArgs "0.1 2000 g"
+}
+Road {
+  translation -3500 0.02 -16500
+  rotation 0 -1 0 0
+  name "RR1_edge_hd"
+  id "RR1_edge_hd"
+  startJunction "RR1_merge_edge_hd"
+  endJunction "RR1_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3500 0.02 -15000
+  rotation 0 -1 0 0
+  name "RR1_edge_cad"
+  id "RR1_edge_cad"
+  startJunction "RR1_edge_hd_cad"
+  endJunction "RR1_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3500 0.02 -10000
+  rotation 0 -1 0 0
+  name "RR1_edge_takeover"
+  id "RR1_edge_takeover"
+  startJunction "RR1_edge_cad_takeover"
+  endJunction "RR1_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3498.175 0.02 -9000
+  rotation 0 -1 0 0
+  name "RR1_diverge"
+  id "RR1_diverge"
+  startJunction "RR1_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3490.925 0.02 -8500
+  rotation 0 -1 0 -0.1665
+  name "RR1_to_RR2"
+  id "RR1_to_RR2"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 499.5
+  ]
+}
+Crossroad {
+  translation -3510.95 0.02 -17000
+  name "RR1_start_merge_enter"
+  id "RR1_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR1_merge"
+    "RR1_enter"
+    "RR1_start"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -16500
+  name "RR1_merge_edge_hd"
+  id "RR1_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_hd"
+    "RR1_merge"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -15000
+  name "RR1_edge_hd_cad"
+  id "RR1_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_hd"
+    "RR1_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -10000
+  name "RR1_edge_cad_takeover"
+  id "RR1_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_cad"
+    "RR1_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -9000
+  name "RR1_edge_takeover_diverge"
+  id "RR1_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_takeover"
+    "RR1_diverge"
+  ]
+}
+Road {
+  translation -3398.6 0.02 -9007.6
+  name "RR2_enter"
+  id "RR2_enter"
+  endJunction "RR2_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3400.425 0.02 -8007.6
+  name "RR2_merge"
+  id "RR2_merge"
+  startJunction "RR2_start_merge_enter"
+  endJunction "RR2_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_1 GenericTrafficLight {
+  translation -3410.6 0 -8037.6
+  rotation 0 1 0 0.2
+  name "trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3398.6 0.02 -7507.6
+  rotation 0 -1 0 0
+  name "RR2_edge_hd"
+  id "RR2_edge_hd"
+  startJunction "RR2_merge_edge_hd"
+  endJunction "RR2_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3398.6 0.02 -6007.6
+  rotation 0 -1 0 0
+  name "RR2_edge_cad"
+  id "RR2_edge_cad"
+  startJunction "RR2_edge_hd_cad"
+  endJunction "RR2_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3398.6 0.02 -1007.6
+  rotation 0 -1 0 0
+  name "RR2_edge_takeover"
+  id "RR2_edge_takeover"
+  startJunction "RR2_edge_cad_takeover"
+  endJunction "RR2_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3396.775 0.02 -7.6
+  rotation 0 -1 0 0
+  name "RR2_diverge"
+  id "RR2_diverge"
+  startJunction "RR2_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3389.525 0.02 492.4
+  rotation 0 -1 0 -0.1665
+  name "RR2_to_RR3"
+  id "RR2_to_RR3"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 499.5
+  ]
+}
+Crossroad {
+  translation -3409.55 0.02 -8007.6
+  name "RR2_start_merge_enter"
+  id "RR2_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR2_merge"
+    "RR2_enter"
+    "RR2_start"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -7507.6
+  name "RR2_merge_edge_hd"
+  id "RR2_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_hd"
+    "RR2_merge"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -6007.6
+  name "RR2_edge_hd_cad"
+  id "RR2_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_hd"
+    "RR2_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -1007.6
+  name "RR2_edge_cad_takeover"
+  id "RR2_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_cad"
+    "RR2_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -7.6
+  name "RR2_edge_takeover_diverge"
+  id "RR2_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_takeover"
+    "RR2_diverge"
+  ]
+}
+Road {
+  translation -3297.2 0.02 -15.2
+  name "RR3_enter"
+  id "RR3_enter"
+  endJunction "RR3_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3299.025 0.02 984.8
+  name "RR3_merge"
+  id "RR3_merge"
+  startJunction "RR3_start_merge_enter"
+  endJunction "RR3_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_2 GenericTrafficLight {
+  translation -3309.2 0 954.8
+  rotation 0 1 0 0.2
+  name "trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3297.2 0.02 1484.8
+  rotation 0 -1 0 0
+  name "RR3_edge_hd"
+  id "RR3_edge_hd"
+  startJunction "RR3_merge_edge_hd"
+  endJunction "RR3_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3297.2 0.02 2984.8
+  rotation 0 -1 0 0
+  name "RR3_edge_cad"
+  id "RR3_edge_cad"
+  startJunction "RR3_edge_hd_cad"
+  endJunction "RR3_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3297.2 0.02 7984.8
+  rotation 0 -1 0 0
+  name "RR3_edge_takeover"
+  id "RR3_edge_takeover"
+  startJunction "RR3_edge_cad_takeover"
+  endJunction "RR3_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3295.375 0.02 8984.8
+  rotation 0 -1 0 0
+  name "RR3_diverge"
+  id "RR3_diverge"
+  startJunction "RR3_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3288.125 0.02 9484.8
+  rotation 0 -1 0 -0.1745
+  name "RR3_to_RR4"
+  id "RR3_to_RR4"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Crossroad {
+  translation -3308.15 0.02 984.8
+  name "RR3_start_merge_enter"
+  id "RR3_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR3_merge"
+    "RR3_enter"
+    "RR3_start"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 1484.8
+  name "RR3_merge_edge_hd"
+  id "RR3_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_hd"
+    "RR3_merge"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 2984.8
+  name "RR3_edge_hd_cad"
+  id "RR3_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_hd"
+    "RR3_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 7984.8
+  name "RR3_edge_cad_takeover"
+  id "RR3_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_cad"
+    "RR3_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 8984.8
+  name "RR3_edge_takeover_diverge"
+  id "RR3_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_takeover"
+    "RR3_diverge"
+  ]
+}
+
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.533551862214314e-08
+  hidden position2_0_0 134.71010321349868
+  hidden position_0_1 -1.534056672878002e-08
+  hidden position2_0_1 134.7101032135022
+  hidden position_0_2 134.51849172570815
+  hidden position_0_3 134.51849172564343
+  hidden position_0_9 0.8282186939410807
+  hidden linearVelocity_0 5.4051726379822754e-05 -3.1552907124322095e-05 11.517949082662808
+  hidden angularVelocity_0 -0.00018646982088620667 9.569455699532581e-13 7.923400310898846e-10
+  hidden rotation_1 -1.4682261610031667e-09 -0.9999999999999999 -7.66775931107157e-09 3.5199735444522187
+  hidden linearVelocity_1 5.40465456228754e-05 3.0036568797531592e-05 11.518106351253888
+  hidden angularVelocity_1 30.821166607823876 -0.00011305235918074762 -0.0001433905449268912
+  hidden rotation_2 -1.4687094679062813e-09 1 7.67028336439001e-09 3.5199735444486944
+  hidden linearVelocity_2 5.405838476457523e-05 3.003657399052773e-05 11.518106351274383
+  hidden angularVelocity_2 30.82116660782425 0.00011305269273941463 -0.00014588619649288372
+  hidden rotation_3 0 -0.9999999999999999 0 3.7115850322427573
+  hidden linearVelocity_3 5.404619685037146e-05 -3.005495403201749e-05 11.5179343046542
+  hidden angularVelocity_3 30.794108837789373 -0.00011306625357996157 -0.00014362363715056574
+  hidden rotation_4 0 1 0 3.7115850323074735
+  hidden linearVelocity_4 5.4057090926408094e-05 -3.0054948971505825e-05 11.517934304672862
+  hidden angularVelocity_4 30.794108837831388 0.000113066572835892 -0.00014539905334546977
+  hidden translation_24 1.626843196190324 0.19685420739927173 0.17537920295571485
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 0.8282186939410807
+  translation -3505.474763893033 0.3082393487109622 -17799.68762842776
+  rotation -0.9999997654830972 0.0006848563672793503 2.3466665178070097e-06 0.006852243601206426
+  name "v05"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.0329073697163639e-08
+  hidden position2_0_0 145.9363444878219
+  hidden position_0_1 -1.0331514580021372e-08
+  hidden position2_0_1 145.9363444878248
+  hidden position_0_2 145.71486970685584
+  hidden position_0_3 145.71486970686
+  hidden position_0_9 0.9612699132514745
+  hidden linearVelocity_0 6.27734831595588e-05 -1.783326423350942e-05 13.37649098832659
+  hidden angularVelocity_0 -0.00011020291433054591 -2.5943164289367954e-12 4.97383241141889e-10
+  hidden rotation_1 -5.989868459113783e-09 -1 -5.164536848581819e-09 4.860102884488162
+  hidden linearVelocity_1 6.276889967916554e-05 2.2117441972990224e-05 13.376592411086662
+  hidden angularVelocity_1 35.7968711515915 -0.0001313779223117975 -0.00016664481202759268
+  hidden rotation_2 -5.99128393619229e-09 1 5.165757290010686e-09 4.860102884485263
+  hidden linearVelocity_2 6.277901328976788e-05 2.2117441303167788e-05 13.376592411087339
+  hidden angularVelocity_2 35.79687115157937 0.000131378412179512 -0.00016933182452570828
+  hidden rotation_3 0 -1 0 5.0815776654542395
+  hidden linearVelocity_3 6.276589789638309e-05 -2.212350541834958e-05 13.37646867203484
+  hidden angularVelocity_3 35.76301123160942 -0.0001313349611867066 -0.00016678065201802242
+  hidden rotation_4 0 1 0 5.081577665450089
+  hidden linearVelocity_4 6.278085589303882e-05 -2.2123506095992864e-05 13.376468672046535
+  hidden angularVelocity_4 35.76301123163143 0.00013133548657168784 -0.00016887819245200216
+  hidden translation_24 1.845025122094289 0.3184751801418496 0.28373243321728436
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279096 0.9612699132514745
+  translation -3505.474744240732 0.3074419874721922 -17765.499875895395
+  rotation -0.9999997987584502 0.0006344111835854725 2.3472091339377812e-06 0.0073970939593341715
+  name "v06"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 4.213702082241656e-09
+  hidden position2_0_0 166.64612789640253
+  hidden position_0_1 -4.2129683366756135e-09
+  hidden position2_0_1 166.6461278964054
+  hidden position_0_2 166.38062213013535
+  hidden position_0_3 166.38062213010465
+  hidden position_0_9 1.1601570475354348
+  hidden linearVelocity_0 7.573205666027626e-05 6.504094538622537e-05 16.137858639818816
+  hidden angularVelocity_0 0.0004000990273663524 -1.3143776004430313e-12 -1.8551289362342388e-09
+  hidden rotation_1 -1.4953893373589956e-10 0.9999999999999999 2.106851041120828e-09 3.2833099097332843
+  hidden linearVelocity_1 7.573105324520397e-05 -5.7465883381345944e-05 16.13757966629332
+  hidden angularVelocity_1 43.18335055487604 -0.00015856997318609847 -0.00020123775872853386
+  hidden rotation_2 -1.4951289404096293e-10 -1 -2.1064841683378067e-09 3.283309909736155
+  hidden linearVelocity_2 7.573042445281852e-05 -5.746588662617941e-05 16.137579666277418
+  hidden angularVelocity_2 43.18335055485355 0.0001585706528554513 -0.0002040655130225231
+  hidden rotation_3 0 1 0 3.017804143466102
+  hidden linearVelocity_3 7.572422062840149e-05 5.750768198400199e-05 16.13782447578524
+  hidden angularVelocity_3 43.145737057774035 -0.00015846872591657125 -0.00020121865279297123
+  hidden rotation_4 0 -1 0 3.0178041434354066
+  hidden linearVelocity_4 7.573957897435044e-05 5.750767880373189e-05 16.13782447575414
+  hidden angularVelocity_4 43.14573705767988 0.0001584694443378857 -0.00020373168333772952
+  hidden translation_24 2.126203289126067 0.5378091421629981 0.4791390539270346
+  hidden rotation_24 0 -0.6652060421485013 0.7466598432279096 1.1601570475354348
+  translation -3505.474707966698 0.30693441592575066 -17727.77018795755
+  rotation -0.9999998164285933 0.0006059185331593061 2.3475612327671033e-06 0.0077449295973336715
+  name "v07"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.023574787980179e-09
+  hidden position2_0_0 201.31528373600668
+  hidden position_0_1 -1.0216706389285077e-09
+  hidden position2_0_1 201.3152837360079
+  hidden position_0_2 200.9998607300885
+  hidden position_0_3 200.9998607301076
+  hidden position_0_9 1.3889681863624648
+  hidden linearVelocity_0 9.048741494939263e-05 0.0001473803937232779 19.282098981758267
+  hidden angularVelocity_0 0.0008907753982033623 7.464078445701683e-12 -4.161227687164864e-09
+  hidden rotation_1 4.018464992261655e-09 1 5.117873939900894e-10 0.2533539062599101
+  hidden linearVelocity_1 9.048952706955369e-05 -0.00014591149177388917 19.281455087788157
+  hidden angularVelocity_1 51.58373703579544 -0.00018945865715663693 -0.00024064933597638414
+  hidden rotation_2 4.010989469794649e-09 -1 -5.108353194642538e-10 0.2533539062611316
+  hidden linearVelocity_2 9.047928921312277e-05 -0.00014591149483985898 19.281455087794907
+  hidden angularVelocity_2 51.583737035786044 0.00018945959814662989 -0.00024349710473116394
+  hidden rotation_3 0 -0.9999999999999999 0 0.06206909965826532
+  hidden linearVelocity_3 9.048474608455633e-05 0.00014597451312165418 19.28206270467592
+  hidden angularVelocity_3 51.552278055196204 -0.00018935398119455382 -0.0002405565787957413
+  hidden rotation_4 0 0.9999999999999999 0 0.06206909963916621
+  hidden linearVelocity_4 9.048972359326412e-05 0.00014597451000352297 19.282062704700945
+  hidden angularVelocity_4 51.55227805525057 0.00018935489034985082 -0.00024329445644404287
+  hidden translation_24 2.3704668894502943 0.8354953660329121 0.7443504170111395
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279095 1.3889681863624646
+  translation -3505.4746471996327 0.3077051985131325 -17684.821243382212
+  rotation -0.9999997886194752 0.0006501965032424123 2.347807488275719e-06 0.00721750960484472
+  name "v08"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 2.48749430388422e-09
+  hidden position2_0_0 251.4913047254246
+  hidden position_0_1 -2.489843882876076e-09
+  hidden position2_0_1 251.49130472542595
+  hidden position_0_2 251.13691972217416
+  hidden position_0_3 251.1369197220871
+  hidden position_0_9 1.5621411199165856
+  hidden linearVelocity_0 0.00010150520826118897 0.00012130982811253766 21.629898365745486
+  hidden angularVelocity_0 0.0006951428623328174 -2.6512151193414785e-12 -3.314383373165572e-09
+  hidden rotation_1 1.514361396559849e-08 0.9999999999999999 1.24374715194211e-09 0.1638924382411536
+  hidden linearVelocity_1 0.00010150720677010473 -0.00012544651542524435 21.62939682802481
+  hidden angularVelocity_1 57.84723445099754 -0.00021245304606034234 -0.0002700684178771065
+  hidden rotation_2 1.515791796495643e-08 -0.9999999999999998 -1.2449219414380378e-09 0.16389243824248823
+  hidden linearVelocity_2 0.00010149850322253315 -0.00012544651363678575 21.62939682802574
+  hidden angularVelocity_2 57.84723445098499 0.00021245416856670418 -0.00027286485905994974
+  hidden rotation_3 0 -0.9999999999999999 0 0.19049256500930334
+  hidden linearVelocity_3 0.0001015076257105019 0.00012538623138457492 21.629878088345727
+  hidden angularVelocity_3 57.82961798563698 -0.00021240909098393257 -0.0002701070950393288
+  hidden rotation_4 0 0.9999999999999999 0 0.19049256509635856
+  hidden linearVelocity_4 0.00010150259145439863 0.0001253862331701555 21.62987808835502
+  hidden angularVelocity_4 57.8296179856501 0.00021241018674883608 -0.0002726607939841891
+  hidden translation_24 2.4914854144208944 1.084048942047891 0.9657890574608476
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279095 1.5621411199165856
+  translation -3505.474559194366 0.30964468018506897 -17636.06806415639
+  rotation -0.9999996832142253 0.0007959685530398885 2.347625376520211e-06 0.005895716212576586
+  name "v09"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 5.1300031157646865e-09
+  hidden position2_0_0 313.3251465919883
+  hidden position_0_1 -5.131074655933022e-09
+  hidden position2_0_1 313.325146591993
+  hidden position_0_2 312.9551325660146
+  hidden position_0_3 312.955132565949
+  hidden position_0_9 1.60720687491609
+  hidden linearVelocity_0 0.00010427333288661688 -6.836315466172553e-08 22.219722772822536
+  hidden angularVelocity_0 -3.444257027566147e-08 9.732391834953292e-12 7.558582165599605e-12
+  hidden rotation_1 5.789416407405481e-09 -1 -2.5650015578823437e-09 0.8341187669910233
+  hidden linearVelocity_1 0.0001042733786378541 -5.4612981896006286e-08 22.21972278194156
+  hidden angularVelocity_1 59.415270582664654 -0.0002181890999842385 -0.00027744487768494106
+  hidden rotation_2 5.790625683946055e-09 1 2.565537327966511e-09 0.8341187669863053
+  hidden linearVelocity_2 0.00010427331684590286 -5.4610942190360444e-08 22.219722781933775
+  hidden angularVelocity_2 59.415270582647196 0.00021818902787882613 -0.0002802064657932985
+  hidden rotation_3 0 -1 0 1.2041327929647403
+  hidden linearVelocity_3 0.00010427332977604379 4.9550100075960084e-08 22.219722776190455
+  hidden angularVelocity_3 59.4067763624842 -0.0002181987859463886 -0.00027765089043606765
+  hidden rotation_4 0 1 0 1.2041327930303376
+  hidden linearVelocity_4 0.00010427332202201346 4.955222898039761e-08 22.21972277622084
+  hidden angularVelocity_4 59.406776362555114 0.00021819870278905795 -0.0002799206189132951
+  hidden translation_24 2.5133827646435667 1.1509854956426047 1.025423441572502
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279096 1.6072068749160897
+  translation -3505.4744506867046 0.31106742303029555 -17582.94607443698
+  rotation -0.9999995471836616 0.000951644348626177 2.3463638453688034e-06 0.004931273503121159
+  name "v010"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.5074300394876205e-08
+  hidden position2_0_0 151.03005603387717
+  hidden position_0_1 -1.5075789897704388e-08
+  hidden position2_0_1 151.03005603388115
+  hidden position_0_2 150.82933169343144
+  hidden position_0_3 150.82933169345327
+  hidden position_0_9 0.8663742460788173
+  hidden linearVelocity_0 5.646410999409131e-05 -2.5834421098251904e-05 12.032017871096807
+  hidden angularVelocity_0 -0.0001508384229345695 -2.0706583644502437e-12 6.888860360525502e-10
+  hidden rotation_1 6.423427839332177e-08 0.9999999999999981 7.537150197438087e-09 0.23360866156709703
+  hidden linearVelocity_1 5.646033585462778e-05 2.3216956259486647e-05 12.032146241064833
+  hidden angularVelocity_1 32.191364212716856 -0.00011808845489083161 -0.0001498183343509551
+  hidden rotation_2 6.424062542901704e-08 -0.9999999999999979 -7.537894948852178e-09 0.23360866157107724
+  hidden linearVelocity_2 5.6469089001032365e-05 2.321695586668572e-05 12.03214624106619
+  hidden angularVelocity_2 32.19136421270599 0.00011808892904692393 -0.0001523183156001864
+  hidden rotation_3 0 1 0 0.03288432112136512
+  hidden linearVelocity_3 5.645992605049668e-05 -2.322124377510402e-05 12.032006287116479
+  hidden angularVelocity_3 32.168595130532694 -0.0001181159684819798 -0.00015008113500557268
+  hidden rotation_4 0 -1 0 0.03288432114318952
+  hidden linearVelocity_4 5.646817700977487e-05 -2.3221244176865183e-05 12.03200628708575
+  hidden angularVelocity_4 32.16859513044274 0.00011811643885517565 -0.00015184177923194123
+  hidden translation_24 1.6916009159159477 0.22949889404939927 0.2044626510621923
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 0.8663742460788173
+  translation -3501.824735262909 0.3087971798609793 -17823.586785452047
+  rotation -0.9999997371100561 0.0007251029641224411 2.3473916065681275e-06 0.006471914872856946
+  name "v14"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.1854437081400338e-08
+  hidden position2_0_0 156.22007534883164
+  hidden position_0_1 -1.1853256311014083e-08
+  hidden position2_0_1 156.2200753488289
+  hidden position_0_2 156.00170336143597
+  hidden position_0_3 156.00170336149918
+  hidden position_0_9 0.9439305963698484
+  hidden linearVelocity_0 6.15773333670334e-05 -3.1154944312945425e-05 13.121606295898664
+  hidden angularVelocity_0 -0.00018483564849197464 -3.990611636643812e-12 8.800443631782054e-10
+  hidden rotation_1 -1.2931553728870453e-08 1 5.927218540700169e-09 5.423627976521567
+  hidden linearVelocity_1 6.157321948720147e-05 2.9245237096158606e-05 13.121763790412171
+  hidden angularVelocity_1 35.11059368798486 -0.00012884269649436224 -0.00016345314541510133
+  hidden rotation_2 -1.2930265671399771e-08 -0.9999999999999999 -5.926628155507041e-09 5.423627976518839
+  hidden linearVelocity_2 6.158291141243136e-05 2.9245233065375398e-05 13.121763790411826
+  hidden angularVelocity_2 35.1105936879724 0.00012884340425398897 -0.00016608219693736698
+  hidden rotation_3 0 1 0 5.205255989125897
+  hidden linearVelocity_3 6.157142694637274e-05 -2.926502949972174e-05 13.121590493428116
+  hidden angularVelocity_3 35.081635416598814 -0.0001288274688569973 -0.00016364346349717087
+  hidden rotation_4 0 -1 0 5.205255989189106
+  hidden linearVelocity_4 6.158309250230124e-05 -2.9265033569777856e-05 13.121590493436475
+  hidden angularVelocity_4 35.081635416612215 0.00012882816120316537 -0.00016562012226258632
+  hidden translation_24 1.8178468435851887 0.3014120000348744 0.2685306909401608
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279095 0.9439305963698484
+  translation -3501.8247261843876 0.30807638239287316 -17791.652224970287
+  rotation -0.999999772918603 0.0006739118858642676 2.3479343769821777e-06 0.006963523597280678
+  name "v15"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 7.267967291962386e-09
+  hidden position2_0_0 166.53490774187952
+  hidden position_0_1 -7.266973924640928e-09
+  hidden position2_0_1 166.53490774188464
+  hidden position_0_2 166.28842793228785
+  hidden position_0_3 166.2884279322359
+  hidden position_0_9 1.069043623545973
+  hidden linearVelocity_0 6.978282343522813e-05 -2.010502048276686e-05 14.870126488911671
+  hidden angularVelocity_0 -0.00012478775789126235 -2.658129212980722e-12 5.964933921407158e-10
+  hidden rotation_1 -5.54172795131489e-11 0.9999999999999999 3.6339836459811924e-09 3.1720897552102736
+  hidden linearVelocity_1 6.97790910072356e-05 2.443043057432182e-05 14.870239697665031
+  hidden angularVelocity_1 39.79204891196059 -0.00014608352825356557 -0.00018534963277606428
+  hidden rotation_2 -5.5409705229345095e-11 -1 -3.633486962320464e-09 3.1720897552153895
+  hidden linearVelocity_2 6.978760828236671e-05 2.4430426372247196e-05 14.870239697665218
+  hidden angularVelocity_2 39.79204891194776 0.00014608442590798238 -0.00018812416901439866
+  hidden rotation_3 0 1 0 2.9256099456185973
+  hidden linearVelocity_3 6.977479863186199e-05 -2.443939324664799e-05 14.870103373876876
+  hidden angularVelocity_3 39.75638490522825 -0.00014601272007105744 -0.00018542126319407912
+  hidden rotation_4 0 -1 0 2.9256099455666424
+  hidden linearVelocity_4 6.979063852906176e-05 -2.443939746222544e-05 14.870103373843722
+  hidden angularVelocity_4 39.756384905129586 0.00014601361487172814 -0.00018771785394774735
+  hidden translation_24 2.004667973311221 0.4321567197431977 0.3850123503166669
+  hidden rotation_24 0 -0.6652060421485013 0.7466598432279096 1.069043623545973
+  translation -3501.824708128729 0.30729148528935574 -17757.80471429472
+  rotation -0.9999998042494792 0.0006256960044171518 2.3479770079592766e-06 0.007500124902868472
+  name "v16"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.874100809819828e-09
+  hidden position2_0_0 185.43729951539981
+  hidden position_0_1 -1.8725990300656007e-09
+  hidden position2_0_1 185.43729951541619
+  hidden position_0_2 185.14948087080307
+  hidden position_0_3 185.14948087082365
+  hidden position_0_9 1.256034835748746
+  hidden linearVelocity_0 8.19677460582755e-05 6.82883614050513e-05 17.4666328748064
+  hidden angularVelocity_0 0.0004218531094219944 -5.279761325273571e-12 -1.9583057178594646e-09
+  hidden rotation_1 3.906619912266165e-11 -1 -9.370504049099143e-10 3.05825969998778
+  hidden linearVelocity_1 8.196731915753937e-05 -6.0275309517954284e-05 17.466337768038727
+  hidden angularVelocity_1 46.73747744693096 -0.00017164844038025298 -0.00021789353597101538
+  hidden rotation_2 3.903489407641149e-11 1 9.362995150328004e-10 3.058259699971409
+  hidden linearVelocity_2 8.196538358074537e-05 -6.0275315569718395e-05 17.46633776803708
+  hidden angularVelocity_2 46.737477446916586 0.00017164954793109547 -0.00022076745796533752
+  hidden rotation_3 0 -1 0 3.3460783445845195
+  hidden linearVelocity_3 8.195981744055546e-05 6.0315610929006786e-05 17.46659740324043
+  hidden angularVelocity_3 46.69833730372384 -0.0001715241751839659 -0.00021779717114403844
+  hidden rotation_4 0 1 0 3.3460783445639426
+  hidden linearVelocity_4 8.197535912238152e-05 6.031560491111272e-05 17.46659740324495
+  hidden angularVelocity_4 46.69833730372378 0.00017152527623749342 -0.00022049655756606763
+  hidden translation_24 2.2396298219415267 0.6574111266386677 0.5856935491871766
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279097 1.256034835748746
+  translation -3501.824675022406 0.3067990539299894 -17720.7500434604
+  rotation -0.999999820751288 0.0005987419129582089 2.34804576039034e-06 0.007837760608155702
+  name "v17"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 -3.1017557188952146e-10
+  hidden position2_0_0 216.80537727227215
+  hidden position_0_1 3.118754486053839e-10
+  hidden position2_0_1 216.80537727226564
+  hidden position_0_2 216.47248493806646
+  hidden position_0_3 216.4724849380958
+  hidden position_0_9 1.4640647521549535
+  hidden linearVelocity_0 9.536365668638012e-05 0.00015598513995976156 20.32118033449314
+  hidden angularVelocity_0 0.0009439212738156576 -1.5220345451587558e-12 -4.365294114863811e-09
+  hidden rotation_1 2.751869787674659e-12 1 -1.5508778594476073e-10 3.177076828166213
+  hidden linearVelocity_1 9.536607107226324e-05 -0.00015404528742718484 20.320496501310846
+  hidden angularVelocity_1 54.36238520462894 -0.00019967860950651078 -0.00025367964054617825
+  hidden rotation_2 2.766951050171264e-12 -1 1.5593772430269194e-10 3.1770768281597044
+  hidden linearVelocity_2 9.535481921476513e-05 -0.0001540452932364233 20.320496501294667
+  hidden angularVelocity_2 54.36238520460605 0.0001996797224413402 -0.0002565461868338794
+  hidden rotation_3 0 0.9999999999999999 0 2.8441844939605176
+  hidden linearVelocity_3 9.536159062631066e-05 0.0001541125746495613 20.321142882184958
+  hidden angularVelocity_3 54.330365009257804 -0.0001995615440177385 -0.0002535311109398527
+  hidden rotation_4 0 -0.9999999999999999 0 2.844184493989849
+  hidden linearVelocity_4 9.536539537400143e-05 0.00015411256889466074 20.32114288215166
+  hidden angularVelocity_4 54.33036500915605 0.00019956267747012622 -0.00025639428869457396
+  hidden translation_24 2.430020137846659 0.9413378210122434 0.8386464223563621
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279095 1.4640647521549535
+  translation -3501.824620040972 0.30766699207749143 -17679.033985095888
+  rotation -0.9999997901418476 0.0006478508676491861 2.3482614289472864e-06 0.007243645693530052
+  name "v18"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 2.056519423327459e-09
+  hidden position2_0_0 261.11816608240537
+  hidden position_0_1 -2.0562692543775706e-09
+  hidden position2_0_1 261.1181660824184
+  hidden position_0_2 260.7541765994275
+  hidden position_0_3 260.7541765994298
+  hidden position_0_9 1.603307081696772
+  hidden linearVelocity_0 0.00010416920399416241 0.00012801432015436116 22.197577353236287
+  hidden angularVelocity_0 0.0007322402307229896 1.2515994972120343e-12 -3.4338175531784763e-09
+  hidden rotation_1 1.9028776115668116e-10 -1 -1.0282597116637295e-09 2.7756168191372654
+  hidden linearVelocity_1 0.00010417134043617037 -0.00013179506967984147 22.197048068490012
+  hidden angularVelocity_1 59.36465121251077 -0.00021803088418788404 -0.0002771870605441295
+  hidden rotation_2 1.9026461327166128e-10 0.9999999999999999 1.0281346271887853e-09 2.7756168191242483
+  hidden linearVelocity_2 0.00010416211017542199 -0.00013179507085558207 22.197048068476047
+  hidden angularVelocity_2 59.36465121248946 0.0002180326365358529 -0.0002799880388211264
+  hidden rotation_3 0 -0.9999999999999999 0 3.139606302115108
+  hidden linearVelocity_3 0.00010417219544128543 0.00013173797838016594 22.197556782475502
+  hidden angularVelocity_3 59.3473735902343 -0.00021798479038314127 -0.00027721034850805484
+  hidden rotation_4 0 0.9999999999999999 0 3.1396063021128344
+  hidden linearVelocity_4 0.0001041660283409083 0.0001317379772235155 22.197556782533812
+  hidden angularVelocity_4 59.34737359037831 0.00021798654600850085 -0.0002798026008621072
+  hidden translation_24 2.511647785686858 1.1451647176185125 1.0202376575146748
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279095 1.603307081696772
+  translation -3501.824542313565 0.3097034938602045 -17632.470892062585
+  rotation -0.9999996788777707 0.0008013980520356135 2.3489430988046495e-06 0.005855773610791177
+  name "v19"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 5.1300031157646865e-09
+  hidden position2_0_0 313.3251465919883
+  hidden position_0_1 -5.131074655933022e-09
+  hidden position2_0_1 313.325146591993
+  hidden position_0_2 312.9551325660146
+  hidden position_0_3 312.955132565949
+  hidden position_0_9 1.60720687491609
+  hidden linearVelocity_0 0.00010427333288661688 -6.836315466172553e-08 22.219722772822536
+  hidden angularVelocity_0 -3.444257027566147e-08 9.732391834953292e-12 7.558582165599605e-12
+  hidden rotation_1 5.789416407405481e-09 -1 -2.5650015578823437e-09 0.8341187669910233
+  hidden linearVelocity_1 0.0001042733786378541 -5.4612981896006286e-08 22.21972278194156
+  hidden angularVelocity_1 59.415270582664654 -0.0002181890999842385 -0.00027744487768494106
+  hidden rotation_2 5.790625683946055e-09 1 2.565537327966511e-09 0.8341187669863053
+  hidden linearVelocity_2 0.00010427331684590286 -5.4610942190360444e-08 22.219722781933775
+  hidden angularVelocity_2 59.415270582647196 0.00021818902787882613 -0.0002802064657932985
+  hidden rotation_3 0 -1 0 1.2041327929647403
+  hidden linearVelocity_3 0.00010427332977604379 4.9550100075960084e-08 22.219722776190455
+  hidden angularVelocity_3 59.4067763624842 -0.0002181987859463886 -0.00027765089043606765
+  hidden rotation_4 0 1 0 1.2041327930303376
+  hidden linearVelocity_4 0.00010427332202201346 4.955222898039761e-08 22.21972277622084
+  hidden angularVelocity_4 59.406776362555114 0.00021819870278905795 -0.0002799206189132951
+  hidden translation_24 2.5133827646435667 1.1509854956426047 1.025423441572502
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279096 1.6072068749160897
+  translation -3501.8244506867045 0.31106742303029555 -17582.94607443698
+  rotation -0.9999995471836616 0.000951644348626177 2.3463638453688034e-06 0.004931273503121159
+  name "v110"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.0418992405636693e-08
+  hidden position2_0_0 182.5141916107859
+  hidden position_0_1 -1.0417088146599468e-08
+  hidden position2_0_1 182.5141916107818
+  hidden position_0_2 182.27442998878243
+  hidden position_0_3 182.27442998881187
+  hidden position_0_9 1.0356495569700166
+  hidden linearVelocity_0 6.746582798522231e-05 -1.938998900301669e-05 14.376389667934378
+  hidden angularVelocity_0 -0.00011381864477127791 7.823377238092827e-12 5.744923142190409e-10
+  hidden rotation_1 -3.425836103270337e-08 -0.9999999999999994 -5.209496202818344e-09 5.981367604601695
+  hidden linearVelocity_1 6.746325888980085e-05 1.6863549146563852e-05 14.376491771375688
+  hidden angularVelocity_1 38.46143573048763 -0.00014116595476121928 -0.00017916054042894485
+  hidden rotation_2 -3.4252099698963624e-08 0.9999999999999994 5.208544073299731e-09 5.981367604605787
+  hidden linearVelocity_2 6.746938086233427e-05 1.6863545148366984e-05 14.376491771365933
+  hidden angularVelocity_2 38.46143573046951 0.00014116649562354768 -0.00018182481092113978
+  hidden rotation_3 0 -1 0 6.221129226605167
+  hidden linearVelocity_3 6.746130717294703e-05 -1.6870535023804292e-05 14.376376323119013
+  hidden angularVelocity_3 38.436497693312276 -0.00014115508651653692 -0.00017935959770770356
+  hidden rotation_4 0 0.9999999999999999 0 6.221129226575721
+  hidden linearVelocity_4 6.747022189051836e-05 -1.6870538968803516e-05 14.376376323146243
+  hidden angularVelocity_4 38.436497693375784 0.0001411556035817941 -0.0001813916316823622
+  hidden translation_24 1.9569694801595396 0.3955671817773275 0.3524143983107102
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.0356495569700168
+  translation -3498.1746800683336 0.30862397059572777 -17811.825307543917
+  rotation -0.9999997464438426 0.0007121142733928164 2.347779725235153e-06 0.006589961764260238
+  name "v24"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 7.663425660516018e-09
+  hidden position2_0_0 186.81804796404407
+  hidden position_0_1 -7.663179599877516e-09
+  hidden position2_0_1 186.8180479640368
+  hidden position_0_2 186.56301175999397
+  hidden position_0_3 186.56301175999437
+  hidden position_0_9 1.1026117941656381
+  hidden linearVelocity_0 7.188483151561758e-05 -2.4603765418902713e-05 15.318040941816554
+  hidden angularVelocity_0 -0.00014655219415884627 6.760606043357978e-12 7.1806195652395e-10
+  hidden rotation_1 3.4431745082407794e-09 -1 -3.831712830258009e-09 1.6775112513435249
+  hidden linearVelocity_1 7.18821013585088e-05 2.2513728821542406e-05 15.318171827887078
+  hidden angularVelocity_1 40.98460649532393 -0.00015046117972479847 -0.0001909584864771713
+  hidden rotation_2 3.443063953255505e-09 1 3.831589799938758e-09 1.6775112513508008
+  hidden linearVelocity_2 7.188881313560045e-05 2.2513726846220228e-05 15.318171827910591
+  hidden angularVelocity_2 40.98460649532483 0.00015046165313834217 -0.00019370846091642236
+  hidden rotation_3 0 -1 0 1.9325474553936248
+  hidden linearVelocity_3 7.187869042332636e-05 -2.2481656146415454e-05 15.318023945395307
+  hidden angularVelocity_3 40.954020528325906 -0.00015041097547587544 -0.00019107085592776088
+  hidden rotation_4 0 1 0 1.9325474553932271
+  hidden linearVelocity_4 7.189080308762711e-05 -2.24816582504446e-05 15.318023945377476
+  hidden angularVelocity_4 40.95402052826822 0.00015041148336002785 -0.00019330891355584572
+  hidden translation_24 2.0509392898497163 0.4701147979556394 0.41882954726956956
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279095 1.1026117941656381
+  translation -3498.1746725411235 0.30796539659107697 -17780.22130888891
+  rotation -0.9999997777871338 0.0006666484624770107 2.3474721611811516e-06 0.007039396051211757
+  name "v25"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 3.9837559910183135e-09
+  hidden position2_0_0 195.30537346365878
+  hidden position_0_1 -3.982599653454966e-09
+  hidden position2_0_1 195.30537346366262
+  hidden position_0_2 195.02629826296615
+  hidden position_0_3 195.02629826298417
+  hidden position_0_9 1.2095298226789455
+  hidden linearVelocity_0 7.890146122817465e-05 -3.0451744823707854e-05 16.813231572425696
+  hidden angularVelocity_0 -0.00018672345441540208 -7.370613799345182e-12 8.980283018130088e-10
+  hidden rotation_1 -7.388991924310739e-09 -1 -1.9918779955091568e-09 5.7565563660879855
+  hidden linearVelocity_1 7.889821211541856e-05 2.84515057085587e-05 16.8133925231083
+  hidden angularVelocity_1 44.9883162114664 -0.00016520391136360077 -0.0002096975365768454
+  hidden rotation_2 -7.386847172182029e-09 1 1.991299826727483e-09 5.756556366084149
+  hidden linearVelocity_2 7.890621185487045e-05 2.845150058828194e-05 16.813392523105364
+  hidden angularVelocity_2 44.98831621145139 0.0001652049401215621 -0.00021254653268469755
+  hidden rotation_3 0 -1 0 6.035631566780617
+  hidden linearVelocity_3 7.88933589811986e-05 -2.912100347700915e-05 16.81320921108647
+  hidden angularVelocity_3 44.95147946110652 -0.00016510489342863672 -0.00020968405712408394
+  hidden rotation_4 0 1 0 6.035631566762597
+  hidden linearVelocity_4 7.890937305188978e-05 -2.9121008638458866e-05 16.81320921108784
+  hidden angularVelocity_4 44.95147946109875 0.00016510588289001067 -0.0002122143597929172
+  hidden translation_24 2.186531927508399 0.5983852178906681 0.5331068304844131
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.2095298226789453
+  translation -3498.1746576861437 0.30725707133144187 -17747.055820319692
+  rotation -0.9999998054584267 0.0006237608479995126 2.3480740238325533e-06 0.007523393126387903
+  name "v26"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 -6.591322144782997e-10
+  hidden position2_0_0 210.71640199196918
+  hidden position_0_1 6.557160953730825e-10
+  hidden position2_0_1 210.71640199197245
+  hidden position_0_2 210.4012366506475
+  hidden position_0_3 210.40123665063254
+  hidden position_0_9 1.3721164780472939
+  hidden linearVelocity_0 8.951558963269849e-05 6.656636955454922e-05 19.074997809132785
+  hidden angularVelocity_0 0.00041239275650490194 1.295383167429115e-11 -1.9920044675993254e-09
+  hidden rotation_1 -3.8017005357024166e-11 -1 3.2956610723914985e-10 2.911898452136762
+  hidden linearVelocity_1 8.951560496334812e-05 -5.635919122888492e-05 19.07470883904983
+  hidden angularVelocity_1 51.03938365290384 -0.0001874759005011469 -0.0002380600568292653
+  hidden rotation_2 -3.781997262957933e-11 1 -3.2785804768654125e-10 2.9118984521334936
+  hidden linearVelocity_2 8.951289258928802e-05 -5.635918876890692e-05 19.074708839059994
+  hidden angularVelocity_2 51.03938365289609 0.00018747716243390164 -0.00024097762980402476
+  hidden rotation_3 0 -1 0 3.22706379345845
+  hidden linearVelocity_3 8.950734470469686e-05 5.640387231659443e-05 19.074961221852213
+  hidden angularVelocity_3 50.9984519722767 -0.00018732580824708538 -0.0002378640992208305
+  hidden rotation_4 0 0.9999999999999999 0 3.2270637934733997
+  hidden linearVelocity_4 8.952344982606034e-05 5.640387470394992e-05 19.074961221886074
+  hidden angularVelocity_4 50.99845197235378 0.000187327065461653 -0.00024078921585507667
+  hidden translation_24 2.355652011354132 0.8122227448020571 0.7236166271872873
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.3721164780472939
+  translation -3498.174630698937 0.3066535750841914 -17711.305099881047
+  rotation -0.999999825228553 0.0005912168402461026 2.347619758710271e-06 0.007937521369396596
+  name "v27"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 -1.9480567474826237e-09
+  hidden position2_0_0 236.47842186835575
+  hidden position_0_1 1.943765765977163e-09
+  hidden position2_0_1 236.47842186835763
+  hidden position_0_2 236.12437093213404
+  hidden position_0_3 236.12437093213674
+  hidden position_0_9 1.5538432032535687
+  hidden linearVelocity_0 0.00010120043209521359 0.00017566348698751645 21.564946849938366
+  hidden angularVelocity_0 0.001066922684097134 1.1088377318478602e-12 -5.0855654232864615e-09
+  hidden rotation_1 -4.4610457865773497e-10 -0.9999999999999999 9.740283737413116e-10 2.2826198044685335
+  hidden linearVelocity_1 0.00010120339277766547 -0.00017335710661377276 21.56417107775013
+  hidden angularVelocity_1 57.688749348172806 -0.0002119130599840937 -0.00026927998829690285
+  hidden rotation_2 -4.45121944811546e-10 1 -9.718828829885816e-10 2.2826198044666577
+  hidden linearVelocity_2 0.00010119019278842396 -0.0001733571045873413 21.564171077735924
+  hidden angularVelocity_2 57.68874934815098 0.00021191493813422897 -0.0002721659581166772
+  hidden rotation_3 0 -1 0 2.6366707406902443
+  hidden linearVelocity_3 0.00010119922410650852 0.0001734367648634278 21.564906647428526
+  hidden angularVelocity_3 57.65568777868125 -0.00021177931869991083 -0.00026905284058143875
+  hidden rotation_4 0 1 0 2.6366707406875443
+  hidden linearVelocity_4 0.00010120124823769775 0.0001734367669642922 21.564906647442744
+  hidden angularVelocity_4 57.65568777870541 0.00021178118875018806 -0.0002720827548297636
+  hidden translation_24 2.487014165194426 1.0718076770388647 0.9548832031800794
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279097 1.5538432032535687
+  translation -3498.174585546897 0.3075550538331523 -17671.683567344386
+  rotation -0.9999997945115502 0.0006410704673167065 2.3480880303566525e-06 0.007320253812227054
+  name "v28"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.592607644672631e-09
+  hidden position2_0_0 272.9106045253702
+  hidden position_0_1 -1.600683441353456e-09
+  hidden position2_0_1 272.9106045253668
+  hidden position_0_2 272.5349422501804
+  hidden position_0_3 272.5349422502286
+  hidden position_0_9 1.6534465030469743
+  hidden linearVelocity_0 0.0001074116967237202 0.0001414499894991179 22.88849488234406
+  hidden angularVelocity_0 0.0008069133920867943 -5.1116394248330076e-12 -3.957191150137553e-09
+  hidden rotation_1 -1.6471945645922524e-10 -0.9999999999999999 -7.963038223363154e-10 3.549548990531587
+  hidden linearVelocity_1 0.00010741407723977873 -0.0001448991692839542 22.88791011077447
+  hidden angularVelocity_1 61.211256633483885 -0.00022481790316823937 -0.0002858517778809957
+  hidden rotation_2 -1.655547160703775e-10 1 8.00341720676728e-10 3.5495489905349977
+  hidden linearVelocity_2 0.00010740380030001402 -0.00014489915961206462 22.887910110773763
+  hidden angularVelocity_2 61.21125663347034 0.00022482074901110664 -0.0002886555828028225
+  hidden rotation_3 0 -0.9999999999999999 0 3.925211265721412
+  hidden linearVelocity_3 0.00010741564785943911 0.00014484556153807477 22.888473599187638
+  hidden angularVelocity_3 61.19462318213431 -0.0002247704844702036 -0.00028585880513351975
+  hidden rotation_4 0 1 0 3.9252112656732088
+  hidden linearVelocity_4 0.00010740753625250399 0.0001448455711998682 22.88847359914916
+  hidden angularVelocity_4 61.1946231820195 0.00022477329906936107 -0.0002884924775252837
+  hidden translation_24 2.5316291870829875 1.220359337547919 1.0872292279972369
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.6534465030469743
+  translation -3498.174521634837 0.3097950900610798 -17628.06449263574
+  rotation -0.999999671947554 0.0008099995472564261 2.3489586380719897e-06 0.005793593448063256
+  name "v29"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 5.1300031157646865e-09
+  hidden position2_0_0 313.3251465919883
+  hidden position_0_1 -5.131074655933022e-09
+  hidden position2_0_1 313.325146591993
+  hidden position_0_2 312.9551325660146
+  hidden position_0_3 312.955132565949
+  hidden position_0_9 1.60720687491609
+  hidden linearVelocity_0 0.00010427333288661688 -6.836315466172553e-08 22.219722772822536
+  hidden angularVelocity_0 -3.444257027566147e-08 9.732391834953292e-12 7.558582165599605e-12
+  hidden rotation_1 5.789416407405481e-09 -1 -2.5650015578823437e-09 0.8341187669910233
+  hidden linearVelocity_1 0.0001042733786378541 -5.4612981896006286e-08 22.21972278194156
+  hidden angularVelocity_1 59.415270582664654 -0.0002181890999842385 -0.00027744487768494106
+  hidden rotation_2 5.790625683946055e-09 1 2.565537327966511e-09 0.8341187669863053
+  hidden linearVelocity_2 0.00010427331684590286 -5.4610942190360444e-08 22.219722781933775
+  hidden angularVelocity_2 59.415270582647196 0.00021818902787882613 -0.0002802064657932985
+  hidden rotation_3 0 -1 0 1.2041327929647403
+  hidden linearVelocity_3 0.00010427332977604379 4.9550100075960084e-08 22.219722776190455
+  hidden angularVelocity_3 59.4067763624842 -0.0002181987859463886 -0.00027765089043606765
+  hidden rotation_4 0 1 0 1.2041327930303376
+  hidden linearVelocity_4 0.00010427332202201346 4.955222898039761e-08 22.21972277622084
+  hidden angularVelocity_4 59.406776362555114 0.00021819870278905795 -0.0002799206189132951
+  hidden translation_24 2.5133827646435667 1.1509854956426047 1.025423441572502
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279096 1.6072068749160897
+  translation -3498.174450686705 0.31106742303029555 -17582.94607443698
+  rotation -0.9999995471836616 0.000951644348626177 2.3463638453688034e-06 0.004931273503121159
+  name "v210"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 4.374696001676315e-09
+  hidden position2_0_0 229.91428183861896
+  hidden position_0_1 -4.377471351251463e-09
+  hidden position2_0_1 229.91428183862092
+  hidden position_0_2 229.61468501591835
+  hidden position_0_3 229.61468501593598
+  hidden position_0_9 1.2958614201939982
+  hidden linearVelocity_0 8.437571284210868e-05 -8.112590650905342e-06 17.97974019559965
+  hidden angularVelocity_0 -4.714426440313304e-05 -5.996429866967209e-12 1.797729089933156e-10
+  hidden rotation_1 -6.50372767353636e-10 0.9999999999999999 2.187348000838157e-09 3.7196107801538485
+  hidden linearVelocity_1 8.437436937679703e-05 5.055855108859553e-06 17.979794231878948
+  hidden angularVelocity_1 48.098506107899084 -0.00017662506456597631 -0.00022431160653602948
+  hidden rotation_2 -6.507853701477708e-10 -1 -2.1887356756257314e-09 3.7196107801558096
+  hidden linearVelocity_2 8.437754445146596e-05 5.055855831310708e-06 17.97979423189435
+  hidden angularVelocity_2 48.09850610789495 0.00017662631211120365 -0.00022712377581796215
+  hidden rotation_3 0 1 0 3.420013957453241
+  hidden linearVelocity_3 8.43708611437207e-05 -5.0747882267524485e-06 17.979724191831
+  hidden angularVelocity_3 48.07040264718264 -0.00017655943056555008 -0.00022435907368622402
+  hidden rotation_4 0 -1 0 3.4200139574708626
+  hidden linearVelocity_4 8.438042417179551e-05 -5.074787579559508e-06 17.979724191791735
+  hidden angularVelocity_4 48.07040264706668 0.0001765606391890021 -0.00022681259978675445
+  hidden translation_24 2.2821397222491298 0.7093798220003026 0.6319929323275426
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279095 1.2958614201939984
+  translation -3494.5245969736793 0.3083760799759282 -17794.11852091632
+  rotation -0.9999997589716052 0.0006942990842550833 2.3480207559121615e-06 0.006759050632207296
+  name "v34"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 2.300460581989931e-09
+  hidden position2_0_0 232.72078116934026
+  hidden position_0_1 -2.3044979647490028e-09
+  hidden position2_0_1 232.72078116934463
+  hidden position_0_2 232.40975843822451
+  hidden position_0_3 232.4097584382139
+  hidden position_0_9 1.345482631371216
+  hidden linearVelocity_0 8.766099429421779e-05 -1.1168276946555186e-05 18.679804227618785
+  hidden angularVelocity_0 -5.7603150852831485e-05 1.2098265679758764e-11 2.104820221041021e-10
+  hidden rotation_1 -9.423230638322749e-09 -0.9999999999999998 -1.1502302909949652e-09 6.04026050348403
+  hidden linearVelocity_1 8.765939041313709e-05 1.2197648497286096e-05 18.679854463092546
+  hidden angularVelocity_1 49.97499205045629 -0.0001835383502137478 -0.00023309232294921895
+  hidden rotation_2 -9.439768712835581e-09 1 1.1522489823745016e-09 6.040260503479653
+  hidden linearVelocity_2 8.766310710836068e-05 1.2197652365451596e-05 18.67985446310254
+  hidden angularVelocity_2 49.97499205044875 0.00018353932711744045 -0.00023595526299726528
+  hidden rotation_3 0 1 0 6.215087379759402
+  hidden linearVelocity_3 8.765436857240095e-05 -1.2376803223392173e-05 18.679783524623957
+  hidden angularVelocity_3 49.9420219893845 -0.00018343997172877303 -0.00023304689560712703
+  hidden rotation_4 0 -1 0 6.215087379748796
+  hidden linearVelocity_4 8.766738319257191e-05 -1.237679941949385e-05 18.679783524657246
+  hidden angularVelocity_4 49.94202198946134 0.0001834409486786725 -0.0002356910190492135
+  hidden translation_24 2.3311723001259894 0.7758301848696508 0.6911941647020519
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.3454826313712158
+  translation -3494.5245920678854 0.3077895924051806 -17763.073141269928
+  rotation -0.9999997851715484 0.0006554779530253695 2.3473739481977624e-06 0.007159355482805737
+  name "v35"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 -2.8570046768079503e-10
+  hidden position2_0_0 238.43683747728448
+  hidden position_0_1 2.8580955898023145e-10
+  hidden position2_0_1 238.43683747729426
+  hidden position_0_2 238.1075130872855
+  hidden position_0_3 238.10751308734336
+  hidden position_0_9 1.4268035966829273
+  hidden linearVelocity_0 9.302058040232687e-05 6.597909175237948e-05 19.821900067520243
+  hidden angularVelocity_0 -0.00015947736260980003 1.9290727837109732e-13 7.498003020603954e-10
+  hidden rotation_1 -8.735038527485726e-10 -1 1.4285023384039751e-10 0.324204195539801
+  hidden linearVelocity_1 9.302813855639583e-05 -2.091950288661502e-05 19.82327578903656
+  hidden angularVelocity_1 53.03769412130892 -0.00019481444397823202 -0.00024744770141899854
+  hidden rotation_2 -8.738373897525371e-10 1 -1.4290477949011572e-10 0.3242041955300246
+  hidden linearVelocity_2 9.302592632328218e-05 -2.091950606475791e-05 19.823275789021523
+  hidden angularVelocity_2 53.03769412128658 0.0001948157808916218 -0.0002503448218304433
+  hidden rotation_3 0 -1 0 0.6535285855387891
+  hidden linearVelocity_3 9.301510841498383e-05 2.4845677675802454e-05 19.821868681520233
+  hidden angularVelocity_3 52.995434791955915 -0.00019466103879403545 -0.0002472603597644346
+  hidden rotation_4 0 1 0 0.6535285854809225
+  hidden linearVelocity_4 9.302575142638676e-05 2.484567455389775e-05 19.821868681533584
+  hidden angularVelocity_4 52.995434791978774 0.00019466239624698142 -0.00025013554655557675
+  hidden translation_24 2.4018020044291193 0.8884039408971485 0.7914871473447327
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.4268035966829276
+  translation -3494.5245820670025 0.3072839263054596 -17730.94202503857
+  rotation -0.9999998045879598 0.000625154803662324 2.3480910512229715e-06 0.007506615175724324
+  name "v36"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 -2.85219529183749e-09
+  hidden position2_0_0 248.79015098403102
+  hidden position_0_1 2.8541693642424682e-09
+  hidden position2_0_1 248.79015098404452
+  hidden position_0_2 248.43578520168484
+  hidden position_0_3 248.43578520165335
+  hidden position_0_9 1.5416964806132167
+  hidden linearVelocity_0 0.00010048054060037028 9.669311692354831e-05 21.41155171139481
+  hidden angularVelocity_0 0.0005939133611771264 -2.938139886775793e-12 -2.74532547324284e-09
+  hidden rotation_1 -4.4452996732893365e-10 -1 1.426097645918745e-09 2.5372613031524436
+  hidden linearVelocity_1 0.00010048174553858717 -8.597909515579905e-05 21.411125689861887
+  hidden angularVelocity_1 57.2843356564892 -0.0002104373595538337 -0.0002673600209727563
+  hidden rotation_2 -4.4483763713483575e-10 1 -1.4270846821212341e-09 2.5372613031389433
+  hidden linearVelocity_2 0.00010047534497382731 -8.597910261122081e-05 21.41112568986165
+  hidden angularVelocity_2 57.28433565647535 0.00021043884423275588 -0.0002702900730952604
+  hidden rotation_3 0 -0.9999999999999999 0 2.891627085498622
+  hidden linearVelocity_3 0.00010047453829143678 8.605869919197441e-05 21.41151422777808
+  hidden angularVelocity_3 57.24550955432027 -0.000210276988412018 -0.00026707215241411
+  hidden rotation_4 0 0.9999999999999999 0 2.8916270855301134
+  hidden linearVelocity_4 0.00010048618226544328 8.605869178937979e-05 21.411514227784618
+  hidden angularVelocity_4 57.24550955432345 0.0002102784486282611 -0.00027021345252369126
+  hidden translation_24 2.480224068265885 1.0539395210753741 0.9389643005944242
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.5416964806132167
+  translation -3494.5245639380073 0.3069721788982149 -17697.078896647672
+  rotation -0.9999998151956557 0.000607949948214111 2.3483570787094475e-06 0.007719052214457982
+  name "v37"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 -1.894447455029287e-09
+  hidden position2_0_0 266.38306068174296
+  hidden position_0_1 1.894103918601548e-09
+  hidden position2_0_1 266.38306068175757
+  hidden position_0_2 266.0050442894293
+  hidden position_0_3 266.00504428942514
+  hidden position_0_9 1.6568301167234651
+  hidden linearVelocity_0 0.00010780537920709287 0.000179426348055203 22.972416468158695
+  hidden angularVelocity_0 0.001069751878237858 2.855728135259313e-13 -5.020305885627738e-09
+  hidden rotation_1 -3.2038621082508933e-10 1 -9.472237275146434e-10 2.489277780200329
+  hidden linearVelocity_1 0.00010780849171035416 -0.00018242464347194103 22.9716412241361
+  hidden angularVelocity_1 61.4470408213115 -0.00022571831159803069 -0.00028692558426615666
+  hidden rotation_2 -3.20328112434091e-10 -1 9.47051959300774e-10 2.489277780214938
+  hidden linearVelocity_2 0.00010779499057645522 -0.00018242464523771356 22.971641224138352
+  hidden angularVelocity_2 61.447040821299375 0.0002257200587621226 -0.0002897940288280091
+  hidden rotation_3 0 1 0 2.111261387886661
+  hidden linearVelocity_3 0.00010780729294170623 0.00018248833259305747 22.972381401777646
+  hidden angularVelocity_3 61.41879371417364 -0.0002256020024267827 -0.0002867158264466317
+  hidden rotation_4 0 -1 0 2.1112613878825113
+  hidden linearVelocity_4 0.00010780312990822151 0.00018248833084903387 22.97238140178942
+  hidden angularVelocity_4 61.41879371419104 0.00022560374491731598 -0.00028973864596352323
+  hidden translation_24 2.532795398109944 1.2254594342225045 1.0917729504891405
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.6568301167234651
+  translation -3494.5245330980392 0.3082348971413543 -17660.5071429295
+  rotation -0.9999997657279187 0.0006844987890806482 2.348484917933922e-06 0.006855819063898615
+  name "v38"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 1.698454190680695e-09
+  hidden position2_0_0 289.58653199425385
+  hidden position_0_1 -1.6987664396248084e-09
+  hidden position2_0_1 289.5865319942606
+  hidden position_0_2 289.20247732675153
+  hidden position_0_3 289.20247732672857
+  hidden position_0_9 1.684694490859542
+  hidden linearVelocity_0 0.00010941802414426906 0.00010500131077646677 23.31606244737528
+  hidden angularVelocity_0 0.0005964067751570891 -1.4104598756755751e-11 -2.771955417903758e-09
+  hidden rotation_1 2.9532316054146455e-09 1 8.492270953403476e-10 0.5600078639928686
+  hidden linearVelocity_1 0.0001094197501922492 -0.00011059857227590998 23.315633196525354
+  hidden angularVelocity_1 62.35361558609266 -0.00022901400116421522 -0.000291210506597165
+  hidden rotation_2 2.953774536387813e-09 -1 -8.493832198124042e-10 0.560007863999633
+  hidden linearVelocity_2 0.00010941224528447256 -0.00011059857620931144 23.31563319653563
+  hidden angularVelocity_2 62.35361558608552 0.00022901596969866008 -0.0002940177175704963
+  hidden rotation_3 0 0.9999999999999999 0 0.17595319649055616
+  hidden linearVelocity_3 0.00010942121594589647 0.00011050986699383056 23.316046136906852
+  hidden angularVelocity_3 62.33780259999042 -0.0002289706685244603 -0.0002912289904388248
+  hidden rotation_4 0 -1 0 0.17595319646759183
+  hidden linearVelocity_4 0.00010941471012242868 0.00011050986305943293 23.316046136896304
+  hidden angularVelocity_4 62.337802599950265 0.0002289726014246052 -0.0002938509295856371
+  hidden translation_24 2.5415189872741735 1.2675647698466759 1.1292849767724933
+  hidden rotation_24 0 -0.6652060421485012 0.7466598432279096 1.6846944908595418
+  translation -3494.5244923792393 0.30999042499451857 -17621.830314541978
+  rotation -0.9999996564002421 0.0008289715783984822 2.3494450984525966e-06 0.005660997593536447
+  name "v39"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  hidden position_0_0 5.1300031157646865e-09
+  hidden position2_0_0 313.3251465919883
+  hidden position_0_1 -5.131074655933022e-09
+  hidden position2_0_1 313.325146591993
+  hidden position_0_2 312.9551325660146
+  hidden position_0_3 312.955132565949
+  hidden position_0_9 1.60720687491609
+  hidden linearVelocity_0 0.00010427333288661688 -6.836315466172553e-08 22.219722772822536
+  hidden angularVelocity_0 -3.444257027566147e-08 9.732391834953292e-12 7.558582165599605e-12
+  hidden rotation_1 5.789416407405481e-09 -1 -2.5650015578823437e-09 0.8341187669910233
+  hidden linearVelocity_1 0.0001042733786378541 -5.4612981896006286e-08 22.21972278194156
+  hidden angularVelocity_1 59.415270582664654 -0.0002181890999842385 -0.00027744487768494106
+  hidden rotation_2 5.790625683946055e-09 1 2.565537327966511e-09 0.8341187669863053
+  hidden linearVelocity_2 0.00010427331684590286 -5.4610942190360444e-08 22.219722781933775
+  hidden angularVelocity_2 59.415270582647196 0.00021818902787882613 -0.0002802064657932985
+  hidden rotation_3 0 -1 0 1.2041327929647403
+  hidden linearVelocity_3 0.00010427332977604379 4.9550100075960084e-08 22.219722776190455
+  hidden angularVelocity_3 59.4067763624842 -0.0002181987859463886 -0.00027765089043606765
+  hidden rotation_4 0 1 0 1.2041327930303376
+  hidden linearVelocity_4 0.00010427332202201346 4.955222898039761e-08 22.21972277622084
+  hidden angularVelocity_4 59.406776362555114 0.00021819870278905795 -0.0002799206189132951
+  hidden translation_24 2.5133827646435667 1.1509854956426047 1.025423441572502
+  hidden rotation_24 0 -0.6652060421485011 0.7466598432279096 1.6072068749160897
+  translation -3494.5244506867048 0.31106742303029555 -17582.94607443698
+  rotation -0.9999995471836616 0.000951644348626177 2.3463638453688034e-06 0.004931273503121159
+  name "v310"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}

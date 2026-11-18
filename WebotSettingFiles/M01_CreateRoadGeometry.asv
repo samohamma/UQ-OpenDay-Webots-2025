@@ -1,0 +1,489 @@
+clearvars, clc, close all
+close all
+
+Spc1=' ';
+Spc2='    ';
+Spc3='      ';
+Spc4='        ';
+Spc5='         ';
+
+dTrans_coord=[3,0,0];
+
+% List all .out files
+Specs_info=readtable('Data_Dictionary.xlsx','Sheet','Specifications');
+roadBorderHeight=Specs_info.roadBorderHeight;
+LaneWidth=Specs_info.LaneWidth;
+numberOfLanes=Specs_info.numberOfLanes;
+Road_width=LaneWidth.*numberOfLanes;
+Specs_exit=readtable('Data_Dictionary.xlsx','Sheet','Specs_exit');
+
+Road_name={'RR1','RR2','RR3','RR4'};
+prelim_info=readtable('Data_Dictionary.xlsx','Sheet',Road_name{1});
+Num_road_sec=length(prelim_info.Section_length);
+Num_road=Specs_info.Num_RR;
+
+Length_mainroad=sum(prelim_info.Section_length(...
+    strcmp(prelim_info.Highway_part,'Main')==1))-Specs_info.L_end;
+
+LMain_roadGraphicalFeatures=sum(prelim_info.Section_length(3:5));
+
+RR1_theta=[0 1 0 Specs_info.Rotation_RR];
+RR_rotation=[RR1_theta;RR1_theta;RR1_theta;RR1_theta];
+Coord_RR1=[Specs_info.X_RR1,Specs_info.Y_RR1,Specs_info.Z_RR1];
+Y_Geometry=Specs_info.Y_RR1;
+
+RR1_translation=[-3500 Y_Geometry -18000];
+RR_Lstart=Specs_info.L_start;
+
+% Calculate the local position and the rotation of the on-ramp area
+Theta_circle=Specs_info.Total_angle_circle;
+Rcircle_Onramp=Specs_info.Rcircle_Onramp;
+LaneWidth=Specs_info.LaneWidth;
+
+Roadroation=Specs_info.Rotation_RR;
+RoadBarrierWidth=Specs_info.RoadBarrierWidth;
+
+
+%StartOnramp Section: Straight
+Shift_Onramp=(2*LaneWidth+RoadBarrierWidth)+(LaneWidth+RoadBarrierWidth);
+Rotation_Onramp=-(Roadroation+Theta_circle);
+
+for i_road=1:Num_road
+    prelim_info=readtable('Data_Dictionary.xlsx','Sheet',Road_name{i_road});
+    L_onramp(i_road)=prelim_info.Section_length(1);
+    Xstart_Onramp(i_road,:)=RR_Lstart-(L_onramp(i_road)*cos(Theta_circle)+Rcircle_Onramp*sin(Theta_circle));
+    Zstart_Onramp(i_road,:)=0-(L_onramp(i_road)*sin(Theta_circle)+Rcircle_Onramp*(1-cos(Theta_circle)));
+end
+
+%StartOnramp Section: Circular
+Rotation_circle_Onramp=Roadroation;
+RR1_onramp_Sec2_Rotation_pts=[0 1 0 Rotation_circle_Onramp];
+
+Shift_circle=3*LaneWidth+2*RoadBarrierWidth;
+RR1_onramp_Sec2_Trans_pts=[RR_Lstart 0 -(Rcircle_Onramp+Shift_circle)];
+
+RR1_onramp_Sec1_Rotation_pts=[0 1 0 Rotation_Onramp];
+% RR1_onramp_Sec1_Trans_pts=[Xstart_Onramp 0 Zstart_Onramp-Shift_circle];
+RR1_onramp_Sec1_Trans_pts=[(Xstart_Onramp).*ones(Num_road,1),...
+    zeros(Num_road,1),Zstart_Onramp-Shift_circle];
+
+% Note that RR is rotated -pi/2 so position [X Z] in RR corresponds to
+% [Z % X] in the local sections
+
+% Calculate the endpoints or Road 1 (both localy and globally)
+
+
+% Part 1: The first circular curve after off-ramp
+Radius_curve_exit=Specs_exit.Radius_curve_exit;
+    Angle_curve_exit=Specs_exit.Angle_curve_exit;
+    Trans_coord_exit_curve=[Length_mainroad,0,-Radius_curve_exit-Shift_circle];
+
+% Part 2: The second circular curve after off-ramp
+ Radius_curve_exit=Specs_exit.Radius_curve_exit;
+    Angle_curve_exit=Specs_exit.Angle_curve_exit;
+    Trans_coord_exit_curve=[Length_mainroad+Radius_curve_exit*sin(Angle_curve_exit)+...
+        Radius_curve_exit*sin(Angle_curve_exit)-0.3,0,...
+        (Radius_curve_exit-Shift_circle)-...
+        Radius_curve_exit.*(1-cos(Angle_curve_exit))-...
+        Radius_curve_exit.*(1-cos(Angle_curve_exit))];
+
+% Part 3: The straight road driving:
+Trans_coord_part3=[Length_mainroad+Radius_curve_exit*sin(Angle_curve_exit)+...
+        Radius_curve_exit*sin(Angle_curve_exit)-0.3,0,...
+        -2*Radius_curve_exit*(1-cos(Angle_curve_exit))-...
+        +Shift_circle];
+
+% Part 4: The the exit curve- This is the last piece of road in each one:
+ Radius_curve_exit=Specs_exit.Radius_curve_exit;
+    Angle_curve_exit=Specs_exit.Angle_curve_exit;
+    Trans_coord_exit_curve4=Trans_coord_part3+...
+        [Specs_exit.L_off_ramp_exit,0,Radius_curve_exit];
+Trans_coord_part4=Trans_coord_part3+[Specs_exit.L_off_ramp_exit,0,Radius_curve_exit];
+
+Trans_coord_endpoints=Trans_coord_part3+[Specs_exit.L_off_ramp_exit+...
+    Radius_curve_exit*sin(Theta_circle),0,...
+    Radius_curve_exit*(1-cos(Theta_circle))];
+Trans_coord_endpoints(3)=abs(Trans_coord_endpoints(3));
+RR1_endpoints=RR1_translation+ flip(Trans_coord_endpoints);
+
+RR1_end_x=RR1_translation(1)+Shift_Onramp;
+RR1_end_z=RR1_translation(3)+Length_mainroad
+
+RR2_start_x=RR1_endpoints(1)-Shift_circle...
+    -L_onramp(2)*sin(Theta_circle)...
+    -Rcircle_Onramp*(1-cos(Theta_circle));
+
+RR2_start_Z=RR1_endpoints(3)...
+    +L_onramp(2)*cos(Theta_circle)...
+    +Rcircle_Onramp*(sin(Theta_circle))...
+    -RR_Lstart;
+
+RR2_translation= [RR2_start_x Y_Geometry RR2_start_Z];
+
+Ringroad_shift=RR2_translation-RR1_endpoints;
+RR2_endpoints=RR2_translation+ flip(Trans_coord_endpoints);
+
+if Num_road>2
+
+RR3_translation= RR2_endpoints+Ringroad_shift;
+RR3_endpoints=RR3_translation+ flip(Trans_coord_endpoints);
+end
+
+if Num_road>3
+RR4_translation=RR3_endpoints+Ringroad_shift;
+end
+
+if Num_road==2
+RR_translation=[RR1_translation;RR2_translation];
+
+elseif Num_road==3
+RR_translation=[RR1_translation;RR2_translation;RR3_translation];
+
+elseif Num_road==4
+RR_translation=[RR1_translation;RR2_translation;RR3_translation;RR4_translation];
+end
+
+%%
+
+Trans_coord=zeros(Num_road_sec,3);
+rotation_coord=zeros(Num_road_sec,4);
+
+for i_road=1:Num_road
+    prelim_info=readtable('Data_Dictionary.xlsx','Sheet',Road_name{i_road});
+    for j=1:height(prelim_info)
+        if strcmp(prelim_info.Highway_part{j},'Onramp')==1
+            if  strcmp(prelim_info.Type{j},'Straight')==1
+                rotation_coord(j,:)=RR1_onramp_Sec1_Rotation_pts;
+                Trans_coord(j,:)=RR1_onramp_Sec1_Trans_pts(i_road,:);
+            else
+                rotation_coord(j,:)=RR1_onramp_Sec2_Rotation_pts;
+                Trans_coord(j,:)=RR1_onramp_Sec2_Trans_pts;
+            end
+        end
+        if strcmp(prelim_info.Highway_part{j},'Main')==1
+            if prelim_info.CAV_starts(j)==1
+                rotation_coord(j,:)=[0 1 0 1.5708];
+                Trans_coord(j,:)=[0 0 0];
+                Num_Lanes_mainRoad=prelim_info.numberOfLanes(j);
+            else
+                if  strcmp(prelim_info.Rotation_Direction{j},'Positive')==1
+                    if  strcmp(prelim_info.Rotation_Direction{j-1},'Positive')==1
+                        rotation_coord(j,:)=[0 1 0 1.5708];
+                        Trans_coord(j,1)=Trans_coord(j-1,1)+prelim_info.Section_length(j-1);
+                    else
+                        rotation_coord(j,:)=[0 1 0 1.5708];
+                        Trans_coord(j,1)=Trans_coord(j-1,1);
+                    end
+                elseif strcmp(prelim_info.Rotation_Direction{j},'Negative')==1
+                    if  strcmp(prelim_info.Rotation_Direction{j-1},'Positive')==1
+                        rotation_coord(j,:)=[0 1 0 -1.5708];
+                        Trans_coord(j,1)=Trans_coord(j-1,1)+prelim_info.Section_length(j-1)...
+                            +prelim_info.Section_length(j);
+                    else
+                        rotation_coord(j,:)=[0 1 0 -1.5708];
+                        Trans_coord(j,1)=Trans_coord(j-1,1)+prelim_info.Section_length(j);
+                    end
+                end
+            end
+            if prelim_info.numberOfLanes(j)~=Num_Lanes_mainRoad
+                if  strcmp(prelim_info.Rotation_Direction{j},'Positive')==1
+                    Trans_coord(j,3)=-prelim_info.Z_shift(j);
+                else
+                    Trans_coord(j,3)=prelim_info.Z_shift(j);
+                end
+            end
+        end
+        if strcmp(prelim_info.Highway_part{j},'Offramp')==1
+            rotation_coord(j,:)=RR1_offramp_Sec2_Rotation_pts;
+            Trans_coord(j,:)=RR1_offramp_Sec2_Trans_pts;
+        end
+    end
+
+    for kk1=1:size(Trans_coord,1)
+        if strcmp(prelim_info.Highway_part{kk1},'Main')==1 &&...
+                prelim_info.CAV_starts(kk1)~=1
+            if strcmp(prelim_info.Type{kk1},'LaneSeparation_merge')==1
+                Trans_coord(kk1,3)=-LaneWidth*2;
+            end
+            if strcmp(prelim_info.Type{kk1},'LaneSeparation_diverge')==1
+                Trans_coord(kk1,3)=-LaneWidth*2;
+            end
+        end
+    end
+
+    Trans_coord(:,2)=0;
+    prelim_info.rotation_x=rotation_coord(:,1);
+    prelim_info.rotation_y=rotation_coord(:,2);
+    prelim_info.rotation_z=rotation_coord(:,3);
+    prelim_info.rotation_theta=rotation_coord(:,4);
+    prelim_info.Trans_x=Trans_coord(:,1);
+    prelim_info.Trans_y=Trans_coord(:,2);
+    prelim_info.Trans_z=Trans_coord(:,3);
+    writetable(prelim_info,'Experiment_param6.xlsx',...
+        Sheet=Road_name{i_road});
+end
+
+
+%%
+% % read initial setting in webots
+fileID = fopen('A01-Geometry.txt','w');
+
+for k=1:Num_road % three ringroads
+    Trans_coord(1,:)=RR1_onramp_Sec1_Trans_pts(k,:)
+
+    Road_data=readtable('Data_Dictionary.xlsx','Sheet',Road_name{k});
+    fprintf(fileID,'%s\r', ['DEF',Spc1,Road_name{k},Spc1,'Solid {']);
+    fprintf(fileID,'%s\r', [Spc1,'translation',...
+        Spc1,num2str(RR_translation(k,1)),Spc1,num2str(RR_translation(k,2)),...
+        Spc1,num2str(RR_translation(k,3))]);
+    fprintf(fileID,'%s\r', [Spc1,'rotation',...
+        Spc1,num2str(RR_rotation(k,1)),Spc1,num2str(RR_rotation(k,2)),...
+        Spc1,num2str(RR_rotation(k,3)),' ',num2str(RR_rotation(k,4))]);
+    fprintf(fileID,'%s\r',[Spc1,'children [']);
+
+    for i=1:length(Road_data.Section_length)
+
+
+        fprintf(fileID,'%s\r', [Spc2,'DEF ',Road_data.ID{i},' ',...
+            Road_data.Segment_Function{i},' {']);
+        fprintf(fileID,'%s\r', [Spc3,'name',' "',Road_data.ID{i},'"']);
+        fprintf(fileID,'%s\r', [Spc3,'translation',Spc1,...
+            num2str(Trans_coord(i,1)),Spc1,num2str(Trans_coord(i,2)),...
+            ' ',num2str(Trans_coord(i,3)),' ']);
+        fprintf(fileID,'%s\r', [Spc3,'rotation',...
+            Spc1,num2str(rotation_coord(i,1)),' ',num2str(rotation_coord(i,2)),...
+            ' ',num2str(rotation_coord(i,3)),' ',num2str(rotation_coord(i,4))]);
+        fprintf(fileID,'%s\r',[Spc3,'roadBorderHeight',Spc1,...
+            num2str(roadBorderHeight)]);
+        fprintf(fileID,'%s\r',[Spc3,'numberOfLanes',Spc1,...
+            num2str(Road_data.numberOfLanes(i))]);
+
+        fprintf(fileID,'%s\r',[Spc3,'width',Spc1,...
+            num2str(Road_data.Section_width(i))]); %% Correct this
+        fprintf(fileID,'%s\r',[Spc3,'rightBarrier',' TRUE']);
+        fprintf(fileID,'%s\r',[Spc3,'leftBarrier',' TRUE']);
+        fprintf(fileID,'%s\r',[Spc3,'endLine',' [']);
+        fprintf(fileID,'%s\r',[Spc3,Spc2,'""']);
+        fprintf(fileID,'%s\r',[Spc3,']']);
+        fprintf(fileID,'%s\r', [Spc3,'rightBorderBoundingObject',Spc1,'TRUE ']);
+        fprintf(fileID,'%s\r', [Spc3,'leftBorderBoundingObject',Spc1,'TRUE ']);
+        fprintf(fileID,'%s\r', [Spc3,'roadBoundingObject',Spc1,'FALSE ']);
+
+
+        if strcmp(Road_data.Type{i},'LaneSeparation_merge')==1
+            fprintf(fileID,'%s\r',...
+                [Spc3,'numberOfleavingLanes',' ',num2str(Road_data.numberOfNewLanes(i))]);
+            fprintf(fileID,'%s\r',[Spc3,'newLaneLeft',Spc1,'FALSE']);
+        end
+
+
+        if strcmp(Road_data.Type{i},'LaneExpansion')==1
+            fprintf(fileID,'%s\r',[Spc3,'numberOfNewLanes',Spc1,...
+                num2str(Road_data.numberOfNewLanes(i))]);
+        end
+
+        if strcmp(Road_data.Type{i},'LaneDrop')==1
+            fprintf(fileID,'%s\r',[Spc3,'numberOfNewLanes',Spc1,...
+                num2str(Road_data.numberOfNewLanes(i))]);
+            fprintf(fileID,'%s\r',[Spc3,'newLaneLeft',Spc1,'FALSE']);
+        end
+
+        if strcmp(Road_data.Type{i},'LaneSeparation_diverge')==1
+            fprintf(fileID,'%s\r',...
+                [Spc3,'numberOfleavingLanes',' ',num2str(Road_data.numberOfNewLanes(i))]);
+        end
+
+        if strcmp(Road_data.Type{i},'Circular')==1
+            fprintf(fileID,'%s\r', [Spc3,'curvatureRadius',Spc1,num2str(Road_data.Radius(i))]);
+            fprintf(fileID,'%s\r', [Spc3,'totalAngle',Spc1,num2str(Theta_circle)]);
+            %             fprintf(fileID,'%s\r', [Spc3,'subdivision',Spc1,num2str(5)]);
+        elseif  strcmp(Road_data.Type{i},'Circular')~=1
+            fprintf(fileID,'%s\r',...
+                [Spc3,'length',' ',num2str(Road_data.Section_length(i)+0.5)]);
+
+        elseif strcmp(Road_data.Type{i},'LaneDrop')==1
+
+        elseif strcmp(Road_data.Type{i},'LaneExpansion')==1
+        end
+        fprintf(fileID,'%s\r',[Spc2,'}']);
+    end
+
+
+    %Add the exit route:
+    % Upramp
+    %     fprintf(fileID,'%s\r', ['DEF',Spc1,strrep(strjoin([Road_name(k),'_exit_upramp']),' ','')...
+    %         ,Spc1,'Solid {']);
+    %     fprintf(fileID,'%s\r', [Spc1,'translation',...
+    %         Spc1,num2str(RR_upramp(k,:))]);
+    %     fprintf(fileID,'%s\r',[Spc1,'children [']);
+
+    % Circle exit:
+    % Part 1:
+    Radius_curve_exit=Specs_exit.Radius_curve_exit;
+    Angle_curve_exit=Specs_exit.Angle_curve_exit;
+    Trans_coord_exit_curve=[Length_mainroad,0,-Radius_curve_exit-Shift_circle];
+    rotation_coord_exit_curve=rotation_coord(2,:)+[0,0,0,Angle_curve_exit];
+
+    PartName=strrep(['RR_',num2str(k),'_Sec10_Curve'],' ','');
+    fprintf(fileID,'%s\r', [Spc2,'DEF ',PartName,...
+        ' CurvedRoadSegment',' {']); 
+    fprintf(fileID,'%s\r', [Spc3,'name',' "',PartName,'"']);
+    fprintf(fileID,'%s\r', [Spc3,'translation',Spc1,...
+        num2str(Trans_coord_exit_curve(1)),Spc1,...
+        num2str(Trans_coord_exit_curve(2)),...
+        ' ',num2str(Trans_coord_exit_curve(3)),' ']);
+    fprintf(fileID,'%s\r', [Spc3,'rotation',...
+        Spc1,num2str(rotation_coord_exit_curve(1)),' ',...
+        num2str(rotation_coord_exit_curve(2)),...
+        ' ',num2str(rotation_coord_exit_curve(3)),...
+        ' ',num2str(rotation_coord_exit_curve(4))]);
+    fprintf(fileID,'%s\r',[Spc3,'roadBorderHeight',Spc1,...
+        num2str(roadBorderHeight)]);
+    fprintf(fileID,'%s\r',[Spc3,'numberOfLanes',Spc1,...
+        num2str(Road_data.numberOfLanes(2))]);
+
+    fprintf(fileID,'%s\r',[Spc3,'width',Spc1,...
+        num2str(Road_data.Section_width(2))]); %% Correct this
+    fprintf(fileID,'%s\r',[Spc3,'rightBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'leftBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'endLine',' [']);
+    fprintf(fileID,'%s\r',[Spc3,Spc2,'""']);
+    fprintf(fileID,'%s\r',[Spc3,']']);
+    fprintf(fileID,'%s\r', [Spc3,'rightBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'leftBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'roadBoundingObject',Spc1,'FALSE ']);
+    fprintf(fileID,'%s\r', [Spc3,'curvatureRadius',Spc1,num2str(Radius_curve_exit)]);
+    fprintf(fileID,'%s\r', [Spc3,'totalAngle',Spc1,num2str(Angle_curve_exit)]);
+    %             fprintf(fileID,'%s\r', [Spc3,'subdivision',Spc1,num2str(5)]);
+    fprintf(fileID,'%s\r',[Spc2,'}']);
+
+    % Part 2:
+    Radius_curve_exit=Specs_exit.Radius_curve_exit;
+    Angle_curve_exit=Specs_exit.Angle_curve_exit;
+    Trans_coord_exit_curve=[Length_mainroad+Radius_curve_exit*sin(Angle_curve_exit)+...
+        Radius_curve_exit*sin(Angle_curve_exit)-0.3,0,...
+        (Radius_curve_exit-Shift_circle)-...
+        Radius_curve_exit.*(1-cos(Angle_curve_exit))-...
+        Radius_curve_exit.*(1-cos(Angle_curve_exit))];
+
+    rotation_coord_exit_curve=rotation_coord(2,:)+[0,0,0,3.1415+Angle_curve_exit];
+
+    PartName=strrep(['RR_',num2str(k),'_Sec11_Curve'],' ','');
+    fprintf(fileID,'%s\r', [Spc2,'DEF ',PartName,...
+        ' CurvedRoadSegment',' {']);   
+    fprintf(fileID,'%s\r', [Spc3,'name',' "',PartName,'"']);
+
+    fprintf(fileID,'%s\r', [Spc3,'translation',Spc1,...
+        num2str(Trans_coord_exit_curve(1)),Spc1,...
+        num2str(Trans_coord_exit_curve(2)),...
+        ' ',num2str(Trans_coord_exit_curve(3)),' ']);
+    fprintf(fileID,'%s\r', [Spc3,'rotation',...
+        Spc1,num2str(rotation_coord_exit_curve(1)),' ',...
+        num2str(rotation_coord_exit_curve(2)),...
+        ' ',num2str(rotation_coord_exit_curve(3)),...
+        ' ',num2str(rotation_coord_exit_curve(4))]);
+    fprintf(fileID,'%s\r',[Spc3,'roadBorderHeight',Spc1,...
+        num2str(roadBorderHeight)]);
+    fprintf(fileID,'%s\r',[Spc3,'numberOfLanes',Spc1,...
+        num2str(Road_data.numberOfLanes(2))]);
+    fprintf(fileID,'%s\r',[Spc3,'width',Spc1,...
+        num2str(Road_data.Section_width(2))]); %% Correct this
+    fprintf(fileID,'%s\r',[Spc3,'rightBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'leftBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'endLine',' [']);
+    fprintf(fileID,'%s\r',[Spc3,Spc2,'""']);
+    fprintf(fileID,'%s\r',[Spc3,']']);
+    fprintf(fileID,'%s\r', [Spc3,'rightBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'leftBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'roadBoundingObject',Spc1,'FALSE ']);
+    fprintf(fileID,'%s\r', [Spc3,'curvatureRadius',Spc1,num2str(Radius_curve_exit)]);
+    fprintf(fileID,'%s\r', [Spc3,'totalAngle',Spc1,num2str(Angle_curve_exit)]);
+    %             fprintf(fileID,'%s\r', [Spc3,'subdivision',Spc1,num2str(5)]);=
+    fprintf(fileID,'%s\r',[Spc2,'}']);
+
+    % Part 3:
+    Trans_coord_part3=[Length_mainroad+Radius_curve_exit*sin(Angle_curve_exit)+...
+        Radius_curve_exit*sin(Angle_curve_exit)-0.3,0,...
+        -2*Radius_curve_exit*(1-cos(Angle_curve_exit))-...
+        +Shift_circle];
+    StartID=strrep(['RR',num2str(k),'_Sec1_StartCAVs'],' ','');
+    rotation_coord_part3=rotation_coord(strcmp(prelim_info.ID, StartID),:);
+
+     PartName=strrep(['RR_',num2str(k),'_Sec12_straight'],' ','');
+    fprintf(fileID,'%s\r', [Spc2,'DEF ',PartName,...
+        ' StraightRoadSegment',' {']);
+    fprintf(fileID,'%s\r', [Spc3,'name',' "',PartName,'"']);
+    fprintf(fileID,'%s\r', [Spc3,'translation',Spc1,...
+        num2str(Trans_coord_part3(1)),Spc1,num2str(Trans_coord_part3(2)),...
+        ' ',num2str(Trans_coord_part3(3)),' ']);
+    fprintf(fileID,'%s\r', [Spc3,'rotation',...
+        Spc1,num2str(rotation_coord_part3(1)),' ',num2str(rotation_coord_part3(2)),...
+        ' ',num2str(rotation_coord_part3(3)),' ',num2str(rotation_coord_part3(4))]);
+        fprintf(fileID,'%s\r',...
+                [Spc3,'length',' ',num2str(Specs_exit.L_off_ramp_exit)]);
+    fprintf(fileID,'%s\r',[Spc3,'roadBorderHeight',Spc1,...
+        num2str(roadBorderHeight)]);
+    fprintf(fileID,'%s\r',[Spc3,'numberOfLanes',Spc1,...
+        num2str(Road_data.numberOfLanes(1))]);
+    fprintf(fileID,'%s\r',[Spc3,'width',Spc1,...
+        num2str(Road_data.Section_width(1))]); %% Correct this
+    fprintf(fileID,'%s\r',[Spc3,'rightBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'leftBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'endLine',' [']);
+    fprintf(fileID,'%s\r',[Spc3,Spc2,'""']);
+    fprintf(fileID,'%s\r',[Spc3,']']);
+    fprintf(fileID,'%s\r', [Spc3,'rightBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'leftBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'roadBoundingObject',Spc1,'FALSE ']);
+    fprintf(fileID,'%s\r',[Spc2,'}']);
+
+    % Part 4:
+    Radius_curve_exit=Specs_exit.Radius_curve_exit;
+    Angle_curve_exit=Specs_exit.Angle_curve_exit;
+    Trans_coord_exit_curve=Trans_coord_part3+[Specs_exit.L_off_ramp_exit,0,Radius_curve_exit];
+
+    rotation_coord_exit_curve=rotation_coord_part3; % Same as previous
+        PartName=strrep(['RR_',num2str(k),'_Sec12_Curve'],' ','');
+    fprintf(fileID,'%s\r', [Spc2,'DEF ',PartName,...
+        ' CurvedRoadSegment',' {']);
+
+    fprintf(fileID,'%s\r', [Spc3,'name',' "',PartName,'"']);
+    fprintf(fileID,'%s\r', [Spc3,'translation',Spc1,...
+        num2str(Trans_coord_exit_curve(1)),Spc1,...
+        num2str(Trans_coord_exit_curve(2)),...
+        ' ',num2str(Trans_coord_exit_curve(3)),' ']);
+    fprintf(fileID,'%s\r', [Spc3,'rotation',...
+        Spc1,num2str(rotation_coord_exit_curve(1)),' ',...
+        num2str(rotation_coord_exit_curve(2)),...
+        ' ',num2str(rotation_coord_exit_curve(3)),...
+        ' ',num2str(rotation_coord_exit_curve(4))]);
+    fprintf(fileID,'%s\r',[Spc3,'roadBorderHeight',Spc1,...
+        num2str(roadBorderHeight)]);
+    fprintf(fileID,'%s\r',[Spc3,'numberOfLanes',Spc1,...
+        num2str(Road_data.numberOfLanes(2))]);
+    fprintf(fileID,'%s\r',[Spc3,'width',Spc1,...
+        num2str(Road_data.Section_width(2))]); %% Correct this
+    fprintf(fileID,'%s\r',[Spc3,'rightBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'leftBarrier',' TRUE']);
+    fprintf(fileID,'%s\r',[Spc3,'endLine',' [']);
+    fprintf(fileID,'%s\r',[Spc3,Spc2,'""']);
+    fprintf(fileID,'%s\r',[Spc3,']']);
+    fprintf(fileID,'%s\r', [Spc3,'rightBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'leftBorderBoundingObject',Spc1,'TRUE ']);
+    fprintf(fileID,'%s\r', [Spc3,'roadBoundingObject',Spc1,'FALSE ']);
+    fprintf(fileID,'%s\r', [Spc3,'curvatureRadius',Spc1,num2str(Radius_curve_exit)]);
+    fprintf(fileID,'%s\r', [Spc3,'totalAngle',Spc1,num2str(Theta_circle)]);
+    %             fprintf(fileID,'%s\r', [Spc3,'subdivision',Spc1,num2str(5)]);
+    fprintf(fileID,'%s\r',[Spc2,'}']);
+   
+
+    fprintf(fileID,'%s\r',[Spc1,']']);
+    fprintf(fileID,'%s\r',[Spc1,'name "solid(4)"']);
+    fprintf(fileID,'%s\r','}');
+
+
+
+
+end
+
+fclose(fileID);

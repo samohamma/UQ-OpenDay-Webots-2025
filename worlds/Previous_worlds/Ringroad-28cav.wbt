@@ -1,0 +1,1367 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 25
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.0037820551728167473 -0.9987653497680693 -0.04953253639110668 2.9990994880372597
+  position -3595.5021650562494 1.412715596135008 -17491.13068677964
+  near 1
+  follow "veh-driver"
+  followOrientation TRUE
+  followSmoothness 0
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        baseColorMap ImageTexture {
+          url [
+            "./textures/ground.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 20000 40000
+      }
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+BmwX5 {
+  translation -3595.93 0.4 -17491.2
+  rotation 0 -1 0 -0.1745
+  color 0.1 0.11 0.1
+  name "veh-driver"
+  controller "auto-ringroad-driver"
+  supervisor TRUE
+  rearMirror TRUE
+  leftWingMirror TRUE
+  rightWingMirror TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  sensorsSlotCenter [
+    Display {
+      width 300
+      height 150
+    }
+  ]
+}
+Road {
+  translation -3500 0.02 -18000
+  name "RR1_enter"
+  id "RR1_enter"
+  endJunction "RR1_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3501.825 0.02 -17000
+  name "RR1_merge"
+  id "RR1_merge"
+  startJunction "RR1_start_merge_enter"
+  endJunction "RR1_start_merge_enter_1"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  lines [
+    RoadLine {
+      type "continuous"
+    }
+  ]
+  wayPoints [
+    0 0 0
+    0 0 100
+  ]
+}
+Road {
+  translation -3501.825 0.02 -16900
+  name "RR1_merge_1"
+  id "RR1_merge_1"
+  startJunction "RR1_start_merge_enter_1"
+  endJunction "RR1_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 400
+  ]
+}
+Road {
+  translation -3596.25 0.02 -17492.5
+  rotation 0 -1 0 -0.1745
+  name "RR1_start"
+  id "RR1_start"
+  endJunction "RR1_start_merge_enter"
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_0 GenericTrafficLight {
+  translation -3512 0 -17030
+  rotation 0 1 0 0.2
+  name "trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3500 0.02 -16500
+  rotation 0 -1 0 0
+  name "RR1_edge_hd"
+  id "RR1_edge_hd"
+  startJunction "RR1_merge_edge_hd"
+  endJunction "RR1_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3500 0.02 -15000
+  rotation 0 -1 0 0
+  name "RR1_edge_cad"
+  id "RR1_edge_cad"
+  startJunction "RR1_edge_hd_cad"
+  endJunction "RR1_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3500 0.02 -10000
+  rotation 0 -1 0 0
+  name "RR1_edge_takeover"
+  id "RR1_edge_takeover"
+  startJunction "RR1_edge_cad_takeover"
+  endJunction "RR1_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3498.175 0.02 -9000
+  rotation 0 -1 0 0
+  name "RR1_diverge"
+  id "RR1_diverge"
+  startJunction "RR1_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3490.925 0.02 -8500
+  rotation 0 -1 0 -0.1665
+  name "RR1_to_RR2"
+  id "RR1_to_RR2"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 499.5
+  ]
+}
+Crossroad {
+  translation -3510.95 0.02 -17000
+  name "RR1_start_merge_enter"
+  id "RR1_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR1_merge"
+    "RR1_enter"
+    "RR1_start"
+  ]
+}
+Crossroad {
+  translation -3510.95 0.02 -16900
+  name "RR1_start_merge_enter_1"
+  id "RR1_start_merge_enter_1"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_merge"
+    "RR1_merge_1"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -16500
+  name "RR1_merge_edge_hd"
+  id "RR1_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_hd"
+    "RR1_merge_1"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -15000
+  name "RR1_edge_hd_cad"
+  id "RR1_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_hd"
+    "RR1_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -10000
+  name "RR1_edge_cad_takeover"
+  id "RR1_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_cad"
+    "RR1_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3501.825 0.02 -9000
+  name "RR1_edge_takeover_diverge"
+  id "RR1_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR1_edge_takeover"
+    "RR1_diverge"
+  ]
+}
+Road {
+  translation -3398.6 0.02 -9007.6
+  name "RR2_enter"
+  id "RR2_enter"
+  endJunction "RR2_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3400.425 0.02 -8007.6
+  name "RR2_merge"
+  id "RR2_merge"
+  startJunction "RR2_start_merge_enter"
+  endJunction "RR2_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_1 GenericTrafficLight {
+  translation -3410.6 0 -8037.6
+  rotation 0 1 0 0.2
+  name "trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3398.6 0.02 -7507.6
+  rotation 0 -1 0 0
+  name "RR2_edge_hd"
+  id "RR2_edge_hd"
+  startJunction "RR2_merge_edge_hd"
+  endJunction "RR2_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3398.6 0.02 -6007.6
+  rotation 0 -1 0 0
+  name "RR2_edge_cad"
+  id "RR2_edge_cad"
+  startJunction "RR2_edge_hd_cad"
+  endJunction "RR2_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3398.6 0.02 -1007.6
+  rotation 0 -1 0 0
+  name "RR2_edge_takeover"
+  id "RR2_edge_takeover"
+  startJunction "RR2_edge_cad_takeover"
+  endJunction "RR2_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3396.775 0.02 -7.6
+  rotation 0 -1 0 0
+  name "RR2_diverge"
+  id "RR2_diverge"
+  startJunction "RR2_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3389.525 0.02 492.4
+  rotation 0 -1 0 -0.1665
+  name "RR2_to_RR3"
+  id "RR2_to_RR3"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 499.5
+  ]
+}
+Crossroad {
+  translation -3409.55 0.02 -8007.6
+  name "RR2_start_merge_enter"
+  id "RR2_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR2_merge"
+    "RR2_enter"
+    "RR2_start"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -7507.6
+  name "RR2_merge_edge_hd"
+  id "RR2_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_hd"
+    "RR2_merge"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -6007.6
+  name "RR2_edge_hd_cad"
+  id "RR2_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_hd"
+    "RR2_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -1007.6
+  name "RR2_edge_cad_takeover"
+  id "RR2_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_cad"
+    "RR2_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3400.425 0.02 -7.6
+  name "RR2_edge_takeover_diverge"
+  id "RR2_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR2_edge_takeover"
+    "RR2_diverge"
+  ]
+}
+Road {
+  translation -3297.2 0.02 -15.2
+  name "RR3_enter"
+  id "RR3_enter"
+  endJunction "RR3_start_merge_enter"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3299.025 0.02 984.8
+  name "RR3_merge"
+  id "RR3_merge"
+  startJunction "RR3_start_merge_enter"
+  endJunction "RR3_merge_edge_hd"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+DEF TL_2 GenericTrafficLight {
+  translation -3309.2 0 954.8
+  rotation 0 1 0 0.2
+  name "trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+Road {
+  translation -3297.2 0.02 1484.8
+  rotation 0 -1 0 0
+  name "RR3_edge_hd"
+  id "RR3_edge_hd"
+  startJunction "RR3_merge_edge_hd"
+  endJunction "RR3_edge_hd_cad"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1500
+  ]
+}
+Road {
+  translation -3297.2 0.02 2984.8
+  rotation 0 -1 0 0
+  name "RR3_edge_cad"
+  id "RR3_edge_cad"
+  startJunction "RR3_edge_hd_cad"
+  endJunction "RR3_edge_cad_takeover"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 5000
+  ]
+}
+Road {
+  translation -3297.2 0.02 7984.8
+  rotation 0 -1 0 0
+  name "RR3_edge_takeover"
+  id "RR3_edge_takeover"
+  startJunction "RR3_edge_cad_takeover"
+  endJunction "RR3_edge_takeover_diverge"
+  width 14.6
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  wayPoints [
+    0 0 0
+    0 0 1000
+  ]
+}
+Road {
+  translation -3295.375 0.02 8984.8
+  rotation 0 -1 0 0
+  name "RR3_diverge"
+  id "RR3_diverge"
+  startJunction "RR3_edge_takeover_diverge"
+  width 18.25
+  numberOfLanes 5
+  numberOfForwardLanes 5
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Road {
+  translation -3288.125 0.02 9484.8
+  rotation 0 -1 0 -0.1745
+  name "RR3_to_RR4"
+  id "RR3_to_RR4"
+  startJunction " "
+  width 3.65
+  numberOfLanes 1
+  wayPoints [
+    0 0 0
+    0 0 500
+  ]
+}
+Crossroad {
+  translation -3308.15 0.02 984.8
+  name "RR3_start_merge_enter"
+  id "RR3_start_merge_enter"
+  shape [
+    0 0 0
+    22 0 0
+    4 0 -5
+  ]
+  connectedRoadIDs [
+    "RR3_merge"
+    "RR3_enter"
+    "RR3_start"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 1484.8
+  name "RR3_merge_edge_hd"
+  id "RR3_merge_edge_hd"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_hd"
+    "RR3_merge"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 2984.8
+  name "RR3_edge_hd_cad"
+  id "RR3_edge_hd_cad"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_hd"
+    "RR3_edge_cad"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 7984.8
+  name "RR3_edge_cad_takeover"
+  id "RR3_edge_cad_takeover"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_cad"
+    "RR3_edge_takeover"
+  ]
+}
+Crossroad {
+  translation -3299.025 0.02 8984.8
+  name "RR3_edge_takeover_diverge"
+  id "RR3_edge_takeover_diverge"
+  shape [
+    0 0 0
+    11.4 0 1
+    11.7 0 1
+  ]
+  connectedRoadIDs [
+    "RR3_edge_takeover"
+    "RR3_diverge"
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  name "v04"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  name "v05"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  name "v06"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  name "v07"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  name "v08"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  name "v09"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3505.475 0.4 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  name "v010"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  name "v14"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  name "v15"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  name "v16"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  name "v17"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  name "v18"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  name "v19"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3501.825 0.4 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  name "v110"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  name "v24"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  name "v25"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  name "v26"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  name "v27"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  name "v28"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  name "v29"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3498.175 0.4 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  name "v210"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17880
+  rotation 0 1 0 4.692820414042842e-06
+  name "v34"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17850
+  rotation 0 1 0 4.692820414042842e-06
+  name "v35"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17820
+  rotation 0 1 0 4.692820414042842e-06
+  name "v36"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17790
+  rotation 0 1 0 4.692820414042842e-06
+  name "v37"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17760
+  rotation 0 1 0 4.692820414042842e-06
+  name "v38"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17730
+  rotation 0 1 0 4.692820414042842e-06
+  name "v39"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}
+BmwX5 {
+  translation -3494.525 0.4 -17700
+  rotation 0 1 0 4.692820414042842e-06
+  name "v310"
+  controller "auto-ringroad"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+}

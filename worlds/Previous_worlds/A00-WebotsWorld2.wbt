@@ -1,0 +1,5038 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 50
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.01707318478204268 -0.9983305693540498 -0.05517771882396804 3.426700411802017
+  position -3456.041059203613 75.08365538022721 -18256.07673409688
+  near 1
+  follow "veh-driver"
+  followOrientation TRUE
+  followSmoothness 0
+}
+TexturedBackground {
+  texture "noon_building_overcast"
+}
+TexturedBackgroundLight {
+  texture "noon_cloudy_empty"
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "textures/ground_grass.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 10000 50000
+      }
+      castShadows FALSE
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+HighwayPole {
+  translation -3509.53 0 -16400
+  rotation 0 1 0 1.5707997
+  name "highway pole(3)"
+  stand 2
+  height 4
+  length 20
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 0.18 4.17
+      height 4
+      length 5
+      texture [
+        "textures/OpenDay.png"
+      ]
+    }
+  ]
+  rightVerticalSigns []
+  leftHorizontalSigns [
+    HighwaySign {
+      translation -0.349261 0 -9.51
+      rotation 0 1 0 -3.1415
+      name "highway sign(2)"
+      length 5
+      texture [
+        "textures/TransportEngineering.png"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -3472.99 0 -17641.2
+  rotation 0 1 0 1.5707997
+  name "highway pole(2)"
+  stand 2
+  height 4
+  length 20
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 0.18 4.17
+      height 4
+      length 5
+      texture [
+        "textures/OpenDay.png"
+      ]
+    }
+  ]
+  rightVerticalSigns []
+  leftHorizontalSigns [
+    HighwaySign {
+      translation -0.349261 0 -9.51
+      rotation 0 1 0 -3.1415
+      name "highway sign(2)"
+      length 5
+      texture [
+        "textures/TransportEngineering.png"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -3510.25 0 -15200
+  rotation 0 1 0 1.5707997
+  name "highway pole(1)"
+  stand 2
+  height 5
+  length 20
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 1.08 2.88
+      height 5
+      length 10
+      texture [
+        "textures/OpenDay.png"
+      ]
+    }
+  ]
+  rightVerticalSigns []
+  leftHorizontalSigns [
+    HighwaySign {
+      translation -0.349261 0.94 -9.51
+      rotation 0 1 0 -3.1415
+      name "highway sign(2)"
+      height 4
+      length 8
+      texture [
+        "textures/TransportEngineering.png"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -3509.53 0 -13200
+  rotation 0 1 0 1.5707997
+  name "highway pole(4)"
+  stand 2
+  height 5
+  length 20
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 0.65 7.61
+      height 5
+      length 18
+      texture [
+        "textures/diversity.png"
+      ]
+    }
+  ]
+  rightVerticalSigns []
+}
+HighwayPole {
+  translation -3492.35 0 -12440.7
+  rotation 0 1 0 1.5707997
+  name "highway pole(5)"
+  stand 2
+  height 5
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 0 1.55
+      height 2.5
+      length 8
+      texture [
+        "textures/Thank you11.png"
+      ]
+    }
+  ]
+  rightVerticalSigns []
+}
+HighwayPole {
+  translation -3509.53 0 -12750
+  rotation 0 1 0 1.5707997
+  name "highway pole(6)"
+  stand 2
+  height 5
+  length 20
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns []
+  rightVerticalSigns []
+  leftHorizontalSigns [
+    HighwaySign {
+      translation -0.348848 0 -5.04
+      rotation 0 1 0 -3.1415
+      name "highway sign(2)"
+      length 15
+      texture [
+        "textures/EndofTour.png"
+      ]
+    }
+  ]
+}
+BmwX5Au {
+  hidden position_0_0 -0.01716102975685431
+  hidden position2_0_0 7515.5121991120095
+  hidden position_0_1 -0.015572142874422268
+  hidden position2_0_1 7509.122676700204
+  hidden position_0_2 7516.195066435299
+  hidden position_0_3 7513.2814469569375
+  hidden position_0_8 -0.16975661860074764
+  hidden position_0_9 0.002313230785070664
+  hidden position_0_10 0.003040176530138059
+  hidden linearVelocity_0 0.0028211391780566053 -0.0024742243684320294 0.030526931317866803
+  hidden angularVelocity_0 -0.003424846478309705 -0.0015523809220161456 -0.005605906742367486
+  hidden rotation_1 -0.019668776211894248 0.9997697456392832 -0.008578749715982202 0.8227405108120956
+  hidden linearVelocity_1 -0.0007019914954798878 0.00011245207338685696 0.03193184650782442
+  hidden angularVelocity_1 0.085056244718142 -0.0021062514692472474 -0.0070575694644244066
+  hidden rotation_2 -0.020799480501068925 0.9997533626617873 0.007784308404384324 5.566788722003669
+  hidden linearVelocity_2 -0.000845425643644158 -0.00048370282645769213 0.03246859047902222
+  hidden angularVelocity_2 0.06967522077110373 -0.0019334864034241319 -0.006811697046570804
+  hidden rotation_3 0 1 0 1.505439048513514
+  hidden linearVelocity_3 0.00416111785224026 -0.00150090020610901 0.03196695553969191
+  hidden angularVelocity_3 0.08547360930403307 -0.00023045052397913942 -0.005411662506406861
+  hidden rotation_4 0 1 0 1.4081804298478828
+  hidden linearVelocity_4 0.004283931439168425 -0.00027622759390974455 0.029390013980422017
+  hidden angularVelocity_4 0.07858321390974447 -0.00033235194720520673 -0.005417440564337219
+  hidden rotation_27 0 0.3205961743168832 -0.9472159695726095 0.16975661860074695
+  hidden translation_28 0.004587359221549625 -0.0008829541791421924 -0.0007866319050537918
+  hidden rotation_28 0 -0.6652060421485012 0.7466598432279097 0.002313230785071279
+  hidden translation_29 0.006031216184647303 -0.0007624506772050399 -0.0006792742396921625
+  hidden rotation_29 0 -0.6652060421485012 0.7466598432279096 0.003040176530082062
+  translation -3506.258038563563 0.32589405024444035 -15250.009767196409
+  rotation -0.172906624291222 0.14566494946607064 -0.9741072947952197 -0.015415270164659807
+  color 0.1 0.11 0.1
+  name "veh-driver"
+  controller "racing_wheel_com"
+  supervisor TRUE
+  rearMirror TRUE
+  leftWingMirror TRUE
+  rightWingMirror TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  sensorsSlotCenter [
+    Display {
+      width 300
+      height 150
+    }
+  ]
+  completeInterior FALSE
+  innerWindowTransparency 1
+}
+BmwX5 {
+  hidden position_0_0 -3.4049862819699417e-10
+  hidden position2_0_0 4598.204557566059
+  hidden position_0_1 3.40498987551817e-10
+  hidden position2_0_1 4598.204557566067
+  hidden position_0_2 4597.111247945566
+  hidden position_0_3 4597.11124794556
+  hidden linearVelocity_0 -2.652624675634367e-12 -3.556174372109841e-14 29.88372650635587
+  hidden angularVelocity_0 -1.1551456222950425e-12 -1.5774007479048807e-16 -4.787657176780892e-15
+  hidden rotation_1 -2.817499211372522e-10 -1 1.7024931409849709e-10 1.0870872893986898
+  hidden linearVelocity_1 -3.2351044039186134e-12 1.1083242602764704e-14 29.883726506358173
+  hidden angularVelocity_1 79.90872405784094 -0.00029352110125700244 1.4200125909136283e-06
+  hidden rotation_2 -2.817502184925765e-10 1 -1.702494937759085e-10 1.0870872893905046
+  hidden linearVelocity_2 3.3780545207115252e-12 1.828498146850682e-14 29.883726506358165
+  hidden angularVelocity_2 79.90872405784091 0.00029352110258985 -1.4200129712170794e-06
+  hidden rotation_3 0 -1 0 2.180396909891309
+  hidden linearVelocity_3 2.1323696667123506e-12 -2.1800219181665917e-15 29.883726506352726
+  hidden angularVelocity_3 79.89730003932027 -0.0002934786138792472 1.426946850801353e-06
+  hidden rotation_4 0 1 0 2.1803969098976754
+  hidden linearVelocity_4 -1.9917874163027723e-12 -1.7998426047310694e-15 29.883726506352723
+  hidden angularVelocity_4 79.89730003932026 0.00029347861519645157 -1.4269472265357922e-06
+  translation -3494.5999999998808 0.3110685516216145 -16280.556457748515
+  rotation -1 4.5394379083435616e-13 1.6414968830121068e-12 0.004930515074762622
+  color 0.93802 0.71409 0.73269
+  name "Veh_row1_Lane_1"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.405577345528917e-10
+  hidden position2_0_0 4652.591108257517
+  hidden position_0_1 3.405581180403849e-10
+  hidden position2_0_1 4652.591108257518
+  hidden position_0_2 4651.49002337024
+  hidden position_0_3 4651.490023370241
+  hidden linearVelocity_0 6.45288615107284e-15 -1.2532879876167543e-13 29.883725432937588
+  hidden angularVelocity_0 -2.0896634221715627e-12 -1.089034296678936e-15 -6.559951974996426e-15
+  hidden rotation_1 -9.170851748732489e-12 0.9999999999999999 -1.7027886727644583e-10 3.0339809446226873
+  hidden linearVelocity_1 -1.205211541319101e-12 1.0279065520692662e-13 29.883725432936185
+  hidden angularVelocity_1 79.90872118758202 -0.0002935210919416653 1.4200080009419796e-06
+  hidden rotation_2 -9.170862075558586e-12 -1 1.7027905902019245e-10 3.033980944623597
+  hidden linearVelocity_2 1.2117852849637462e-12 1.0506591786291904e-13 29.88372543293618
+  hidden angularVelocity_2 79.90872118758202 0.000293521092050737 -1.4200080219466666e-06
+  hidden rotation_3 0 1 0 1.932896057346131
+  hidden linearVelocity_3 3.1378779821964293e-12 -8.93398748469513e-14 29.88372543295182
+  hidden angularVelocity_3 79.89729716946873 -0.00029347860403382763 1.4269463706616953e-06
+  hidden rotation_4 0 -1 0 1.9328960573470404
+  hidden linearVelocity_4 -3.1243412933769566e-12 -9.123343876858518e-14 29.88372543295182
+  hidden angularVelocity_4 79.89729716946873 0.00029347860413137726 -1.4269464121736907e-06
+  translation -3498.2 0.31106855161420144 -16260.217341761661
+  rotation 1 3.2566802891271087e-15 -7.09186726584614e-14 -0.0049305150797720855
+  color 0.46175 0.93133 0.40642
+  name "Veh_row1_Lane_2"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.4049936060442026e-10
+  hidden position2_0_0 4533.393969081674
+  hidden position_0_1 3.404998417287296e-10
+  hidden position2_0_1 4533.393969081673
+  hidden position_0_2 4532.309924992957
+  hidden position_0_3 4532.30992499294
+  hidden linearVelocity_0 -2.711898753814852e-12 -1.3824376067066284e-13 29.883727058365306
+  hidden angularVelocity_0 -7.941254923469701e-13 1.8974009867375977e-15 1.5880732322171299e-15
+  hidden rotation_1 -6.452992579080727e-12 -1 1.7024968030221013e-10 3.0658227019872504
+  hidden linearVelocity_1 -3.2804558175290598e-12 7.209502571006172e-14 29.883727058384395
+  hidden angularVelocity_1 79.90872553392603 -0.00029352110722740104 1.4200127019330445e-06
+  hidden rotation_2 -6.4530016970573165e-12 1 -1.7024992086436482e-10 3.06582270198816
+  hidden linearVelocity_2 3.3192581501793143e-12 7.171782122851541e-14 29.883727058384398
+  hidden angularVelocity_2 79.90872553392605 0.0002935211074837195 -1.4200128067583145e-06
+  hidden rotation_3 0 -1 0 4.149866790704087
+  hidden linearVelocity_3 2.0672807978107386e-12 -6.887639842034034e-14 29.88372705837279
+  hidden angularVelocity_3 79.8973015152046 -0.0002934786198416866 1.4269470300233698e-06
+  hidden rotation_4 0 1 0 4.149866790721368
+  hidden linearVelocity_4 -2.0407364758097186e-12 -6.698036168221849e-14 29.883727058372795
+  hidden angularVelocity_4 79.89730151520462 0.0002934786200906152 -1.4269471082110802e-06
+  translation -3501.8000000000025 0.31106855162480496 -16304.793885188134
+  rotation -0.9999999999999999 1.1416880980265763e-13 3.304977155903046e-13 0.004930515072599091
+  color 0.68321 0.64992 0.59877
+  name "Veh_row1_Lane_3"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.405577307204978e-10
+  hidden position2_0_0 4456.025838663532
+  hidden position_0_1 3.405574778488203e-10
+  hidden position2_0_1 4456.025838663536
+  hidden position_0_2 4454.952855374593
+  hidden position_0_3 4454.952855374669
+  hidden linearVelocity_0 -4.933530411666285e-15 -3.647066904601328e-14 29.883727535634232
+  hidden angularVelocity_0 -2.0137695352540184e-12 -2.5315704267697433e-15 -2.2842653176101092e-15
+  hidden rotation_1 2.3664567343741366e-10 -1 1.7027886536024888e-10 5.035729433974058
+  hidden linearVelocity_1 -1.2547498628288312e-12 1.0809597577638566e-13 29.883727535649175
+  hidden angularVelocity_1 79.90872681011567 -0.0002935211126410495 1.4200081895232048e-06
+  hidden rotation_2 2.366454977218382e-10 1 -1.7027873892441015e-10 5.03572943397042
+  hidden linearVelocity_2 1.2339369698631888e-12 1.1795016262221251e-13 29.88372753564918
+  hidden angularVelocity_2 79.90872681011568 0.0002935211126408267 -1.4200081299099244e-06
+  hidden rotation_3 0 -1 0 6.10871272291327
+  hidden linearVelocity_3 3.1079698171395204e-12 -1.0373977746130804e-13 29.883727535640556
+  hidden angularVelocity_3 79.89730279123054 -0.00029347862484190045 1.4269464866475528e-06
+  hidden rotation_4 0 1 0 6.108712722837781
+  hidden linearVelocity_4 -3.1098964620547873e-12 -1.0336005667973233e-13 29.883727535640553
+  hidden angularVelocity_4 79.89730279123053 0.00029347862483588514 -1.426946479799144e-06
+  translation -3505.4000000000674 0.31106855162715374 -16333.727497596225
+  rotation 0.9999999999999999 4.535376610458716e-14 2.1800540767718597e-14 -0.004930515071012811
+  color 0.22204 0.68236 0.87806
+  name "Veh_row1_Lane_4"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.6324540831788675e-10
+  hidden position2_0_0 4654.6357866801445
+  hidden position_0_1 3.653653723497781e-10
+  hidden position2_0_1 4654.635786680087
+  hidden position_0_2 4653.533781867794
+  hidden position_0_3 4653.533781867972
+  hidden linearVelocity_0 -2.4021992887315664e-10 -6.948592906741272e-14 29.926613210635708
+  hidden angularVelocity_0 -1.5789333996313337e-12 2.332436421481644e-12 5.957951659730706e-11
+  hidden rotation_1 2.641922733093759e-10 1 -1.8162270415894337e-10 5.078659367250527
+  hidden linearVelocity_1 -2.4072069685691105e-10 1.8126405937912643e-12 29.9266132106435
+  hidden angularVelocity_1 80.02340258754535 -0.00029394303335883573 1.42080279961875e-06
+  hidden rotation_2 2.657341458235788e-10 -1 1.8268268617488906e-10 5.078659367193229
+  hidden linearVelocity_2 -2.424053218043133e-10 -1.656322178266403e-12 29.926613210636514
+  hidden angularVelocity_2 80.0234025875413 0.0002939421306700134 -1.419488590445458e-06
+  hidden rotation_3 0 1 0 3.9766545548995573
+  hidden linearVelocity_3 -2.4131968342200667e-10 1.6614373276546032e-12 29.926613210637424
+  hidden angularVelocity_3 80.01196217421855 -0.0002939002598010326 1.4292347238483938e-06
+  hidden rotation_4 0 -0.9999999999999999 0 3.9766545550778183
+  hidden linearVelocity_4 -2.408560350569703e-10 -1.7965361599579085e-12 29.926613210662982
+  hidden angularVelocity_4 80.01196217428684 0.00029389943625187054 -1.427938784257332e-06
+  translation -3494.600000000758 0.3110685579315944 -16229.452917708886
+  rotation 1 1.4146652890036867e-09 5.527888506988447e-10 -0.004930510859771266
+  color 0.79672 0.432 0.91788
+  name "Veh_row2_Lane_1"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.655479717229691e-10
+  hidden position2_0_0 4688.556073597928
+  hidden position_0_1 3.6302259358529557e-10
+  hidden position2_0_1 4688.556073597953
+  hidden position_0_2 4687.449219439468
+  hidden position_0_3 4687.449219439411
+  hidden linearVelocity_0 2.1468777730467917e-10 -2.6420863508818353e-13 29.92661248466729
+  hidden angularVelocity_0 -1.8052342911050939e-12 -1.1750965278109393e-11 -3.442744695015868e-11
+  hidden rotation_1 -2.404687392190154e-10 1 -1.8277398586148452e-10 1.2998344419564225
+  hidden linearVelocity_1 1.950417650214799e-10 -6.501951304640338e-13 29.92661248465428
+  hidden angularVelocity_1 80.02340064629948 -0.0002939427913397519 1.4196172743761634e-06
+  hidden rotation_2 -2.3880746752254684e-10 -1 1.8151129679264779e-10 1.2998344419818884
+  hidden linearVelocity_2 1.958411236947169e-10 9.06558076146647e-13 29.926612484647045
+  hidden angularVelocity_2 80.02340064629529 0.0002939423582097156 -1.4206767946551642e-06
+  hidden rotation_3 0 1 0 0.19298028349641205
+  hidden linearVelocity_3 2.2571590556514513e-10 -9.04853371556469e-13 29.926612484671125
+  hidden angularVelocity_3 80.01196023327044 -0.00029390008989699484 1.427984929349471e-06
+  hidden rotation_4 0 -1 0 0.19298028343911497
+  hidden linearVelocity_4 2.2614017670183727e-10 6.886582883030016e-13 29.926612484652615
+  hidden angularVelocity_4 80.01196023322105 0.000293899591879604 -1.4291884287222806e-06
+  translation -3498.1999999990653 0.3110685579257875 -16216.767637227387
+  rotation -1 1.3972569971124726e-09 -8.793654425793804e-10 0.004930510863703277
+  color 0.78183 0.72575 0.12485
+  name "Veh_row2_Lane_2"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.6517855809257266e-10
+  hidden position2_0_0 4609.315118239342
+  hidden position_0_1 3.6333850285201447e-10
+  hidden position2_0_1 4609.315118239354
+  hidden position_0_2 4608.21959261733
+  hidden position_0_3 4608.219592617449
+  hidden linearVelocity_0 2.4183063649752713e-10 -3.074135804553299e-14 29.926613518349598
+  hidden angularVelocity_0 1.2145725833792064e-13 -2.2168454265784904e-12 -5.582760031954735e-11
+  hidden rotation_1 -5.635101159653633e-11 -1 1.8258927904628633e-10 2.542897230474319
+  hidden linearVelocity_1 2.3928696343798396e-10 -1.5710587615605656e-12 29.926613518351648
+  hidden angularVelocity_1 80.02340341033887 -0.0002939421457832223 1.4194967841307053e-06
+  hidden rotation_2 -5.606707112009924e-11 1 -1.8166925142600724e-10 2.5428972304624957
+  hidden linearVelocity_2 2.4120755124796194e-10 1.5382779908977876e-12 29.92661351835019
+  hidden angularVelocity_2 80.02340341033803 0.00029394302339243443 -1.420801769474941e-06
+  hidden rotation_3 0 -1 0 3.6384228524865656
+  hidden linearVelocity_3 2.3916353952928334e-10 -1.5346785839174958e-12 29.92661351833464
+  hidden angularVelocity_3 80.01196299688 -0.000293899460614321 1.4279409369330324e-06
+  hidden rotation_4 0 0.9999999999999999 0 3.638422852367422
+  hidden linearVelocity_4 2.3952466086808536e-10 1.5716259098523002e-12 29.926613518352493
+  hidden angularVelocity_4 80.01196299692758 0.0002939002414308838 -1.4292321605641142e-06
+  translation -3501.7999999992307 0.31106855793386046 -16246.401636097879
+  rotation -1 1.4331283097893147e-09 5.565568752060904e-10 0.004930510858235609
+  color 0.91631 0.38771 0.29493
+  name "Veh_row2_Lane_3"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -3.6530332346380783e-10
+  hidden position2_0_0 4553.834173499537
+  hidden position_0_1 3.633013615877785e-10
+  hidden position2_0_1 4553.834173499514
+  hidden position_0_2 4552.746579614796
+  hidden position_0_3 4552.746579614709
+  hidden linearVelocity_0 -2.0518317266314336e-10 -2.4560641938331193e-15 29.92661385288487
+  hidden angularVelocity_0 1.3707594684842858e-13 -3.639571909125847e-12 -5.7189724462721016e-11
+  hidden rotation_1 2.0100886826470313e-10 1 -1.8265166173190391e-10 4.8080111015168185
+  hidden linearVelocity_1 -2.090484565900625e-10 -1.5259628165363416e-12 29.926613852888224
+  hidden angularVelocity_1 80.02340430487908 -0.0002939422574457182 1.420694800093667e-06
+  hidden rotation_2 1.9990728482185667e-10 -1 1.8165068079388925e-10 4.808011101493172
+  hidden linearVelocity_2 -2.1055870300346302e-10 1.4844658053446317e-12 29.926613852894423
+  hidden angularVelocity_2 80.02340430488269 0.00029394291911139257 -1.4195972829584904e-06
+  hidden rotation_3 0 1 0 3.7204172167756373
+  hidden linearVelocity_3 -2.071794335124997e-10 -1.4740452223286209e-12 29.92661385289
+  hidden angularVelocity_3 80.01196389134927 -0.00029389957134020467 1.429136901149293e-06
+  hidden rotation_4 0 -1 0 3.720417216688326
+  hidden linearVelocity_4 -2.0680405374994273e-10 1.514782766913416e-12 29.926613852884046
+  hidden angularVelocity_4 80.01196389133332 0.0002939001380460275 -1.4280362554704047e-06
+  translation -3505.4000000012543 0.31106855793582655 -16267.150026196572
+  rotation 1 1.6100512827370074e-09 -2.637179308452103e-10 -0.004930510856905464
+  color 0.61673 0.46785 0.25534
+  name "Veh_row2_Lane_4"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -4.003578627234797e-10
+  hidden position2_0_0 4721.785883861846
+  hidden position_0_1 4.00358147989287e-10
+  hidden position2_0_1 4721.785883861856
+  hidden position_0_2 4720.673327449454
+  hidden position_0_3 4720.673327449459
+  hidden linearVelocity_0 -2.8533730843815886e-15 -3.638797622335086e-16 29.991640821199006
+  hidden angularVelocity_0 -7.768069262840021e-17 2.862352660599038e-15 4.125728483615746e-15
+  hidden rotation_1 2.790122830728105e-12 -1 2.0017893136173987e-10 3.1694671372031986
+  hidden linearVelocity_1 -2.1102158304145335e-12 -1.4220139413947302e-15 29.991640821200154
+  hidden angularVelocity_1 80.19728563339531 -0.00029458165724097787 1.4203399305607561e-06
+  hidden rotation_2 2.790124817764563e-12 0.9999999999999999 -2.0017907399464348e-10 3.169467137193194
+  hidden linearVelocity_2 2.1162636984266494e-12 -2.1789595190835396e-15 29.991640821200157
+  hidden angularVelocity_2 80.19728563339531 0.00029458165721309127 -1.4203399479382418e-06
+  hidden rotation_3 0 -0.9999999999999999 0 4.282023549595422
+  hidden linearVelocity_3 2.642443595078487e-13 -2.179962066783006e-15 29.99164082119339
+  hidden angularVelocity_3 80.18582036122739 -0.0002945385536692167 1.431043310772033e-06
+  hidden rotation_4 0 1 0 4.282023549589965
+  hidden linearVelocity_4 -2.763080720848736e-13 1.232328921923767e-15 29.991640821193396
+  hidden angularVelocity_4 80.18582036122739 0.000294538553629561 -1.4310432791522052e-06
+  translation -3494.599999999647 0.3110685675048723 -16174.340926833589
+  rotation -1 1.2611368682385682e-14 -4.55665380589679e-15 0.004930504464888142
+  color 0.839 0.17862 0.22711
+  name "Veh_row3_Lane_1"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -4.0035773110208367e-10
+  hidden position2_0_0 4734.370363600643
+  hidden position_0_1 4.0035790672503804e-10
+  hidden position2_0_1 4734.370363600643
+  hidden position_0_2 4733.256008068899
+  hidden position_0_3 4733.256008068899
+  hidden linearVelocity_0 -3.346979975852072e-15 -4.551333907828825e-16 29.99164082119901
+  hidden angularVelocity_0 -1.0319513285925068e-15 3.83437420454159e-15 1.0810182024043134e-15
+  hidden rotation_1 9.774170281149942e-13 -0.9999999999999999 2.0017886555104183e-10 3.151358012765172
+  hidden linearVelocity_1 -2.109037490582189e-12 8.510014108375693e-16 29.991640821200154
+  hidden angularVelocity_1 80.19728563339532 -0.00029458165725705334 1.4203399302896323e-06
+  hidden rotation_2 9.774174568737088e-13 0.9999999999999999 -2.00178953362519e-10 3.151358012765172
+  hidden linearVelocity_2 2.1181269533535322e-12 1.2314216740802654e-15 29.991640821200157
+  hidden angularVelocity_2 80.19728563339532 0.0002945816571892496 -1.4203399542006558e-06
+  hidden rotation_3 0 -1 0 4.26571354450914
+  hidden linearVelocity_3 2.3753712115274498e-12 8.51391704829856e-16 29.99164082119339
+  hidden angularVelocity_3 80.18582036122739 -0.00029453855386590486 1.4310421345317968e-06
+  hidden rotation_4 0 1 0 4.26571354450914
+  hidden linearVelocity_4 -2.3929951291839167e-12 1.2321430502183589e-15 29.991640821193396
+  hidden angularVelocity_4 80.1858203612274 0.0002945385537956296 -1.4310420835512709e-06
+  translation -3498.2 0.31106856750487255 -16169.634667846598
+  rotation 1 5.847279606258143e-15 8.370054965274568e-14 -0.0049305044648879975
+  color 0.65988 0.47912 0.073447
+  name "Veh_row3_Lane_2"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -4.0029908243434786e-10
+  hidden position2_0_0 4689.910308133795
+  hidden position_0_1 4.00299302773743e-10
+  hidden position2_0_1 4689.910308133795
+  hidden position_0_2 4688.802308760316
+  hidden position_0_3 4688.8023087603215
+  hidden linearVelocity_0 2.7423888477893656e-12 -9.093597321374828e-16 29.991640821199006
+  hidden angularVelocity_0 -1.735376115460612e-15 -2.322113478187438e-16 -2.004182323952891e-16
+  hidden rotation_1 -4.9778695169093635e-11 1 -2.0014954121717396e-10 2.6540689778237856
+  hidden linearVelocity_1 -4.1862279472821576e-12 4.641099450218262e-15 29.991640821200157
+  hidden angularVelocity_1 80.19728563339532 -0.00029458165646969407 1.4203446251411944e-06
+  hidden rotation_2 -4.9778722569125426e-11 -1 2.0014965138687153e-10 2.6540689778237856
+  hidden linearVelocity_2 4.212058809952108e-12 2.7480915971273083e-15 29.991640821200154
+  hidden angularVelocity_2 80.19728563339531 0.00029458165676433555 -1.4203446907060686e-06
+  hidden rotation_3 0 1 0 1.5460696043444975
+  hidden linearVelocity_3 1.3385265388957386e-12 8.51928822388034e-16 29.991640821193396
+  hidden angularVelocity_3 80.1858203612274 -0.0002945385535939946 1.4310426770853454e-06
+  hidden rotation_4 0 -1 0 1.5460696043499547
+  hidden linearVelocity_4 -1.3145239163690297e-12 3.505419345580275e-15 29.991640821193393
+  hidden angularVelocity_4 80.18582036122739 0.00029453855389078947 -1.431042731378709e-06
+  translation -3501.8 0.31106856750487255 -16186.261539989631
+  rotation -1 1.0478003098031255e-13 3.700405843364468e-13 0.004930504464887984
+  color 0.13896 0.11231 0.47778
+  name "Veh_row3_Lane_3"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -4.0035791321879297e-10
+  hidden position2_0_0 4654.788283908707
+  hidden position_0_1 4.003573976910627e-10
+  hidden position2_0_1 4654.788283908707
+  hidden position_0_2 4653.6853056971795
+  hidden position_0_3 4653.6853056971795
+  hidden linearVelocity_0 -5.275321273257342e-15 6.355246890042332e-16 29.991640821199
+  hidden angularVelocity_0 6.43735993605294e-16 -7.362405681989053e-16 -1.106419390367231e-15
+  hidden rotation_1 3.4479398528694107e-10 1 -2.0017895660939649e-10 5.231156595812951
+  hidden linearVelocity_1 -2.116928363155493e-12 -3.695945063777374e-15 29.991640821200146
+  hidden angularVelocity_1 80.19728563339528 -0.0002945816572415082 1.4203399470548493e-06
+  hidden rotation_2 3.447935413070551e-10 -1 2.0017869884553134e-10 5.231156595812951
+  hidden linearVelocity_2 2.103170951075706e-12 -2.836413704783528e-16 29.991640821200146
+  hidden angularVelocity_2 80.19728563339531 0.00029458165721547446 -1.4203399102662865e-06
+  hidden rotation_3 0 1 0 4.128178384285508
+  hidden linearVelocity_3 2.3800994750216978e-12 -2.179383899496317e-15 29.99164082119339
+  hidden angularVelocity_3 80.18582036122737 -0.0002945385538458408 1.4310421196361308e-06
+  hidden rotation_4 0 -1 0 4.128178384285508
+  hidden linearVelocity_4 -2.3881898005782195e-12 -2.557331170780767e-15 29.991640821193386
+  hidden angularVelocity_4 80.18582036122737 0.0002945385538122889 -1.4310420982470858e-06
+  translation -3505.4 0.3110685675048726 -16199.396238092566
+  rotation 1 3.1396161553435656e-14 4.455166989728135e-14 -0.004930504464887934
+  color 0.5403 0.95807 0.58379
+  name "Veh_row3_Lane_4"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.936314198183035e-09
+  hidden position2_0_0 5582.252284556392
+  hidden position_0_1 -7.934645114603466e-09
+  hidden position2_0_1 5582.252284556379
+  hidden position_0_2 5581.171697617362
+  hidden position_0_3 5581.171697617327
+  hidden linearVelocity_0 -9.434408840022837e-11 -7.674163574840251e-07 19.398993525961345
+  hidden angularVelocity_0 -4.218661185561857e-06 -9.784625693188643e-12 2.917420356521753e-11
+  hidden rotation_1 7.176997956858654e-10 0.9999999999999999 3.968157099091517e-09 2.783731780918923
+  hidden linearVelocity_1 -1.377694137019659e-10 7.97856318968367e-07 19.398996656733313
+  hidden angularVelocity_1 51.87276803078462 -0.0001904555861852875 1.3525599610680543e-06
+  hidden rotation_2 7.175488565084192e-10 -1 -3.967322557301733e-09 2.78373178090619
+  hidden linearVelocity_2 -6.999531977977948e-11 7.978540963921486e-07 19.39899665672695
+  hidden angularVelocity_2 51.872768030780904 0.0001904558136960517 -1.3519966591740392e-06
+  hidden rotation_3 0 0.9999999999999999 0 1.703144841889251
+  hidden linearVelocity_3 -1.2379278530109668e-10 -7.973425730740625e-07 19.398993526177875
+  hidden angularVelocity_3 51.86525751459987 -0.00019048926909763557 1.0276856678988084e-06
+  hidden rotation_4 0 -1 0 1.7031448418537805
+  hidden linearVelocity_4 -4.029718289247675e-11 -7.973447926226927e-07 19.398993526161718
+  hidden angularVelocity_4 51.86525751455673 0.00019048949796614508 -1.0272483488492195e-06
+  translation -3494.6000000000467 0.3110562298686945 -15112.492451438275
+  rotation 1 7.87386839225745e-10 -7.322744768186061e-10 -0.004938830274618146
+  color 0.52666 0.92226 0.91926
+  name "Veh_row4_Lane_1"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.782179395764158e-09
+  hidden position2_0_0 5628.612510088338
+  hidden position_0_1 -7.782124055959292e-09
+  hidden position2_0_1 5628.612510088343
+  hidden position_0_2 5627.524406748848
+  hidden position_0_3 5627.524406748857
+  hidden linearVelocity_0 -7.978442652661855e-13 5.187750565074423e-06 19.456280402405337
+  hidden angularVelocity_0 2.8492429365660055e-05 -1.9348508578665786e-12 -2.424687111238201e-13
+  hidden rotation_1 6.195880791811431e-09 -1 -3.891089697882079e-09 1.121525144571243
+  hidden linearVelocity_1 1.773559932243314e-10 -4.941674991035171e-06 19.456259727131265
+  hidden angularVelocity_1 52.02617001938708 -0.00019102061682208112 1.3534644955725192e-06
+  hidden rotation_2 6.195836732355446e-09 1 3.891062027979647e-09 1.1215251445666956
+  hidden linearVelocity_2 -1.759017136890164e-10 -4.941675030445244e-06 19.456259727130035
+  hidden angularVelocity_2 52.02617001938636 0.00019102062673835379 -1.353466863988998e-06
+  hidden rotation_3 0 -1 0 2.2096284840611053
+  hidden linearVelocity_3 8.66965260385342e-11 4.941677477367353e-06 19.4562795626187
+  hidden angularVelocity_3 52.01841386367634 -0.00019105225736160237 1.033847693897824e-06
+  hidden rotation_4 0 1 0 2.20962848405292
+  hidden linearVelocity_4 -8.242351011069603e-11 4.941677444395796e-06 19.456279562615382
+  hidden angularVelocity_4 52.01841386366739 0.00019105226492652187 -1.0338605047703852e-06
+  translation -3498.1999999999134 0.3110167793387536 -15095.155301429679
+  rotation -1 6.562546755851055e-12 1.9483935178011546e-11 0.004965508305508994
+  color 0.25201 0.68263 0.96428
+  name "Veh_row4_Lane_2"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 1.5708686128487908e-09
+  hidden position2_0_0 5373.370736417054
+  hidden position_0_1 -1.5710530340717657e-09
+  hidden position2_0_1 5373.370736417058
+  hidden position_0_2 5372.3270401169275
+  hidden position_0_3 5372.32704011695
+  hidden linearVelocity_0 -4.906002102572805e-12 -0.00016458902895719705 18.56258979194563
+  hidden angularVelocity_0 -0.0013058252181897398 1.1494322068021739e-12 -7.797339588636432e-12
+  hidden rotation_1 -1.0917410584203482e-09 -1 -7.854343064243954e-10 5.03588652867192
+  hidden linearVelocity_1 -7.763830092008836e-09 0.0001946544413567609 18.563613424926235
+  hidden angularVelocity_1 49.66985673546179 -0.00018242740263236742 1.4600500242123984e-06
+  hidden rotation_2 -1.0918692296836468e-09 1 7.855265170358828e-10 5.035886528668282
+  hidden linearVelocity_2 7.75197136037327e-09 0.00019465444215105454 18.563613424926995
+  hidden angularVelocity_2 49.66985673546221 0.0001824273667525188 -1.4600190947532067e-06
+  hidden rotation_3 0 -1 0 6.079582828798531
+  hidden linearVelocity_3 -1.1571783394338675e-08 -0.0001877317864125407 18.562603243733772
+  hidden angularVelocity_3 49.62864861773292 -0.0001822962984873376 1.3681838166869188e-06
+  hidden rotation_4 0 1 0 6.079582828775795
+  hidden linearVelocity_4 1.1551685943805674e-08 -0.0001877317856421257 18.56260324373557
+  hidden angularVelocity_4 49.62864861773764 0.00018229627574680034 -1.3681291981738295e-06
+  translation -3501.8000000000043 0.3071948842445834 -15190.606762501135
+  rotation 1 7.927093593005084e-11 1.0018262422708177e-10 -0.007568912414994095
+  color 0.22696 0.71602 0.79776
+  name "Veh_row4_Lane_3"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 2.3999732226842183e-08
+  hidden position2_0_0 5145.185017593152
+  hidden position_0_1 -2.399973217687177e-08
+  hidden position2_0_1 5145.185017593151
+  hidden position_0_2 5144.397873477357
+  hidden position_0_3 5144.397873477359
+  hidden linearVelocity_0 -2.7267040914690994e-12 -0.00010947501899809188 3.80660084340305
+  hidden angularVelocity_0 -0.0005571828352209923 3.508837161879931e-16 1.0056632458932253e-16
+  hidden rotation_1 -3.0767213308529486e-08 0.9999999999999994 1.1999866113421087e-08 5.539436320250486
+  hidden linearVelocity_1 5.693253595008928e-09 9.779309973509946e-05 3.8069894611332504
+  hidden angularVelocity_1 10.163836411471669 -3.7094061884541404e-05 3.767814171459609e-07
+  hidden rotation_2 -3.0767213244427006e-08 -0.9999999999999993 -1.1999866088435878e-08 5.539436320249576
+  hidden linearVelocity_2 -5.6932491127609435e-09 9.779309973889073e-05 3.806989461133252
+  hidden angularVelocity_2 10.163836411471665 3.709406188840884e-05 -3.767814261494194e-07
+  hidden rotation_3 0 1 0 4.752292204455541
+  hidden linearVelocity_3 5.849195958792386e-09 -9.79366399985779e-05 3.806625549558679
+  hidden angularVelocity_3 10.177638873633173 -3.723875645873706e-05 2.591693186058638e-07
+  hidden rotation_4 0 -1 0 4.75229220445736
+  hidden linearVelocity_4 -5.849193676110759e-09 -9.793663998986517e-05 3.8066255495586794
+  hidden angularVelocity_4 10.177638873633175 3.723875646741786e-05 -2.5916931905669104e-07
+  translation -3505.3999999999996 0.3132139211405104 -15275.858476222336
+  rotation -1 1.1062431765549997e-13 7.509523374566433e-14 0.003485417994363037
+  color 0.93675 0.85372 0.42155
+  name "Veh_row4_Lane_4"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.914936951394081e-09
+  hidden position2_0_0 5588.246628009158
+  hidden position_0_1 -7.914871300027582e-09
+  hidden position2_0_1 5588.246628009172
+  hidden position_0_2 5587.164784523869
+  hidden position_0_3 5587.164784523571
+  hidden linearVelocity_0 -1.436314343193916e-10 -1.6851312848229173e-07 19.426784193745068
+  hidden angularVelocity_0 -9.283415954581166e-07 -9.65275528555761e-13 -7.121812395490647e-14
+  hidden rotation_1 -1.3261989801299594e-09 -1 -3.957468475697041e-09 3.788295380674389
+  hidden linearVelocity_1 -1.5302706041051035e-10 1.9002914541511527e-07 19.4267848923865
+  hidden angularVelocity_1 51.94703061922961 -0.00019072868732192017 1.352841766158506e-06
+  hidden rotation_2 -1.3261879797860113e-09 1 3.957435650013791e-09 3.788295380659837
+  hidden linearVelocity_2 -1.3250301126788836e-10 1.9002875850245283e-07 19.426784892385868
+  hidden angularVelocity_2 51.94703061922923 0.00019072868451480484 -1.3520776808126443e-06
+  hidden rotation_3 0 -1 0 4.870138865963416
+  hidden linearVelocity_3 -1.5587985040093774e-10 -1.8979431805067144e-07 19.42678417239569
+  hidden angularVelocity_3 51.93955934093191 -0.0001907623619686089 1.028396170056009e-06
+  hidden rotation_4 0 1 0 4.870138866260822
+  hidden linearVelocity_4 -1.2763350170601153e-10 -1.897947049672669e-07 19.426784172372503
+  hidden angularVelocity_4 51.93955934087001 0.0001907623525185168 -1.0276397367976349e-06
+  translation -3494.600000009476 0.31106156333063195 -15080.250873227711
+  rotation 1 1.4871760991119679e-09 9.115068726088688e-12 -0.0049352260830041695
+  color 0.0054399 0.034865 0.013905
+  name "Veh_row5_Lane_1"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.881385837237893e-09
+  hidden position2_0_0 5619.414868724352
+  hidden position_0_1 -7.881385689538248e-09
+  hidden position2_0_1 5619.41486872435
+  hidden position_0_2 5618.328149147224
+  hidden position_0_3 5618.328149147225
+  hidden linearVelocity_0 -2.549203205526357e-14 1.352329292695831e-06 19.455572553679048
+  hidden angularVelocity_0 7.425435010038217e-06 4.783996329650736e-16 1.5309264228855606e-15
+  hidden rotation_1 1.8899536432806212e-09 1 3.9406929186189464e-09 2.247204105802035
+  hidden linearVelocity_1 4.790717214070297e-11 -1.3441488439033056e-06 19.455567152423793
+  hidden angularVelocity_1 52.023984351527446 -0.00019101167344337183 1.3526552799490198e-06
+  hidden rotation_2 1.889953607868909e-09 -0.9999999999999999 -3.940692844769124e-09 2.2472041057993066
+  hidden linearVelocity_2 -4.7952311319579804e-11 -1.3441488522384215e-06 19.455567152423793
+  hidden angularVelocity_2 52.02398435152743 0.0001910116731369204 -1.3526551625353377e-06
+  hidden rotation_3 0 1 0 1.160484528674084
+  hidden linearVelocity_3 3.6200635745288136e-11 1.3437102275789359e-06 19.455572394085944
+  hidden angularVelocity_3 52.01652782870765 -0.0001910451395371632 1.029106314989756e-06
+  hidden rotation_4 0 -1 0 1.1604845286749932
+  hidden linearVelocity_4 -3.6250332017240746e-11 1.3437102279551754e-06 19.455572394085944
+  hidden angularVelocity_4 52.016527828707645 0.00019104513923701337 -1.029106179459528e-06
+  translation -3498.1999999999994 0.311062154207461 -15068.59493896747
+  rotation 1 2.5779669975716583e-13 5.741008622873633e-13 -0.004934829977594451
+  color 0.58891 0.38299 0.11482
+  name "Veh_row5_Lane_2"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -1.0967043038731649e-08
+  hidden position2_0_0 5393.490349439119
+  hidden position_0_1 1.0966345563974049e-08
+  hidden position2_0_1 5393.490349439139
+  hidden position_0_2 5392.379677311013
+  hidden position_0_3 5392.379677310934
+  hidden linearVelocity_0 1.3737749633307215e-10 6.023108217732465e-05 22.628990965699398
+  hidden angularVelocity_0 7.644982508865659e-05 -3.5101842565441287e-12 -3.1648446432941676e-11
+  hidden rotation_1 -1.7693396431824114e-09 1 -5.483521519365824e-09 2.5173558790340027
+  hidden linearVelocity_1 -2.1829526975637374e-09 1.6351514335989607e-05 22.62902413886522
+  hidden angularVelocity_1 60.566763704822044 -0.0002225773024811359 1.5538393664943512e-06
+  hidden rotation_2 -1.7692271178281636e-09 -1 5.4831727819870245e-09 2.5173558790540116
+  hidden linearVelocity_2 2.4614435305594433e-09 1.635151538304734e-05 22.62902413885439
+  hidden angularVelocity_2 60.566763704815706 0.0002225777915854863 -1.554587503721973e-06
+  hidden rotation_3 0 0.9999999999999999 0 1.406683750928241
+  hidden linearVelocity_3 -2.0234191847472973e-08 -1.6002258362656265e-05 22.628937248882444
+  hidden angularVelocity_3 60.50005887917337 -0.00022225234546075932 2.0341011063332923e-06
+  hidden rotation_4 0 -1 0 1.406683750849115
+  hidden linearVelocity_4 2.0514029742660886e-08 -1.600225727846485e-05 22.62893724887626
+  hidden angularVelocity_4 60.50005887915673 0.00022225278001613728 -2.034853738871816e-06
+  translation -3501.799999991113 0.303736018515192 -15153.10684537427
+  rotation -1 5.732306359171473e-10 2.4826688636271734e-10 0.009947371602389702
+  color 0.86445 0.82166 0.73749
+  name "Veh_row5_Lane_3"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 5.000543376432701e-09
+  hidden position2_0_0 5102.400128405814
+  hidden position_0_1 -5.0005338116370265e-09
+  hidden position2_0_1 5102.400128405814
+  hidden position_0_2 5101.665163746191
+  hidden position_0_3 5101.665163746265
+  hidden linearVelocity_0 1.3299763602895257e-13 -8.778148370693115e-05 0.5455549585236363
+  hidden angularVelocity_0 -0.0004604301291874538 2.1386325401043555e-12 1.9551775421898927e-12
+  hidden rotation_1 1.0832995710578224e-08 0.9999999999999998 2.50027168821635e-09 0.4536589759898103
+  hidden linearVelocity_1 -9.80167157744423e-11 8.303024612928318e-05 0.5458797961262434
+  hidden angularVelocity_1 1.4533562987661799 -5.289931979840216e-06 3.1143715837961e-08
+  hidden rotation_2 1.0832974989751964e-08 -0.9999999999999998 -2.500266905818513e-09 0.4536589759898103
+  hidden linearVelocity_2 9.844331910582633e-11 8.303024595534405e-05 0.5458797961190981
+  hidden angularVelocity_2 1.453356298762004 5.289935896748255e-06 -3.114208002846906e-08
+  hidden rotation_3 0 -1 0 0.28130568363326314
+  hidden linearVelocity_3 4.253629393612533e-09 -8.31490396963834e-05 0.5455688233441278
+  hidden angularVelocity_3 1.4587240307315996 -5.3134973971601636e-06 3.031808096800988e-08
+  hidden rotation_4 0 1 0 0.2813056835595949
+  hidden linearVelocity_4 -4.255846114017672e-09 -8.314903985516942e-05 0.5455688233477549
+  hidden angularVelocity_4 1.4587240307413651 5.313501439178026e-06 -3.0315566533161016e-08
+  translation -3505.400000000203 0.31192918596554653 -15261.84218626201
+  rotation -1 1.7312372132033796e-10 6.131828799781397e-12 0.004349420221053939
+  color 0.84034 0.40153 0.74862
+  name "Veh_row5_Lane_4"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.909994103776707e-09
+  hidden position2_0_0 5594.389764896301
+  hidden position_0_1 -7.910090943817799e-09
+  hidden position2_0_1 5594.389764896303
+  hidden position_0_2 5593.306838822094
+  hidden position_0_3 5593.306838822114
+  hidden linearVelocity_0 9.918745159345709e-11 -1.216920800275857e-07 19.441289390787862
+  hidden angularVelocity_0 -6.688731489806552e-07 3.418057167228429e-12 4.605818961995714e-12
+  hidden rotation_1 1.6413488676537277e-09 1 3.954997051888354e-09 2.354841506469166
+  hidden linearVelocity_1 1.0057005857662783e-10 1.2337777585974912e-07 19.441289875153135
+  hidden angularVelocity_1 51.98577036189093 -0.00019087085785069924 1.352151551437128e-06
+  hidden rotation_2 1.6413689622652217e-09 -1 -3.955045471908899e-09 2.354841506470985
+  hidden linearVelocity_2 1.0867796900027182e-10 1.2337700165447217e-07 19.441289875155167
+  hidden angularVelocity_2 51.9857703618921 0.00019087121814710976 -1.352713279987544e-06
+  hidden rotation_3 0 1 0 1.2719154322616313
+  hidden linearVelocity_3 9.61784575343072e-11 -1.2329639844189223e-07 19.441289405937752
+  hidden angularVelocity_3 51.978341262742966 -0.00019090463937522913 1.027692830968311e-06
+  hidden rotation_4 0 -1 0 1.2719154322816402
+  hidden linearVelocity_4 1.00296196869805e-10 -1.2329716961929776e-07 19.44128940594282
+  hidden angularVelocity_4 51.97834126275643 0.0001909050105127395 -1.0282172933472832e-06
+  translation -3494.599999999763 0.3110676131644998 -15047.95357825482
+  rotation -1 1.1037404291863488e-09 7.463609164315545e-10 0.004931136876584851
+  color 0.55963 0.61324 0.2981
+  name "Veh_row6_Lane_1"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.905586074934826e-09
+  hidden position2_0_0 5610.068434698646
+  hidden position_0_1 -7.906095502023243e-09
+  hidden position2_0_1 5610.068434698648
+  hidden position_0_2 5608.983208697938
+  hidden position_0_3 5608.983208697955
+  hidden linearVelocity_0 5.379968006616277e-11 1.4503666316215117e-07 19.445302335356494
+  hidden angularVelocity_0 7.979227824669647e-07 2.6154825793721814e-12 6.962177872548982e-12
+  hidden rotation_1 -9.144016302063878e-09 0.9999999999999999 3.952793037467413e-09 5.467140694455205
+  hidden linearVelocity_1 6.437681649273772e-11 -1.544884048592101e-07 19.445301753467213
+  hidden angularVelocity_1 51.99649591870361 -0.0001909106012282912 1.3523174880510124e-06
+  hidden rotation_2 -9.144605532228164e-09 -1 -3.9530477510116214e-09 5.467140694457024
+  hidden linearVelocity_2 5.1482882509208465e-11 -1.5448941894465589e-07 19.44530175346892
+  hidden angularVelocity_2 51.996495918704596 0.00019091034827962633 -1.3526290929131016e-06
+  hidden rotation_3 0 1 0 4.381914693746561
+  hidden linearVelocity_3 5.602133804116632e-11 1.5434860605131183e-07 19.445302327644953
+  hidden angularVelocity_3 51.98907026308056 -0.00019094436401985307 1.0279686991934104e-06
+  hidden rotation_4 0 -1 0 4.381914693763841
+  hidden linearVelocity_4 4.3405138263860295e-11 1.5434760446764148e-07 19.445302327649554
+  hidden angularVelocity_4 51.989070263092955 0.00019094411929243467 -1.0282341216663735e-06
+  translation -3498.1999999999775 0.3110677778502878 -15042.090196380841
+  rotation -1 5.97088157887505e-10 -4.200145310407544e-10 0.004931026347990401
+  color 0.60238 0.42568 0.53854
+  name "Veh_row6_Lane_2"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.911840887649266e-09
+  hidden position2_0_0 5578.537575346426
+  hidden position_0_1 -7.912023765550855e-09
+  hidden position2_0_1 5578.537575346434
+  hidden position_0_2 5577.456669835159
+  hidden position_0_3 5577.456669835239
+  hidden linearVelocity_0 -2.0367847770833532e-11 -4.5319177652307226e-07 19.45899483831396
+  hidden angularVelocity_0 -2.4863276055402544e-06 7.187138843300033e-14 1.0868674253136104e-12
+  hidden rotation_1 7.875558112607591e-09 -1 -3.955920443824633e-09 0.9309774290468811
+  hidden linearVelocity_1 -3.017045052507419e-11 4.2887133190591133e-07 19.45899660442105
+  hidden angularVelocity_1 52.033040424653585 -0.00019104479926232974 1.3524815309794552e-06
+  hidden rotation_2 7.875740151932917e-09 0.9999999999999999 3.9560118827754275e-09 0.9309774290386954
+  hidden linearVelocity_2 -1.297529229541584e-11 4.2887120571451457e-07 19.458996604421177
+  hidden angularVelocity_2 52.03304042465367 0.00019104452668389457 -1.3523663842053326e-06
+  hidden rotation_3 0 -0.9999999999999999 0 2.011882940313673
+  hidden linearVelocity_3 -2.155016778634991e-11 -4.2880352680094457e-07 19.45899495349489
+  hidden angularVelocity_3 52.0256799961151 -0.0001910788500243012 1.0276372504654092e-06
+  hidden rotation_4 0 1 0 2.0118829402336376
+  hidden linearVelocity_4 -2.1949040454160404e-11 -4.288036522386887e-07 19.45899495349521
+  hidden angularVelocity_4 52.02567999611595 0.00019107857993789064 -1.027520208709018e-06
+  translation -3501.800000000531 0.31107790087645826 -15053.881961722855
+  rotation 1 2.245919148017717e-10 5.201442628432597e-10 -0.004924182397277662
+  color 0.48673 0.49989 0.91746
+  name "Veh_row6_Lane_3"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 -0.0007050469429839306
+  hidden position2_0_0 5107.332598842267
+  hidden position_0_1 -0.0007043047461348194
+  hidden position2_0_1 5107.691178102566
+  hidden position_0_2 5041.189268744521
+  hidden position_0_3 5040.56419747429
+  hidden linearVelocity_0 -0.004537104917504908 0.0011738005917376457 0.021232374186187574
+  hidden angularVelocity_0 0.003593717439956722 0.0031977831556135486 0.0062123828713643294
+  hidden rotation_1 0.0007325300815193789 0.9999996695634222 -0.00035252336960833774 5.38612915420833
+  hidden linearVelocity_1 0.0029713602555566736 -0.0003267969357343276 0.016952332200402914
+  hidden angularVelocity_1 0.09599917009145996 0.0022679998910243022 0.020681764199905823
+  hidden rotation_2 -0.0012761986960330813 -0.9999991236525168 -0.0003521520790165089 5.744708223324767
+  hidden linearVelocity_2 0.0018787826445099062 -0.0017093962084121406 0.02269490926003432
+  hidden angularVelocity_2 0.09942325587744823 0.002240711659417371 0.02109221935663038
+  hidden rotation_3 0 1 0 2.0746523864922777
+  hidden linearVelocity_3 -0.00851002504964916 0.0016909027239440434 0.01793288840539221
+  hidden angularVelocity_3 0.0494566850142676 0.002800059304268951 0.013066756080600123
+  hidden rotation_4 0 -1 0 1.4495811162619132
+  hidden linearVelocity_4 -0.00916216012621302 0.0003230497028380307 0.02303898323662813
+  hidden angularVelocity_4 0.06305414214900919 0.0026810933340524127 0.015164033485407891
+  translation -3505.384934012543 0.3030951539211095 -15254.588842858595
+  rotation 0.04181325639464826 0.9972202737108775 0.0616715273823972 -0.15211933532744132
+  color 0.26288 0.049698 0.46269
+  name "Veh_row6_Lane_4"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.908412456552584e-09
+  hidden position2_0_0 3167.3079099967335
+  hidden position_0_1 -7.908302079927e-09
+  hidden position2_0_1 3167.307909996733
+  hidden position_0_2 3166.571964734674
+  hidden position_0_3 3166.5719647346345
+  hidden linearVelocity_0 -1.504819237605178e-13 -3.632594503160708e-16 19.44223244805043
+  hidden angularVelocity_0 4.7491311129024e-16 5.802021771601437e-13 5.228597221640568e-13
+  hidden rotation_1 1.3190233677946884e-08 0.9999999999999999 3.954206228276292e-09 0.5825151782219583
+  hidden linearVelocity_1 -6.889404160774482e-14 1.5632912283492115e-14 19.44223244806744
+  hidden angularVelocity_1 51.988294948050715 -0.00019088031576600974 1.352485274670381e-06
+  hidden rotation_2 1.3190049583679446e-08 -0.9999999999999998 -3.9541510399634995e-09 0.5825151782215029
+  hidden linearVelocity_2 2.37636340195303e-12 -1.3170629737714253e-14 19.442232448067795
+  hidden angularVelocity_2 51.988294948050914 0.00019088033689144092 -1.352492395468112e-06
+  hidden rotation_3 0 -1 0 0.15343008383747198
+  hidden linearVelocity_3 2.296790133353489e-12 1.3359589709976904e-14 19.442232448060963
+  hidden angularVelocity_3 51.9808625275278 -0.00019091408152762762 1.028050086413687e-06
+  hidden rotation_4 0 1 0 0.1534300838770368
+  hidden linearVelocity_4 9.610651149563414e-13 -1.2033587028962736e-14 19.442232448061866
+  hidden angularVelocity_4 51.980862527530206 0.00019091409958417498 -1.0280584135096665e-06
+  translation -3494.6 0.3110670154980966 -15015.617307175207
+  rotation -0.9999999999999999 2.4636664254293707e-11 4.376535882380458e-11 0.004931541182529771
+  color 0.40822 0.48704 0.070516
+  name "Veh_row7_Lane_1"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.908412456552584e-09
+  hidden position2_0_0 3167.3079099967335
+  hidden position_0_1 -7.908302079927e-09
+  hidden position2_0_1 3167.307909996733
+  hidden position_0_2 3166.571964734674
+  hidden position_0_3 3166.5719647346345
+  hidden linearVelocity_0 -1.504819237605178e-13 -3.632594503160708e-16 19.44223244805043
+  hidden angularVelocity_0 4.7491311129024e-16 5.802021771601437e-13 5.228597221640568e-13
+  hidden rotation_1 1.3190233677946884e-08 0.9999999999999999 3.954206228276292e-09 0.5825151782219583
+  hidden linearVelocity_1 -6.889404160774482e-14 1.5632912283492115e-14 19.44223244806744
+  hidden angularVelocity_1 51.988294948050715 -0.00019088031576600974 1.352485274670381e-06
+  hidden rotation_2 1.3190049583679446e-08 -0.9999999999999998 -3.9541510399634995e-09 0.5825151782215029
+  hidden linearVelocity_2 2.37636340195303e-12 -1.3170629737714253e-14 19.442232448067795
+  hidden angularVelocity_2 51.988294948050914 0.00019088033689144092 -1.352492395468112e-06
+  hidden rotation_3 0 -1 0 0.15343008383747198
+  hidden linearVelocity_3 2.296790133353489e-12 1.3359589709976904e-14 19.442232448060963
+  hidden angularVelocity_3 51.9808625275278 -0.00019091408152762762 1.028050086413687e-06
+  hidden rotation_4 0 1 0 0.1534300838770368
+  hidden linearVelocity_4 9.610651149563414e-13 -1.2033587028962736e-14 19.442232448061866
+  hidden angularVelocity_4 51.980862527530206 0.00019091409958417498 -1.0280584135096665e-06
+  translation -3498.2 0.3110670154980966 -15015.617307175207
+  rotation -0.9999999999999999 2.4636664254293707e-11 4.376535882380458e-11 0.004931541182529771
+  color 0.58211 0.98702 0.20909
+  name "Veh_row7_Lane_2"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.908412456552584e-09
+  hidden position2_0_0 3167.3079099967335
+  hidden position_0_1 -7.908302079927e-09
+  hidden position2_0_1 3167.307909996733
+  hidden position_0_2 3166.571964734674
+  hidden position_0_3 3166.5719647346345
+  hidden linearVelocity_0 -1.504819237605178e-13 -3.632594503160708e-16 19.44223244805043
+  hidden angularVelocity_0 4.7491311129024e-16 5.802021771601437e-13 5.228597221640568e-13
+  hidden rotation_1 1.3190233677946884e-08 0.9999999999999999 3.954206228276292e-09 0.5825151782219583
+  hidden linearVelocity_1 -6.889404160774482e-14 1.5632912283492115e-14 19.44223244806744
+  hidden angularVelocity_1 51.988294948050715 -0.00019088031576600974 1.352485274670381e-06
+  hidden rotation_2 1.3190049583679446e-08 -0.9999999999999998 -3.9541510399634995e-09 0.5825151782215029
+  hidden linearVelocity_2 2.37636340195303e-12 -1.3170629737714253e-14 19.442232448067795
+  hidden angularVelocity_2 51.988294948050914 0.00019088033689144092 -1.352492395468112e-06
+  hidden rotation_3 0 -1 0 0.15343008383747198
+  hidden linearVelocity_3 2.296790133353489e-12 1.3359589709976904e-14 19.442232448060963
+  hidden angularVelocity_3 51.9808625275278 -0.00019091408152762762 1.028050086413687e-06
+  hidden rotation_4 0 1 0 0.1534300838770368
+  hidden linearVelocity_4 9.610651149563414e-13 -1.2033587028962736e-14 19.442232448061866
+  hidden angularVelocity_4 51.980862527530206 0.00019091409958417498 -1.0280584135096665e-06
+  translation -3501.8 0.3110670154980966 -15015.617307175207
+  rotation -0.9999999999999999 2.4636664254293707e-11 4.376535882380458e-11 0.004931541182529771
+  color 0.21238 0.96114 0.70695
+  name "Veh_row7_Lane_3"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 7.908412456552584e-09
+  hidden position2_0_0 3167.3079099967335
+  hidden position_0_1 -7.908302079927e-09
+  hidden position2_0_1 3167.307909996733
+  hidden position_0_2 3166.571964734674
+  hidden position_0_3 3166.5719647346345
+  hidden linearVelocity_0 -1.504819237605178e-13 -3.632594503160708e-16 19.44223244805043
+  hidden angularVelocity_0 4.7491311129024e-16 5.802021771601437e-13 5.228597221640568e-13
+  hidden rotation_1 1.3190233677946884e-08 0.9999999999999999 3.954206228276292e-09 0.5825151782219583
+  hidden linearVelocity_1 -6.889404160774482e-14 1.5632912283492115e-14 19.44223244806744
+  hidden angularVelocity_1 51.988294948050715 -0.00019088031576600974 1.352485274670381e-06
+  hidden rotation_2 1.3190049583679446e-08 -0.9999999999999998 -3.9541510399634995e-09 0.5825151782215029
+  hidden linearVelocity_2 2.37636340195303e-12 -1.3170629737714253e-14 19.442232448067795
+  hidden angularVelocity_2 51.988294948050914 0.00019088033689144092 -1.352492395468112e-06
+  hidden rotation_3 0 -1 0 0.15343008383747198
+  hidden linearVelocity_3 2.296790133353489e-12 1.3359589709976904e-14 19.442232448060963
+  hidden angularVelocity_3 51.9808625275278 -0.00019091408152762762 1.028050086413687e-06
+  hidden rotation_4 0 1 0 0.1534300838770368
+  hidden linearVelocity_4 9.610651149563414e-13 -1.2033587028962736e-14 19.442232448061866
+  hidden angularVelocity_4 51.980862527530206 0.00019091409958417498 -1.0280584135096665e-06
+  translation -3505.4 0.3110670154980966 -15015.617307175207
+  rotation -0.9999999999999999 2.4636664254293707e-11 4.376535882380458e-11 0.004931541182529771
+  color 0.59297 0.38085 0.63874
+  name "Veh_row7_Lane_4"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  hidden position_0_0 1.9428359537027617e-10
+  hidden position2_0_0 3.1870037921979685e-06
+  hidden position_0_1 -1.9428377144064582e-10
+  hidden position2_0_1 3.1870037919446467e-06
+  hidden position_0_2 0.001423081642427677
+  hidden position_0_3 0.0014230816424384862
+  hidden linearVelocity_0 -2.2910912918019406e-15 -7.101606965243344e-05 6.284001148355741e-06
+  hidden angularVelocity_0 1.1025896415586127e-05 2.0208884268942888e-16 1.397533147242072e-15
+  hidden rotation_1 6.096120609731559e-05 0.9999999981418657 9.714179750463558e-11 3.187037559818331e-06
+  hidden linearVelocity_1 -2.371933238903916e-10 -8.054086938405582e-05 5.1045923645777e-06
+  hidden angularVelocity_1 1.1603837292790123e-05 2.97699275746229e-13 -9.978120683559448e-11
+  hidden rotation_2 6.096126134852423e-05 -0.9999999981418622 -9.714188553981991e-11 3.187037559818331e-06
+  hidden linearVelocity_2 2.3718941370024466e-10 -8.054086937458396e-05 5.10459236468741e-06
+  hidden angularVelocity_2 1.1603837292861047e-05 -2.988423629244312e-13 9.97894599328738e-11
+  hidden rotation_3 0 1 0 0.0014230816425814996
+  hidden linearVelocity_3 -3.4816756721789917e-10 -9.946767219332652e-05 6.757653992163153e-06
+  hidden angularVelocity_3 1.8092931962682668e-05 -2.3087265223631502e-11 -6.958508854679356e-11
+  hidden rotation_4 0 -1 0 0.0014230816425814996
+  hidden linearVelocity_4 3.481619785182503e-10 -9.946767219181363e-05 6.7576539924598174e-06
+  hidden angularVelocity_4 1.8092931963460884e-05 2.3087655743940586e-11 6.959923670714504e-11
+  translation -3505.4 0.3110876294913938 -13100.001046926773
+  rotation -1 2.25207895410934e-13 3.219289052839655e-14 0.004930894911295931
+  color 0.50243 0.089793 0.29717
+  name "Broken_TakeOver"
+  controller "auto_broken"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+DEF TL_onrmp0 GenericTrafficLight {
+  translation -3492.4 -5 -17000
+  name "imaginary trafficlight0"
+  state "green"
+  controller "traffic_light_green"
+  controllerArgs "0.1 2000 g"
+}
+DEF TL_onrmp1 GenericTrafficLight {
+  translation -3503.8058 -5 -11181.3117
+  name "imaginary trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_onrmp2 GenericTrafficLight {
+  translation -3515.2116 -5 -5362.6234
+  name "imaginary trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_StnGo0 GenericTrafficLight {
+  translation -3500 -4.87 -16200
+  name "imaginary trafficlight0"
+  state "green"
+  controller "traffic_light_green"
+  controllerArgs "0.1 2000 g"
+}
+DEF TL_img_StnGo1 GenericTrafficLight {
+  translation -3511.4058 -4.87 -10381.3117
+  name "imaginary trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_StnGo2 GenericTrafficLight {
+  translation -3522.8116 -4.87 -4562.6234
+  name "imaginary trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_takeOver0 GenericTrafficLight {
+  translation -3500 -4.87 -13100
+  name "imaginary trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_takeOver1 GenericTrafficLight {
+  translation -3511.4058 -4.87 -7281.3117
+  name "imaginary trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_takeOver2 GenericTrafficLight {
+  translation -3522.8116 -4.87 -1462.6234
+  name "imaginary trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF RR1 Solid {
+  translation -3500 0.13 -18000
+  rotation 0 1 0 -1.5708
+  children [
+    DEF RR1_Sec0_Onramp_1 StraightRoadSegment {
+      translation -59.1841 0 -53.5892
+      rotation 0 1 0 1.5308
+      name "RR1_Sec0_Onramp_1"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec0_Onramp_2 CurvedRoadSegment {
+      translation 1000 0 -1512.4
+      rotation 0 1 0 -1.5708
+      name "RR1_Sec0_Onramp_2"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec1_StartCAVs StraightRoadSegment {
+      rotation 0 1 0 1.5708
+      name "RR1_Sec1_StartCAVs"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec2_Merge_1 LaneSeparation {
+      translation 1200 0 -7.2
+      rotation 0 1 0 -1.5708
+      name "RR1_Sec2_Merge_1"
+      width 21.6
+      length 200.5
+      numberOfLanes 6
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec3_Merge_2 AddLanesRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 -1.5708
+      name "RR1_Sec3_Merge_2"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4a_StopAndGo StraightRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4a_StopAndGo"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 2000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4_HumanDriven StraightRoadSegment {
+      translation 3600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4_HumanDriven"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec5_Autodriving StraightRoadSegment {
+      translation 4100 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec5_Autodriving"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec6_TakeOver StraightRoadSegment {
+      translation 4600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec6_TakeOver"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec7_Diverge_1 AddLanesRoadSegment {
+      translation 5100 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec7_Diverge_1"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec7_Diverge_2 LaneSeparation {
+      translation 5500 0 -7.2
+      rotation 0 1 0 1.5708
+      name "RR1_Sec7_Diverge_2"
+      width 21.6
+      length 100.5
+      numberOfLanes 6
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      translation 5600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec9_End"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 100.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec10_Curve CurvedRoadSegment {
+      translation 5600 0 -1512.4
+      rotation 0 1 0 -1.4708
+      name "RR_1_Sec10_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec11_Curve CurvedRoadSegment {
+      translation 5899.2002 0 1472.6125
+      rotation 0 1 0 1.6707
+      name "RR_1_Sec11_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec12_straight StraightRoadSegment {
+      translation 5899.2002 0 -27.3875
+      rotation 0 1 0 1.5708
+      name "RR_1_Sec12_straight"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 200
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec12_Curve CurvedRoadSegment {
+      translation 6099.2002 0 1472.6125
+      rotation 0 1 0 1.5708
+      name "RR_1_Sec12_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(4)"
+}
+DEF RR2 Solid {
+  translation -3511.4058 0.13 -12181.3117
+  rotation 0 1 0 -1.5708
+  children [
+    DEF RR2_Sec0_Onramp_1 StraightRoadSegment {
+      translation 340.4959 0 -37.5934
+      rotation 0 1 0 1.5308
+      name "RR2_Sec0_Onramp_1"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 600.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec0_Onramp_2 CurvedRoadSegment {
+      translation 1000 0 -1512.4
+      rotation 0 1 0 -1.5708
+      name "RR2_Sec0_Onramp_2"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec1_StartCAVs StraightRoadSegment {
+      rotation 0 1 0 1.5708
+      name "RR2_Sec1_StartCAVs"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec2_Merge_1 LaneSeparation {
+      translation 1200 0 -7.2
+      rotation 0 1 0 -1.5708
+      name "RR2_Sec2_Merge_1"
+      width 21.6
+      length 200.5
+      numberOfLanes 6
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec3_Merge_2 AddLanesRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 -1.5708
+      name "RR2_Sec3_Merge_2"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4a_StopAndGo StraightRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4a_StopAndGo"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 2000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec4_HumanDriven StraightRoadSegment {
+      translation 3600 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec4_HumanDriven"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec5_Autodriving StraightRoadSegment {
+      translation 4100 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec5_Autodriving"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec6_TakeOver StraightRoadSegment {
+      translation 4600 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec6_TakeOver"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec7_Diverge_1 AddLanesRoadSegment {
+      translation 5100 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec7_Diverge_1"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec7_Diverge_2 LaneSeparation {
+      translation 5500 0 -7.2
+      rotation 0 1 0 1.5708
+      name "RR2_Sec7_Diverge_2"
+      width 21.6
+      length 100.5
+      numberOfLanes 6
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      translation 5600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec9_End"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 100.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec10_Curve CurvedRoadSegment {
+      translation 5600 0 -1512.4
+      rotation 0 1 0 -1.4708
+      name "RR_2_Sec10_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec11_Curve CurvedRoadSegment {
+      translation 5899.2002 0 1472.6125
+      rotation 0 1 0 1.6707
+      name "RR_2_Sec11_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec12_straight StraightRoadSegment {
+      translation 5899.2002 0 -27.3875
+      rotation 0 1 0 1.5708
+      name "RR_2_Sec12_straight"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 200
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec12_Curve CurvedRoadSegment {
+      translation 6099.2002 0 1472.6125
+      rotation 0 1 0 1.5708
+      name "RR_2_Sec12_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(4)"
+}
+DEF RR3 Solid {
+  translation -3522.8116 0.13 -6362.6234
+  rotation 0 1 0 -1.5708
+  children [
+    DEF RR3_Sec0_Onramp_1 StraightRoadSegment {
+      translation 340.4959 0 -37.5934
+      rotation 0 1 0 1.5308
+      name "RR3_Sec0_Onramp_1"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 600.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec0_Onramp_2 CurvedRoadSegment {
+      translation 1000 0 -1512.4
+      rotation 0 1 0 -1.5708
+      name "RR3_Sec0_Onramp_2"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec1_StartCAVs StraightRoadSegment {
+      rotation 0 1 0 1.5708
+      name "RR3_Sec1_StartCAVs"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec2_Merge_1 LaneSeparation {
+      translation 1200 0 -7.2
+      rotation 0 1 0 -1.5708
+      name "RR3_Sec2_Merge_1"
+      width 21.6
+      length 200.5
+      numberOfLanes 6
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec3_Merge_2 AddLanesRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 -1.5708
+      name "RR3_Sec3_Merge_2"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4a_StopAndGo StraightRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4a_StopAndGo"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 2000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec4_HumanDriven StraightRoadSegment {
+      translation 3600 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec4_HumanDriven"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec5_Autodriving StraightRoadSegment {
+      translation 4100 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec5_Autodriving"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec6_TakeOver StraightRoadSegment {
+      translation 4600 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec6_TakeOver"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec7_Diverge_1 AddLanesRoadSegment {
+      translation 5100 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec7_Diverge_1"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec7_Diverge_2 LaneSeparation {
+      translation 5500 0 -7.2
+      rotation 0 1 0 1.5708
+      name "RR3_Sec7_Diverge_2"
+      width 21.6
+      length 100.5
+      numberOfLanes 6
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      translation 5600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec9_End"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 100.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec10_Curve CurvedRoadSegment {
+      translation 5600 0 -1512.4
+      rotation 0 1 0 -1.4708
+      name "RR_3_Sec10_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec11_Curve CurvedRoadSegment {
+      translation 5899.2002 0 1472.6125
+      rotation 0 1 0 1.6707
+      name "RR_3_Sec11_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec12_straight StraightRoadSegment {
+      translation 5899.2002 0 -27.3875
+      rotation 0 1 0 1.5708
+      name "RR_3_Sec12_straight"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 200
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec12_Curve CurvedRoadSegment {
+      translation 6099.2002 0 1472.6125
+      rotation 0 1 0 1.5708
+      name "RR_3_Sec12_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -18000
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17997.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17995
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17992.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17990
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17987.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17985
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17982.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17980
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17977.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17975
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17972.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17970
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17967.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17965
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17962.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17960
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17957.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17955
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17952.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17950
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17947.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17945
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17942.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17940
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17937.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17935
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17932.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17930
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17927.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17925
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17922.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17920
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17917.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17915
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17912.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17910
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17907.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17905
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17902.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17900
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17897.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17895
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17892.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17890
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17887.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17885
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17882.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17880
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17877.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17875
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17872.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17870
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17867.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17865
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17862.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17860
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17857.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17855
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17852.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17850
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17847.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17845
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17842.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17840
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17837.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17835
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17832.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17830
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17827.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17825
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17822.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17820
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17817.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17815
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17812.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17810
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17807.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17805
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17802.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17800
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17797.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17795
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17792.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17790
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17787.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17785
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17782.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17780
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17777.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17775
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17772.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17770
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17767.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17765
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17762.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17760
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17757.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17755
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17752.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17750
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17747.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17745
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17742.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17740
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17737.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17735
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17732.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17730
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17727.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17725
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17722.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17720
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17717.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17715
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17712.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17710
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17707.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17705
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17702.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17700
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17697.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17695
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17692.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17690
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17687.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17685
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17682.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17680
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17677.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17675
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17672.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17670
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17667.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17665
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17662.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17660
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17657.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17655
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17652.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17650
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17647.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17645
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17642.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17640
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17637.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17635
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17632.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17630
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17627.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17625
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17622.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17620
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17617.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17615
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17612.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17610
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17607.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17605
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17602.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17600
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17597.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17595
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17592.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17590
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17587.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17585
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17582.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17580
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17577.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17575
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17572.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17570
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17567.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17565
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17562.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17560
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17557.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17555
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17552.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17550
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17547.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17545
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17542.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17540
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17537.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17535
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17532.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17530
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17527.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17525
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17522.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17520
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17517.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17515
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17512.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17510
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17507.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17505
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17502.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17500
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17497.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17495
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17492.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17490
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17487.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17485
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17482.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17480
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17477.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17475
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17472.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17470
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17467.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17465
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17462.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17460
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17457.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17455
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17452.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17450
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17447.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17445
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17442.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17440
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17437.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17435
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17432.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17430
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17427.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17425
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17422.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17420
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17417.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17415
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17412.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17410
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17407.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17405
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17402.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17400
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17397.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17395
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17392.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17390
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17387.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17385
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17382.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17380
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17377.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17375
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17372.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17370
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17367.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17365
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17362.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17360
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17357.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17355
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17352.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17350
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17347.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17345
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17342.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17340
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17337.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17335
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17332.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17330
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17327.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17325
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17322.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17320
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17317.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17315
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17312.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17310
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17307.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17305
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17302.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17300
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17297.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17295
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17292.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17290
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17287.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17285
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17282.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17280
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17277.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17275
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17272.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17270
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17267.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17265
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17262.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17260
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17257.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17255
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17252.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17250
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17247.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17245
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17242.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17240
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17237.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17235
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17232.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17230
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17227.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17225
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17222.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17220
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17217.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17215
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17212.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17210
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17207.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17205
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17202.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17200
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17197.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17195
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17192.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17190
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17187.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17185
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17182.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17180
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17177.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17175
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17172.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17170
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17167.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17165
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17162.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17160
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17157.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17155
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17152.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17150
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17147.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17145
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17142.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17140
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17137.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17135
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17132.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17130
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17127.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17125
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17122.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17120
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17117.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17115
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17112.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17110
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17107.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17105
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17102.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3510 0.13 -16400
+  name "tree(RR_1_1_1)"
+}
+Forest {
+  translation -3527.5 0.13 -16400
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16400
+  name "tree(RR_1_1_2)"
+}
+Forest {
+  translation -3477.5 0.13 -16275
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -16275
+  name "tree(RR_1_2_1)"
+}
+Forest {
+  translation -3527.5 0.13 -16150
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16275
+  name "tree(RR_1_2_2)"
+}
+Forest {
+  translation -3477.5 0.13 -16025
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -16150
+  name "tree(RR_1_3_1)"
+}
+Forest {
+  translation -3527.5 0.13 -15900
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16150
+  name "tree(RR_1_3_2)"
+}
+Forest {
+  translation -3477.5 0.13 -15775
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -16025
+  name "tree(RR_1_4_1)"
+}
+Forest {
+  translation -3527.5 0.13 -15650
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16025
+  name "tree(RR_1_4_2)"
+}
+Forest {
+  translation -3477.5 0.13 -15525
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -15900
+  name "tree(RR_1_5_1)"
+}
+Forest {
+  translation -3527.5 0.13 -15400
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -15900
+  name "tree(RR_1_5_2)"
+}
+Forest {
+  translation -3477.5 0.13 -15275
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+ResidentialBuilding {
+  translation -3530 0.13 -15150
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_6)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -15025
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_12)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14900
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_7)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14775
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_14)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14650
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_8)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14525
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_16)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14400
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_9)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14275
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_18)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14150
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_10)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14025
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_20)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13900
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_11)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13775
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_22)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13650
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_12)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13525
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_24)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13400
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_13)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13275
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_26)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13150
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_14)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13025
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_28)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -12900
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_15)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -12775
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_30)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -12650
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_16)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -12525
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_32)"
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10581.3117
+  name "tree(RR_2_1_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -10581.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10581.3117
+  name "tree(RR_2_1_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -10456.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10456.3117
+  name "tree(RR_2_2_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -10331.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10456.3117
+  name "tree(RR_2_2_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -10206.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10331.3117
+  name "tree(RR_2_3_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -10081.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10331.3117
+  name "tree(RR_2_3_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -9956.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10206.3117
+  name "tree(RR_2_4_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -9831.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10206.3117
+  name "tree(RR_2_4_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -9706.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10081.3117
+  name "tree(RR_2_5_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -9581.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10081.3117
+  name "tree(RR_2_5_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -9456.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -9331.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_6)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -9206.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_12)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -9081.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_7)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8956.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_14)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -8831.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_8)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8706.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_16)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -8581.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_9)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8456.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_18)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -8331.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_10)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8206.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_20)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -8081.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_11)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7956.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_22)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7831.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_12)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7706.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_24)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7581.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_13)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7456.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_26)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7331.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_14)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7206.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_28)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7081.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_15)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -6956.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_30)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -6831.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_16)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -6706.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_32)"
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4762.6234
+  name "tree(RR_3_1_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4762.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4762.6234
+  name "tree(RR_3_1_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -4637.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4637.6234
+  name "tree(RR_3_2_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4512.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4637.6234
+  name "tree(RR_3_2_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -4387.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4512.6234
+  name "tree(RR_3_3_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4262.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4512.6234
+  name "tree(RR_3_3_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -4137.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4387.6234
+  name "tree(RR_3_4_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4012.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4387.6234
+  name "tree(RR_3_4_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -3887.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4262.6234
+  name "tree(RR_3_5_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -3762.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4262.6234
+  name "tree(RR_3_5_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -3637.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -3512.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_6)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -3387.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_12)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -3262.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_7)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -3137.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_14)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -3012.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_8)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -2887.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_16)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -2762.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_9)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -2637.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_18)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -2512.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_10)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -2387.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_20)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -2262.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_11)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -2137.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_22)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -2012.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_12)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1887.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_24)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1762.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_13)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1637.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_26)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1512.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_14)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1387.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_28)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1262.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_15)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1137.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_30)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1012.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_16)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -887.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_32)"
+}

@@ -1,0 +1,4024 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 50
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.004897817231432429 0.9952015115897522 0.09772391066591474 3.070387216768542
+  position -3457.5375485280892 29.17559326289473 -17739.510950083997
+  near 1
+  follow "veh-driver"
+  followOrientation TRUE
+  followSmoothness 0
+}
+TexturedBackground {
+  texture "noon_building_overcast"
+}
+TexturedBackgroundLight {
+  texture "noon_cloudy_empty"
+}
+DEF GROUND Solid {
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "textures/ground_grass.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 500 500
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 10000 50000
+      }
+      castShadows FALSE
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+DEF RR1 Solid {
+  translation -3500 0.13 -18000
+  rotation 0 1 0 -1.5708
+  children [
+    DEF RR1_Sec0_Onramp_1 StraightRoadSegment {
+      translation 340.4959 0 -37.5934
+      rotation 0 1 0 1.5308
+      name "RR1_Sec0_Onramp_1"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 600.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec0_Onramp_2 CurvedRoadSegment {
+      translation 1000 0 -1512.4
+      rotation 0 1 0 -1.5708
+      name "RR1_Sec0_Onramp_2"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec1_StartCAVs StraightRoadSegment {
+      rotation 0 1 0 1.5708
+      name "RR1_Sec1_StartCAVs"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec2_Merge_1 LaneSeparation {
+      translation 1200 0 -7.2
+      rotation 0 1 0 -1.5708
+      name "RR1_Sec2_Merge_1"
+      width 21.6
+      length 200.5
+      numberOfLanes 6
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec3_Merge_2 AddLanesRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 -1.5708
+      name "RR1_Sec3_Merge_2"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4a_StopAndGo StraightRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4a_StopAndGo"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 2000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4_HumanDriven StraightRoadSegment {
+      translation 3600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4_HumanDriven"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec5_Autodriving StraightRoadSegment {
+      translation 4100 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec5_Autodriving"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec6_TakeOver StraightRoadSegment {
+      translation 4600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec6_TakeOver"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec7_Diverge_1 AddLanesRoadSegment {
+      translation 5100 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec7_Diverge_1"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec7_Diverge_2 LaneSeparation {
+      translation 5500 0 -7.2
+      rotation 0 1 0 1.5708
+      name "RR1_Sec7_Diverge_2"
+      width 21.6
+      length 100.5
+      numberOfLanes 6
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      translation 5600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec9_End"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 100.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec10_Curve CurvedRoadSegment {
+      translation 5600 0 -1512.4
+      rotation 0 1 0 -1.4708
+      name "RR_1_Sec10_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec11_Curve CurvedRoadSegment {
+      translation 5899.2002 0 1472.6125
+      rotation 0 1 0 1.6707
+      name "RR_1_Sec11_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec12_straight StraightRoadSegment {
+      translation 5899.2002 0 -27.3875
+      rotation 0 1 0 1.5708
+      name "RR_1_Sec12_straight"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 200
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_1_Sec12_Curve CurvedRoadSegment {
+      translation 6099.2002 0 1472.6125
+      rotation 0 1 0 1.5708
+      name "RR_1_Sec12_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(4)"
+}
+DEF RR2 Solid {
+  translation -3511.4058 0.13 -12181.3117
+  rotation 0 1 0 -1.5708
+  children [
+    DEF RR2_Sec0_Onramp_1 StraightRoadSegment {
+      translation 340.4959 0 -37.5934
+      rotation 0 1 0 1.5308
+      name "RR2_Sec0_Onramp_1"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 600.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec0_Onramp_2 CurvedRoadSegment {
+      translation 1000 0 -1512.4
+      rotation 0 1 0 -1.5708
+      name "RR2_Sec0_Onramp_2"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec1_StartCAVs StraightRoadSegment {
+      rotation 0 1 0 1.5708
+      name "RR2_Sec1_StartCAVs"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec2_Merge_1 LaneSeparation {
+      translation 1200 0 -7.2
+      rotation 0 1 0 -1.5708
+      name "RR2_Sec2_Merge_1"
+      width 21.6
+      length 200.5
+      numberOfLanes 6
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec3_Merge_2 AddLanesRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 -1.5708
+      name "RR2_Sec3_Merge_2"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4a_StopAndGo StraightRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4a_StopAndGo"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 2000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec4_HumanDriven StraightRoadSegment {
+      translation 3600 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec4_HumanDriven"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec5_Autodriving StraightRoadSegment {
+      translation 4100 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec5_Autodriving"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec6_TakeOver StraightRoadSegment {
+      translation 4600 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec6_TakeOver"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec7_Diverge_1 AddLanesRoadSegment {
+      translation 5100 0 0
+      rotation 0 1 0 1.5708
+      name "RR2_Sec7_Diverge_1"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR2_Sec7_Diverge_2 LaneSeparation {
+      translation 5500 0 -7.2
+      rotation 0 1 0 1.5708
+      name "RR2_Sec7_Diverge_2"
+      width 21.6
+      length 100.5
+      numberOfLanes 6
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      translation 5600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec9_End"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 100.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec10_Curve CurvedRoadSegment {
+      translation 5600 0 -1512.4
+      rotation 0 1 0 -1.4708
+      name "RR_2_Sec10_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec11_Curve CurvedRoadSegment {
+      translation 5899.2002 0 1472.6125
+      rotation 0 1 0 1.6707
+      name "RR_2_Sec11_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec12_straight StraightRoadSegment {
+      translation 5899.2002 0 -27.3875
+      rotation 0 1 0 1.5708
+      name "RR_2_Sec12_straight"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 200
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_2_Sec12_Curve CurvedRoadSegment {
+      translation 6099.2002 0 1472.6125
+      rotation 0 1 0 1.5708
+      name "RR_2_Sec12_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(4)"
+}
+DEF RR3 Solid {
+  translation -3522.8116 0.13 -6362.6234
+  rotation 0 1 0 -1.5708
+  children [
+    DEF RR3_Sec0_Onramp_1 StraightRoadSegment {
+      translation 340.4959 0 -37.5934
+      rotation 0 1 0 1.5308
+      name "RR3_Sec0_Onramp_1"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 600.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec0_Onramp_2 CurvedRoadSegment {
+      translation 1000 0 -1512.4
+      rotation 0 1 0 -1.5708
+      name "RR3_Sec0_Onramp_2"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec1_StartCAVs StraightRoadSegment {
+      rotation 0 1 0 1.5708
+      name "RR3_Sec1_StartCAVs"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 1000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec2_Merge_1 LaneSeparation {
+      translation 1200 0 -7.2
+      rotation 0 1 0 -1.5708
+      name "RR3_Sec2_Merge_1"
+      width 21.6
+      length 200.5
+      numberOfLanes 6
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec3_Merge_2 AddLanesRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 -1.5708
+      name "RR3_Sec3_Merge_2"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      newLaneLeft FALSE
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec4a_StopAndGo StraightRoadSegment {
+      translation 1600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec4a_StopAndGo"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 2000.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec4_HumanDriven StraightRoadSegment {
+      translation 3600 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec4_HumanDriven"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec5_Autodriving StraightRoadSegment {
+      translation 4100 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec5_Autodriving"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec6_TakeOver StraightRoadSegment {
+      translation 4600 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec6_TakeOver"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 500.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec7_Diverge_1 AddLanesRoadSegment {
+      translation 5100 0 0
+      rotation 0 1 0 1.5708
+      name "RR3_Sec7_Diverge_1"
+      width 14.4
+      length 400.5
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR3_Sec7_Diverge_2 LaneSeparation {
+      translation 5500 0 -7.2
+      rotation 0 1 0 1.5708
+      name "RR3_Sec7_Diverge_2"
+      width 21.6
+      length 100.5
+      numberOfLanes 6
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR1_Sec9_End StraightRoadSegment {
+      translation 5600 0 0
+      rotation 0 1 0 1.5708
+      name "RR1_Sec9_End"
+      width 14.4
+      numberOfLanes 4
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 100.5
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec10_Curve CurvedRoadSegment {
+      translation 5600 0 -1512.4
+      rotation 0 1 0 -1.4708
+      name "RR_3_Sec10_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec11_Curve CurvedRoadSegment {
+      translation 5899.2002 0 1472.6125
+      rotation 0 1 0 1.6707
+      name "RR_3_Sec11_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.1
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec12_straight StraightRoadSegment {
+      translation 5899.2002 0 -27.3875
+      rotation 0 1 0 1.5708
+      name "RR_3_Sec12_straight"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      length 200
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+    DEF RR_3_Sec12_Curve CurvedRoadSegment {
+      translation 6099.2002 0 1472.6125
+      rotation 0 1 0 1.5708
+      name "RR_3_Sec12_Curve"
+      width 7.2
+      roadBorderHeight 0.3
+      rightBarrier TRUE
+      leftBarrier TRUE
+      curvatureRadius 1500
+      totalAngle 0.04
+      endLine [
+        ""
+      ]
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(4)"
+}
+DEF TL_onrmp0 GenericTrafficLight {
+  translation -3492.4 0.13 -17000
+  name "imaginary trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_onrmp1 GenericTrafficLight {
+  translation -3503.8058 0.13 -11181.3117
+  name "imaginary trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_onrmp2 GenericTrafficLight {
+  translation -3515.2116 0.13 -5362.6234
+  name "imaginary trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_StnGo0 GenericTrafficLight {
+  translation -3500 -4.87 -16200
+  name "imaginary trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_StnGo1 GenericTrafficLight {
+  translation -3511.4058 -4.87 -10381.3117
+  name "imaginary trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_StnGo2 GenericTrafficLight {
+  translation -3522.8116 -4.87 -4562.6234
+  name "imaginary trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_takeOver0 GenericTrafficLight {
+  translation -3500 -4.87 -13400
+  name "imaginary trafficlight0"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_takeOver1 GenericTrafficLight {
+  translation -3511.41 -4.87 -5981.31
+  name "imaginary trafficlight1"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+DEF TL_img_takeOver2 GenericTrafficLight {
+  translation -3522.81 -4.87 -162.62
+  name "imaginary trafficlight2"
+  state "red"
+  controller "traffic_light_red"
+  controllerArgs "2000 0.1 r"
+}
+BmwX5Au {
+  translation -3460.4066 0.26 -17659.5041
+  rotation 0 1 0 -0.04
+  color 0.1 0.11 0.1
+  name "veh-driver"
+  controller "auto-ringroad-driver"
+  supervisor TRUE
+  rearMirror TRUE
+  leftWingMirror TRUE
+  rightWingMirror TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  sensorsSlotCenter [
+    Display {
+      width 300
+      height 150
+    }
+  ]
+  completeInterior FALSE
+  innerWindowTransparency 1
+}
+BmwX5 {
+  translation -3494.6 0.51 -18000
+  color 0.93802 0.71409 0.73269
+  name "Veh_row1_Lane_1"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.2 0.51 -18000
+  color 0.46175 0.93133 0.40642
+  name "Veh_row1_Lane_2"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.8 0.51 -18000
+  color 0.68321 0.64992 0.59877
+  name "Veh_row1_Lane_3"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.4 0.51 -18000
+  color 0.22204 0.68236 0.87806
+  name "Veh_row1_Lane_4"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.6 0.51 -17970
+  color 0.79672 0.432 0.91788
+  name "Veh_row2_Lane_1"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.2 0.51 -17970
+  color 0.78183 0.72575 0.12485
+  name "Veh_row2_Lane_2"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.8 0.51 -17970
+  color 0.91631 0.38771 0.29493
+  name "Veh_row2_Lane_3"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.4 0.51 -17970
+  color 0.61673 0.46785 0.25534
+  name "Veh_row2_Lane_4"
+  controller "auto_backup"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.6 0.51 -17200
+  color 0.41261 0.40565 0.30848
+  name "Veh_row10_Lane_1"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.2 0.51 -17200
+  color 0.31788 0.41509 0.63817
+  name "Veh_row10_Lane_2"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.8 0.51 -17200
+  color 0.79527 0.037033 0.73454
+  name "Veh_row10_Lane_3"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.4 0.51 -17200
+  color 0.77257 0.24442 0.98508
+  name "Veh_row10_Lane_4"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.6 0.51 -17170
+  color 0.67501 0.89276 0.24305
+  name "Veh_row11_Lane_1"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.2 0.51 -17170
+  color 0.051696 0.70974 0.95726
+  name "Veh_row11_Lane_2"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.8 0.51 -17170
+  color 0.022835 0.91314 0.72827
+  name "Veh_row11_Lane_3"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.4 0.51 -17170
+  color 0.95541 0.27314 0.17059
+  name "Veh_row11_Lane_4"
+  controller "auto_surrounding_merge"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3494.6 0.51 -16200
+  color 0.3226 0.27724 0.4906
+  name "Veh_row12_Lane_1"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3498.2 0.51 -16200
+  color 0.13072 0.73818 0.14032
+  name "Veh_row12_Lane_2"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3501.8 0.51 -16200
+  color 0.57065 0.53334 0.23352
+  name "Veh_row12_Lane_3"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.4 0.51 -16200
+  color 0.47689 0.46474 0.80603
+  name "Veh_row12_Lane_4"
+  controller "auto_stop_and_go"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+BmwX5 {
+  translation -3505.4 0.51 -13400
+  color 0.018585 0.71282 0.25099
+  name "Broken_TakeOver"
+  controller "auto_broken"
+  supervisor TRUE
+  sensorsSlotFront [
+    Radar {
+      minRange 2
+      maxRange 80
+      horizontalFieldOfView 0.05
+      verticalFieldOfView 0.002
+    }
+  ]
+  sensorsSlotTop [
+    GPS {
+    }
+    Receiver {
+    }
+    Emitter {
+    }
+  ]
+  interior FALSE
+  dynamicSpeedDisplay FALSE
+  indicatorLevers FALSE
+  completeInterior FALSE
+}
+SimpleTree {
+  translation -3490.25 0.13 -18000
+  name "tree(RR_3_1_4)(1)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17997.5
+  name "tree(RR_3_1_4)(2)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17995
+  name "tree(RR_3_1_4)(3)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17992.5
+  name "tree(RR_3_1_4)(4)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17990
+  name "tree(RR_3_1_4)(5)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17987.5
+  name "tree(RR_3_1_4)(6)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17985
+  name "tree(RR_3_1_4)(7)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17982.5
+  name "tree(RR_3_1_4)(8)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17980
+  name "tree(RR_3_1_4)(9)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17977.5
+  name "tree(RR_3_1_4)(10)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17975
+  name "tree(RR_3_1_4)(11)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17972.5
+  name "tree(RR_3_1_4)(12)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17970
+  name "tree(RR_3_1_4)(13)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17967.5
+  name "tree(RR_3_1_4)(14)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17965
+  name "tree(RR_3_1_4)(15)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17962.5
+  name "tree(RR_3_1_4)(16)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17960
+  name "tree(RR_3_1_4)(17)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17957.5
+  name "tree(RR_3_1_4)(18)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17955
+  name "tree(RR_3_1_4)(19)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17952.5
+  name "tree(RR_3_1_4)(20)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17950
+  name "tree(RR_3_1_4)(21)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17947.5
+  name "tree(RR_3_1_4)(22)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17945
+  name "tree(RR_3_1_4)(23)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17942.5
+  name "tree(RR_3_1_4)(24)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17940
+  name "tree(RR_3_1_4)(25)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17937.5
+  name "tree(RR_3_1_4)(26)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17935
+  name "tree(RR_3_1_4)(27)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17932.5
+  name "tree(RR_3_1_4)(28)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17930
+  name "tree(RR_3_1_4)(29)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17927.5
+  name "tree(RR_3_1_4)(30)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17925
+  name "tree(RR_3_1_4)(31)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17922.5
+  name "tree(RR_3_1_4)(32)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17920
+  name "tree(RR_3_1_4)(33)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17917.5
+  name "tree(RR_3_1_4)(34)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17915
+  name "tree(RR_3_1_4)(35)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17912.5
+  name "tree(RR_3_1_4)(36)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17910
+  name "tree(RR_3_1_4)(37)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17907.5
+  name "tree(RR_3_1_4)(38)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17905
+  name "tree(RR_3_1_4)(39)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17902.5
+  name "tree(RR_3_1_4)(40)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17900
+  name "tree(RR_3_1_4)(41)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17897.5
+  name "tree(RR_3_1_4)(42)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17895
+  name "tree(RR_3_1_4)(43)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17892.5
+  name "tree(RR_3_1_4)(44)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17890
+  name "tree(RR_3_1_4)(45)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17887.5
+  name "tree(RR_3_1_4)(46)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17885
+  name "tree(RR_3_1_4)(47)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17882.5
+  name "tree(RR_3_1_4)(48)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17880
+  name "tree(RR_3_1_4)(49)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17877.5
+  name "tree(RR_3_1_4)(50)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17875
+  name "tree(RR_3_1_4)(51)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17872.5
+  name "tree(RR_3_1_4)(52)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17870
+  name "tree(RR_3_1_4)(53)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17867.5
+  name "tree(RR_3_1_4)(54)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17865
+  name "tree(RR_3_1_4)(55)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17862.5
+  name "tree(RR_3_1_4)(56)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17860
+  name "tree(RR_3_1_4)(57)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17857.5
+  name "tree(RR_3_1_4)(58)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17855
+  name "tree(RR_3_1_4)(59)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17852.5
+  name "tree(RR_3_1_4)(60)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17850
+  name "tree(RR_3_1_4)(61)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17847.5
+  name "tree(RR_3_1_4)(62)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17845
+  name "tree(RR_3_1_4)(63)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17842.5
+  name "tree(RR_3_1_4)(64)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17840
+  name "tree(RR_3_1_4)(65)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17837.5
+  name "tree(RR_3_1_4)(66)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17835
+  name "tree(RR_3_1_4)(67)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17832.5
+  name "tree(RR_3_1_4)(68)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17830
+  name "tree(RR_3_1_4)(69)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17827.5
+  name "tree(RR_3_1_4)(70)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17825
+  name "tree(RR_3_1_4)(71)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17822.5
+  name "tree(RR_3_1_4)(72)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17820
+  name "tree(RR_3_1_4)(73)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17817.5
+  name "tree(RR_3_1_4)(74)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17815
+  name "tree(RR_3_1_4)(75)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17812.5
+  name "tree(RR_3_1_4)(76)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17810
+  name "tree(RR_3_1_4)(77)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17807.5
+  name "tree(RR_3_1_4)(78)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17805
+  name "tree(RR_3_1_4)(79)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17802.5
+  name "tree(RR_3_1_4)(80)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17800
+  name "tree(RR_3_1_4)(81)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17797.5
+  name "tree(RR_3_1_4)(82)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17795
+  name "tree(RR_3_1_4)(83)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17792.5
+  name "tree(RR_3_1_4)(84)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17790
+  name "tree(RR_3_1_4)(85)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17787.5
+  name "tree(RR_3_1_4)(86)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17785
+  name "tree(RR_3_1_4)(87)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17782.5
+  name "tree(RR_3_1_4)(88)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17780
+  name "tree(RR_3_1_4)(89)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17777.5
+  name "tree(RR_3_1_4)(90)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17775
+  name "tree(RR_3_1_4)(91)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17772.5
+  name "tree(RR_3_1_4)(92)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17770
+  name "tree(RR_3_1_4)(93)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17767.5
+  name "tree(RR_3_1_4)(94)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17765
+  name "tree(RR_3_1_4)(95)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17762.5
+  name "tree(RR_3_1_4)(96)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17760
+  name "tree(RR_3_1_4)(97)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17757.5
+  name "tree(RR_3_1_4)(98)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17755
+  name "tree(RR_3_1_4)(99)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17752.5
+  name "tree(RR_3_1_4)(100)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17750
+  name "tree(RR_3_1_4)(101)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17747.5
+  name "tree(RR_3_1_4)(102)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17745
+  name "tree(RR_3_1_4)(103)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17742.5
+  name "tree(RR_3_1_4)(104)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17740
+  name "tree(RR_3_1_4)(105)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17737.5
+  name "tree(RR_3_1_4)(106)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17735
+  name "tree(RR_3_1_4)(107)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17732.5
+  name "tree(RR_3_1_4)(108)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17730
+  name "tree(RR_3_1_4)(109)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17727.5
+  name "tree(RR_3_1_4)(110)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17725
+  name "tree(RR_3_1_4)(111)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17722.5
+  name "tree(RR_3_1_4)(112)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17720
+  name "tree(RR_3_1_4)(113)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17717.5
+  name "tree(RR_3_1_4)(114)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17715
+  name "tree(RR_3_1_4)(115)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17712.5
+  name "tree(RR_3_1_4)(116)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17710
+  name "tree(RR_3_1_4)(117)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17707.5
+  name "tree(RR_3_1_4)(118)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17705
+  name "tree(RR_3_1_4)(119)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17702.5
+  name "tree(RR_3_1_4)(120)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17700
+  name "tree(RR_3_1_4)(121)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17697.5
+  name "tree(RR_3_1_4)(122)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17695
+  name "tree(RR_3_1_4)(123)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17692.5
+  name "tree(RR_3_1_4)(124)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17690
+  name "tree(RR_3_1_4)(125)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17687.5
+  name "tree(RR_3_1_4)(126)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17685
+  name "tree(RR_3_1_4)(127)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17682.5
+  name "tree(RR_3_1_4)(128)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17680
+  name "tree(RR_3_1_4)(129)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17677.5
+  name "tree(RR_3_1_4)(130)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17675
+  name "tree(RR_3_1_4)(131)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17672.5
+  name "tree(RR_3_1_4)(132)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17670
+  name "tree(RR_3_1_4)(133)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17667.5
+  name "tree(RR_3_1_4)(134)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17665
+  name "tree(RR_3_1_4)(135)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17662.5
+  name "tree(RR_3_1_4)(136)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17660
+  name "tree(RR_3_1_4)(137)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17657.5
+  name "tree(RR_3_1_4)(138)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17655
+  name "tree(RR_3_1_4)(139)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17652.5
+  name "tree(RR_3_1_4)(140)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17650
+  name "tree(RR_3_1_4)(141)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17647.5
+  name "tree(RR_3_1_4)(142)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17645
+  name "tree(RR_3_1_4)(143)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17642.5
+  name "tree(RR_3_1_4)(144)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17640
+  name "tree(RR_3_1_4)(145)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17637.5
+  name "tree(RR_3_1_4)(146)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17635
+  name "tree(RR_3_1_4)(147)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17632.5
+  name "tree(RR_3_1_4)(148)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17630
+  name "tree(RR_3_1_4)(149)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17627.5
+  name "tree(RR_3_1_4)(150)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17625
+  name "tree(RR_3_1_4)(151)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17622.5
+  name "tree(RR_3_1_4)(152)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17620
+  name "tree(RR_3_1_4)(153)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17617.5
+  name "tree(RR_3_1_4)(154)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17615
+  name "tree(RR_3_1_4)(155)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17612.5
+  name "tree(RR_3_1_4)(156)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17610
+  name "tree(RR_3_1_4)(157)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17607.5
+  name "tree(RR_3_1_4)(158)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17605
+  name "tree(RR_3_1_4)(159)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17602.5
+  name "tree(RR_3_1_4)(160)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17600
+  name "tree(RR_3_1_4)(161)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17597.5
+  name "tree(RR_3_1_4)(162)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17595
+  name "tree(RR_3_1_4)(163)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17592.5
+  name "tree(RR_3_1_4)(164)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17590
+  name "tree(RR_3_1_4)(165)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17587.5
+  name "tree(RR_3_1_4)(166)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17585
+  name "tree(RR_3_1_4)(167)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17582.5
+  name "tree(RR_3_1_4)(168)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17580
+  name "tree(RR_3_1_4)(169)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17577.5
+  name "tree(RR_3_1_4)(170)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17575
+  name "tree(RR_3_1_4)(171)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17572.5
+  name "tree(RR_3_1_4)(172)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17570
+  name "tree(RR_3_1_4)(173)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17567.5
+  name "tree(RR_3_1_4)(174)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17565
+  name "tree(RR_3_1_4)(175)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17562.5
+  name "tree(RR_3_1_4)(176)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17560
+  name "tree(RR_3_1_4)(177)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17557.5
+  name "tree(RR_3_1_4)(178)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17555
+  name "tree(RR_3_1_4)(179)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17552.5
+  name "tree(RR_3_1_4)(180)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17550
+  name "tree(RR_3_1_4)(181)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17547.5
+  name "tree(RR_3_1_4)(182)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17545
+  name "tree(RR_3_1_4)(183)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17542.5
+  name "tree(RR_3_1_4)(184)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17540
+  name "tree(RR_3_1_4)(185)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17537.5
+  name "tree(RR_3_1_4)(186)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17535
+  name "tree(RR_3_1_4)(187)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17532.5
+  name "tree(RR_3_1_4)(188)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17530
+  name "tree(RR_3_1_4)(189)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17527.5
+  name "tree(RR_3_1_4)(190)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17525
+  name "tree(RR_3_1_4)(191)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17522.5
+  name "tree(RR_3_1_4)(192)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17520
+  name "tree(RR_3_1_4)(193)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17517.5
+  name "tree(RR_3_1_4)(194)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17515
+  name "tree(RR_3_1_4)(195)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17512.5
+  name "tree(RR_3_1_4)(196)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17510
+  name "tree(RR_3_1_4)(197)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17507.5
+  name "tree(RR_3_1_4)(198)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17505
+  name "tree(RR_3_1_4)(199)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17502.5
+  name "tree(RR_3_1_4)(200)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17500
+  name "tree(RR_3_1_4)(201)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17497.5
+  name "tree(RR_3_1_4)(202)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17495
+  name "tree(RR_3_1_4)(203)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17492.5
+  name "tree(RR_3_1_4)(204)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17490
+  name "tree(RR_3_1_4)(205)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17487.5
+  name "tree(RR_3_1_4)(206)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17485
+  name "tree(RR_3_1_4)(207)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17482.5
+  name "tree(RR_3_1_4)(208)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17480
+  name "tree(RR_3_1_4)(209)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17477.5
+  name "tree(RR_3_1_4)(210)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17475
+  name "tree(RR_3_1_4)(211)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17472.5
+  name "tree(RR_3_1_4)(212)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17470
+  name "tree(RR_3_1_4)(213)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17467.5
+  name "tree(RR_3_1_4)(214)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17465
+  name "tree(RR_3_1_4)(215)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17462.5
+  name "tree(RR_3_1_4)(216)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17460
+  name "tree(RR_3_1_4)(217)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17457.5
+  name "tree(RR_3_1_4)(218)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17455
+  name "tree(RR_3_1_4)(219)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17452.5
+  name "tree(RR_3_1_4)(220)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17450
+  name "tree(RR_3_1_4)(221)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17447.5
+  name "tree(RR_3_1_4)(222)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17445
+  name "tree(RR_3_1_4)(223)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17442.5
+  name "tree(RR_3_1_4)(224)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17440
+  name "tree(RR_3_1_4)(225)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17437.5
+  name "tree(RR_3_1_4)(226)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17435
+  name "tree(RR_3_1_4)(227)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17432.5
+  name "tree(RR_3_1_4)(228)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17430
+  name "tree(RR_3_1_4)(229)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17427.5
+  name "tree(RR_3_1_4)(230)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17425
+  name "tree(RR_3_1_4)(231)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17422.5
+  name "tree(RR_3_1_4)(232)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17420
+  name "tree(RR_3_1_4)(233)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17417.5
+  name "tree(RR_3_1_4)(234)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17415
+  name "tree(RR_3_1_4)(235)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17412.5
+  name "tree(RR_3_1_4)(236)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17410
+  name "tree(RR_3_1_4)(237)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17407.5
+  name "tree(RR_3_1_4)(238)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17405
+  name "tree(RR_3_1_4)(239)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17402.5
+  name "tree(RR_3_1_4)(240)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17400
+  name "tree(RR_3_1_4)(241)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17397.5
+  name "tree(RR_3_1_4)(242)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17395
+  name "tree(RR_3_1_4)(243)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17392.5
+  name "tree(RR_3_1_4)(244)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17390
+  name "tree(RR_3_1_4)(245)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17387.5
+  name "tree(RR_3_1_4)(246)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17385
+  name "tree(RR_3_1_4)(247)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17382.5
+  name "tree(RR_3_1_4)(248)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17380
+  name "tree(RR_3_1_4)(249)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17377.5
+  name "tree(RR_3_1_4)(250)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17375
+  name "tree(RR_3_1_4)(251)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17372.5
+  name "tree(RR_3_1_4)(252)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17370
+  name "tree(RR_3_1_4)(253)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17367.5
+  name "tree(RR_3_1_4)(254)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17365
+  name "tree(RR_3_1_4)(255)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17362.5
+  name "tree(RR_3_1_4)(256)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17360
+  name "tree(RR_3_1_4)(257)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17357.5
+  name "tree(RR_3_1_4)(258)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17355
+  name "tree(RR_3_1_4)(259)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17352.5
+  name "tree(RR_3_1_4)(260)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17350
+  name "tree(RR_3_1_4)(261)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17347.5
+  name "tree(RR_3_1_4)(262)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17345
+  name "tree(RR_3_1_4)(263)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17342.5
+  name "tree(RR_3_1_4)(264)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17340
+  name "tree(RR_3_1_4)(265)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17337.5
+  name "tree(RR_3_1_4)(266)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17335
+  name "tree(RR_3_1_4)(267)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17332.5
+  name "tree(RR_3_1_4)(268)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17330
+  name "tree(RR_3_1_4)(269)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17327.5
+  name "tree(RR_3_1_4)(270)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17325
+  name "tree(RR_3_1_4)(271)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17322.5
+  name "tree(RR_3_1_4)(272)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17320
+  name "tree(RR_3_1_4)(273)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17317.5
+  name "tree(RR_3_1_4)(274)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17315
+  name "tree(RR_3_1_4)(275)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17312.5
+  name "tree(RR_3_1_4)(276)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17310
+  name "tree(RR_3_1_4)(277)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17307.5
+  name "tree(RR_3_1_4)(278)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17305
+  name "tree(RR_3_1_4)(279)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17302.5
+  name "tree(RR_3_1_4)(280)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17300
+  name "tree(RR_3_1_4)(281)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17297.5
+  name "tree(RR_3_1_4)(282)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17295
+  name "tree(RR_3_1_4)(283)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17292.5
+  name "tree(RR_3_1_4)(284)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17290
+  name "tree(RR_3_1_4)(285)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17287.5
+  name "tree(RR_3_1_4)(286)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17285
+  name "tree(RR_3_1_4)(287)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17282.5
+  name "tree(RR_3_1_4)(288)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17280
+  name "tree(RR_3_1_4)(289)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17277.5
+  name "tree(RR_3_1_4)(290)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17275
+  name "tree(RR_3_1_4)(291)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17272.5
+  name "tree(RR_3_1_4)(292)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17270
+  name "tree(RR_3_1_4)(293)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17267.5
+  name "tree(RR_3_1_4)(294)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17265
+  name "tree(RR_3_1_4)(295)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17262.5
+  name "tree(RR_3_1_4)(296)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17260
+  name "tree(RR_3_1_4)(297)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17257.5
+  name "tree(RR_3_1_4)(298)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17255
+  name "tree(RR_3_1_4)(299)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17252.5
+  name "tree(RR_3_1_4)(300)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17250
+  name "tree(RR_3_1_4)(301)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17247.5
+  name "tree(RR_3_1_4)(302)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17245
+  name "tree(RR_3_1_4)(303)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17242.5
+  name "tree(RR_3_1_4)(304)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17240
+  name "tree(RR_3_1_4)(305)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17237.5
+  name "tree(RR_3_1_4)(306)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17235
+  name "tree(RR_3_1_4)(307)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17232.5
+  name "tree(RR_3_1_4)(308)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17230
+  name "tree(RR_3_1_4)(309)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17227.5
+  name "tree(RR_3_1_4)(310)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17225
+  name "tree(RR_3_1_4)(311)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17222.5
+  name "tree(RR_3_1_4)(312)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17220
+  name "tree(RR_3_1_4)(313)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17217.5
+  name "tree(RR_3_1_4)(314)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17215
+  name "tree(RR_3_1_4)(315)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17212.5
+  name "tree(RR_3_1_4)(316)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17210
+  name "tree(RR_3_1_4)(317)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17207.5
+  name "tree(RR_3_1_4)(318)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17205
+  name "tree(RR_3_1_4)(319)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17202.5
+  name "tree(RR_3_1_4)(320)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17200
+  name "tree(RR_3_1_4)(321)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17197.5
+  name "tree(RR_3_1_4)(322)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17195
+  name "tree(RR_3_1_4)(323)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17192.5
+  name "tree(RR_3_1_4)(324)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17190
+  name "tree(RR_3_1_4)(325)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17187.5
+  name "tree(RR_3_1_4)(326)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17185
+  name "tree(RR_3_1_4)(327)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17182.5
+  name "tree(RR_3_1_4)(328)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17180
+  name "tree(RR_3_1_4)(329)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17177.5
+  name "tree(RR_3_1_4)(330)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17175
+  name "tree(RR_3_1_4)(331)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17172.5
+  name "tree(RR_3_1_4)(332)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17170
+  name "tree(RR_3_1_4)(333)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17167.5
+  name "tree(RR_3_1_4)(334)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17165
+  name "tree(RR_3_1_4)(335)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17162.5
+  name "tree(RR_3_1_4)(336)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17160
+  name "tree(RR_3_1_4)(337)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17157.5
+  name "tree(RR_3_1_4)(338)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17155
+  name "tree(RR_3_1_4)(339)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17152.5
+  name "tree(RR_3_1_4)(340)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17150
+  name "tree(RR_3_1_4)(341)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17147.5
+  name "tree(RR_3_1_4)(342)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17145
+  name "tree(RR_3_1_4)(343)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17142.5
+  name "tree(RR_3_1_4)(344)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17140
+  name "tree(RR_3_1_4)(345)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17137.5
+  name "tree(RR_3_1_4)(346)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17135
+  name "tree(RR_3_1_4)(347)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17132.5
+  name "tree(RR_3_1_4)(348)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17130
+  name "tree(RR_3_1_4)(349)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17127.5
+  name "tree(RR_3_1_4)(350)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17125
+  name "tree(RR_3_1_4)(351)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17122.5
+  name "tree(RR_3_1_4)(352)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17120
+  name "tree(RR_3_1_4)(353)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17117.5
+  name "tree(RR_3_1_4)(354)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17115
+  name "tree(RR_3_1_4)(355)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17112.5
+  name "tree(RR_3_1_4)(356)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17110
+  name "tree(RR_3_1_4)(357)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17107.5
+  name "tree(RR_3_1_4)(358)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17105
+  name "tree(RR_3_1_4)(359)"
+}
+SimpleTree {
+  translation -3490.25 0.13 -17102.5
+  name "tree(RR_3_1_4)"
+}
+SimpleTree {
+  translation -3510 0.13 -16400
+  name "tree(RR_1_1_1)"
+}
+Forest {
+  translation -3527.5 0.13 -16400
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16400
+  name "tree(RR_1_1_2)"
+}
+Forest {
+  translation -3477.5 0.13 -16275
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -16275
+  name "tree(RR_1_2_1)"
+}
+Forest {
+  translation -3527.5 0.13 -16150
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16275
+  name "tree(RR_1_2_2)"
+}
+Forest {
+  translation -3477.5 0.13 -16025
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -16150
+  name "tree(RR_1_3_1)"
+}
+Forest {
+  translation -3527.5 0.13 -15900
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16150
+  name "tree(RR_1_3_2)"
+}
+Forest {
+  translation -3477.5 0.13 -15775
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -16025
+  name "tree(RR_1_4_1)"
+}
+Forest {
+  translation -3527.5 0.13 -15650
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -16025
+  name "tree(RR_1_4_2)"
+}
+Forest {
+  translation -3477.5 0.13 -15525
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3510 0.13 -15900
+  name "tree(RR_1_5_1)"
+}
+Forest {
+  translation -3527.5 0.13 -15400
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3490 0.13 -15900
+  name "tree(RR_1_5_2)"
+}
+Forest {
+  translation -3477.5 0.13 -15275
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+ResidentialBuilding {
+  translation -3530 0.13 -15150
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_6)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -15025
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_12)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14900
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_7)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14775
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_14)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14650
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_8)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14525
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_16)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14400
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_9)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14275
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_18)"
+}
+ResidentialBuilding {
+  translation -3530 0.13 -14150
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_10)"
+}
+ResidentialBuilding {
+  translation -3470 0.13 -14025
+  rotation 0 1 0 1.57
+  name "RB(RR_1_1_20)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13900
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_11)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13775
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_22)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13650
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_12)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13525
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_24)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13400
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_13)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13275
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_26)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -13150
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_14)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -13025
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_28)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -12900
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_15)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -12775
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_30)"
+}
+TheThreeTowers {
+  translation -3530 0.13 -12650
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_16)"
+}
+TheThreeTowers {
+  translation -3470 0.13 -12525
+  rotation 0 1 0 1.5708
+  name "TTT(RR_1_1_32)"
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10581.3117
+  name "tree(RR_2_1_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -10581.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10581.3117
+  name "tree(RR_2_1_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -10456.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10456.3117
+  name "tree(RR_2_2_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -10331.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10456.3117
+  name "tree(RR_2_2_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -10206.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10331.3117
+  name "tree(RR_2_3_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -10081.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10331.3117
+  name "tree(RR_2_3_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -9956.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10206.3117
+  name "tree(RR_2_4_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -9831.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10206.3117
+  name "tree(RR_2_4_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -9706.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3521.4058 0.13 -10081.3117
+  name "tree(RR_2_5_1)"
+}
+Forest {
+  translation -3538.9058 0.13 -9581.3117
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3501.4058 0.13 -10081.3117
+  name "tree(RR_2_5_2)"
+}
+Forest {
+  translation -3488.9058 0.13 -9456.3117
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -9331.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_6)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -9206.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_12)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -9081.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_7)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8956.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_14)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -8831.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_8)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8706.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_16)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -8581.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_9)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8456.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_18)"
+}
+ResidentialBuilding {
+  translation -3541.4058 0.13 -8331.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_10)"
+}
+ResidentialBuilding {
+  translation -3481.4058 0.13 -8206.3117
+  rotation 0 1 0 1.57
+  name "RB(RR_2_2_20)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -8081.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_11)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7956.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_22)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7831.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_12)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7706.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_24)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7581.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_13)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7456.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_26)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7331.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_14)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -7206.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_28)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -7081.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_15)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -6956.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_30)"
+}
+TheThreeTowers {
+  translation -3541.4058 0.13 -6831.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_16)"
+}
+TheThreeTowers {
+  translation -3481.4058 0.13 -6706.3117
+  rotation 0 1 0 1.5708
+  name "TTT(RR_2_2_32)"
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4762.6234
+  name "tree(RR_3_1_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4762.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4762.6234
+  name "tree(RR_3_1_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -4637.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4637.6234
+  name "tree(RR_3_2_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4512.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4637.6234
+  name "tree(RR_3_2_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -4387.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4512.6234
+  name "tree(RR_3_3_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4262.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4512.6234
+  name "tree(RR_3_3_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -4137.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4387.6234
+  name "tree(RR_3_4_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -4012.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4387.6234
+  name "tree(RR_3_4_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -3887.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3532.8116 0.13 -4262.6234
+  name "tree(RR_3_5_1)"
+}
+Forest {
+  translation -3550.3116 0.13 -3762.6234
+  rotation 0 1 0 -0.262
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+SimpleTree {
+  translation -3512.8116 0.13 -4262.6234
+  name "tree(RR_3_5_2)"
+}
+Forest {
+  translation -3500.3116 0.13 -3637.6234
+  rotation 0 1 0 2.88
+  shape [
+    0 16
+    7 17
+    12 18
+    6 25
+    -7 22
+    -15 5
+    -20 -7
+    -5 -40
+  ]
+  density 0.4
+  type "spruce"
+  minHeight 0.5
+  maxRadius 1.5
+  minRadius 0.5
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -3512.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_6)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -3387.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_12)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -3262.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_7)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -3137.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_14)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -3012.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_8)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -2887.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_16)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -2762.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_9)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -2637.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_18)"
+}
+ResidentialBuilding {
+  translation -3552.8116 0.13 -2512.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_10)"
+}
+ResidentialBuilding {
+  translation -3492.8116 0.13 -2387.6234
+  rotation 0 1 0 1.57
+  name "RB(RR_3_3_20)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -2262.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_11)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -2137.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_22)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -2012.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_12)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1887.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_24)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1762.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_13)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1637.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_26)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1512.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_14)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1387.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_28)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1262.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_15)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -1137.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_30)"
+}
+TheThreeTowers {
+  translation -3552.8116 0.13 -1012.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_16)"
+}
+TheThreeTowers {
+  translation -3492.8116 0.13 -887.6234
+  rotation 0 1 0 1.5708
+  name "TTT(RR_3_3_32)"
+}

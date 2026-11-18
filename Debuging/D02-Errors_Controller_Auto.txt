@@ -1,0 +1,1750 @@
+INFO: racing_wheel_com: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\racing_wheel_com\racing_wheel_com.exe"
+INFO: traffic_light_red: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_red\traffic_light_red.exe" 2000 0.1 r
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: racing_wheel_com: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\racing_wheel_com\racing_wheel_com.exe"
+INFO: traffic_light_red: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_red\traffic_light_red.exe" 2000 0.1 r
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: racing_wheel_com: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\racing_wheel_com\racing_wheel_com.exe"
+INFO: traffic_light_red: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_red\traffic_light_red.exe" 2000 0.1 r
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+[racing_wheel_com] controller Name: racing_wheel_com
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[racing_wheel_com] 'Logitech G HUB G29 Driving Force Racing Wheel USB' detected (the following configuration file is used: 'config_logitech_g29.windows.ini').
+INFO: racing_wheel_com: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\racing_wheel_com\racing_wheel_com.exe"
+INFO: traffic_light_red: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_red\traffic_light_red.exe" 2000 0.1 r
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+[racing_wheel_com] controller Name: racing_wheel_com
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[racing_wheel_com] 'Logitech G HUB G29 Driving Force Racing Wheel USB' detected (the following configuration file is used: 'config_logitech_g29.windows.ini').
+[auto-ringroad] ready to enter the main road
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad-driver: Starting controller: python.exe -u "auto-ringroad-driver.py" 
+[auto-ringroad-driver] Warning: wb_speaker_play_sound() called with a volume value greater than 1: 126.069. Setting volume to 1.
+[auto-ringroad-driver] current controller is  auto-ringroad-driver
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.699135551992541
+[auto-ringroad-driver] speed-newspeed 22.531838514567237
+[auto-ringroad-driver] newSpeed 22.531838514567237 desAngle 0.006426927500001547 curAngle 0.021
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.21571120016765
+[auto-ringroad-driver] speed-newspeed 18.15076013583738
+[auto-ringroad-driver] newSpeed 18.15076013583738 desAngle -0.013671174999980173 curAngle 0.011
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.87783949385119
+[auto-ringroad-driver] speed-newspeed 13.628495690964346
+[auto-ringroad-driver] newSpeed 13.628495690964346 desAngle 0.016380737499763987 curAngle -0.008
+[auto-ringroad-driver] preVeh True gap2pred 4.658057386678153 speedDiff 0.22258540411377092
+[auto-ringroad-driver] fvdm-newspeed 8.426191382292757
+[auto-ringroad-driver] newSpeed 8.426191382292757 desAngle 0.08678277000038435 curAngle 0.005
+[auto-ringroad-driver] preVeh True gap2pred 4.689655706714001 speedDiff 0.2510817263328199
+[auto-ringroad-driver] fvdm-newspeed 6.203079944845911
+[auto-ringroad-driver] newSpeed 6.203079944845911 desAngle -0.013315227499979352 curAngle 0.064
+[auto-ringroad-driver] preVeh True gap2pred 4.7140820655586095 speedDiff 0.28233651864095677
+[auto-ringroad-driver] fvdm-newspeed 5.05815120024123
+[auto-ringroad-driver] newSpeed 5.05815120024123 desAngle -0.05361331500039972 curAngle 0.008
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.973272217090663
+[auto-ringroad-driver] speed-newspeed 4.805925949422057
+[auto-ringroad-driver] newSpeed 4.805925949422057 desAngle -0.01371143249998126 curAngle -0.035
+[auto-ringroad-driver] preVeh True gap2pred 4.734376705745636 speedDiff 0.18495512041889195
+[auto-ringroad-driver] fvdm-newspeed 3.407426611064604
+[auto-ringroad-driver] newSpeed 3.407426611064604 desAngle 0.0062904500000005486 curAngle -0.017
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.046679976000657
+[auto-ringroad-driver] speed-newspeed 3.7647204232793627
+[auto-ringroad-driver] newSpeed 3.7647204232793627 desAngle 0.01634234750021992 curAngle -0.003
+[auto-ringroad-driver] preVeh True gap2pred 4.730608534529481 speedDiff 0.09449989225241029
+[auto-ringroad-driver] fvdm-newspeed 2.448700067065725
+[auto-ringroad-driver] newSpeed 2.448700067065725 desAngle 0.006344245000001641 curAngle 0.01
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.946642269606176
+[auto-ringroad-driver] speed-newspeed 2.8917569984820104
+[auto-ringroad-driver] newSpeed 2.8917569984820104 desAngle 0.006346142500001642 curAngle 0.006
+[auto-ringroad-driver] preVeh True gap2pred 4.7192332764067615 speedDiff 0.04095347978921482
+[auto-ringroad-driver] fvdm-newspeed 1.6299222907692352
+[auto-ringroad-driver] newSpeed 1.6299222907692352 desAngle 0.006348040000001642 curAngle 0.006
+[auto-ringroad-driver] preVeh True gap2pred 4.713815717659817 speedDiff 0.023723949877649142
+[auto-ringroad-driver] fvdm-newspeed 1.2510830784832327
+[auto-ringroad-driver] newSpeed 1.2510830784832327 desAngle 0.01639995249976399 curAngle 0.006
+[auto-ringroad-driver] preVeh True gap2pred 4.709562082773661 speedDiff 0.011595588975591653
+[auto-ringroad-driver] fvdm-newspeed 0.8866516177425803
+[auto-ringroad-driver] newSpeed 0.8866516177425803 desAngle 0.00640186500000046 curAngle 0.013
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.46286802447331
+[auto-ringroad-driver] speed-newspeed 1.4210180162608885
+[auto-ringroad-driver] newSpeed 1.4210180162608885 desAngle 0.0064037775000004606 curAngle 0.008
+[auto-ringroad-driver] preVeh True gap2pred 4.70609863845068 speedDiff 0.00035031199784510414
+[auto-ringroad-driver] fvdm-newspeed 0.1847447475974807
+[auto-ringroad-driver] newSpeed 0.1847447475974807 desAngle 0.00640569000000046 curAngle 0.007
+[auto-ringroad-driver] preVeh True gap2pred 4.70720183624837 speedDiff 0.0006344360661164061
+[auto-ringroad-driver] fvdm-newspeed 0.17723232332880415
+[auto-ringroad-driver] newSpeed 0.17723232332880415 desAngle 0.00640760250000046 curAngle 0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.46673320821109
+[auto-ringroad-driver] speed-newspeed 1.4172687880352424
+[auto-ringroad-driver] newSpeed 1.4172687880352424 desAngle 0.006409515000000461 curAngle 0.006
+[auto-ringroad-driver] preVeh True gap2pred 4.714595003038351 speedDiff 0.013159912809264096
+[auto-ringroad-driver] fvdm-newspeed 0.8920809248446793
+[auto-ringroad-driver] newSpeed 0.8920809248446793 desAngle 0.006411427500000461 curAngle 0.006
+[auto-ringroad-driver] preVeh True gap2pred 4.720138519375675 speedDiff 0.026052099098146764
+[auto-ringroad-driver] fvdm-newspeed 1.2686783470521417
+[auto-ringroad-driver] newSpeed 1.2686783470521417 desAngle 0.0064133400000004614 curAngle 0.006
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.314671848211205
+[auto-ringroad-driver] speed-newspeed 2.534768307235133
+[auto-ringroad-driver] newSpeed 2.534768307235133 desAngle 0.006415252500000461 curAngle 0.006
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.889279729079483
+[auto-ringroad-driver] speed-newspeed 2.9473986627929003
+[auto-ringroad-driver] newSpeed 2.9473986627929003 desAngle -0.0036328499997618875 curAngle 0.006
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.435756656491062
+[auto-ringroad-driver] speed-newspeed 3.38731604320367
+[auto-ringroad-driver] newSpeed 3.38731604320367 desAngle -0.003680967500217726 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.950050897992206
+[auto-ringroad-driver] speed-newspeed 3.858450628947562
+[auto-ringroad-driver] newSpeed 3.858450628947562 desAngle 0.006320915000000552 curAngle -0.002
+[auto-ringroad-driver] preVeh True gap2pred 4.727128220371716 speedDiff 0.19035707826066295
+[auto-ringroad-driver] fvdm-newspeed 3.5299780092269244
+[auto-ringroad-driver] newSpeed 3.5299780092269244 desAngle -0.003727217499761796 curAngle 0.004
+[auto-ringroad-driver] preVeh True gap2pred 4.711355126986076 speedDiff 0.2517573549863512
+[auto-ringroad-driver] fvdm-newspeed 4.0828313075085125
+[auto-ringroad-driver] newSpeed 4.0828313075085125 desAngle -0.003775365000217634 curAngle -0.002
+[auto-ringroad-driver] preVeh True gap2pred 4.666770023385817 speedDiff 0.6923999755072419
+[auto-ringroad-driver] fvdm-newspeed 4.242875809717496
+[auto-ringroad-driver] newSpeed 4.242875809717496 desAngle -0.0038235274997617044 curAngle -0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.828564568996676
+[auto-ringroad-driver] speed-newspeed 5.916292368073226
+[auto-ringroad-driver] newSpeed 5.916292368073226 desAngle -0.0038717050002175426 curAngle -0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.1578027073192
+[auto-ringroad-driver] speed-newspeed 6.5669313739003785
+[auto-ringroad-driver] newSpeed 6.5669313739003785 desAngle 0.006130117500000736 curAngle -0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.373893737995733
+[auto-ringroad-driver] speed-newspeed 2.4773230741441408
+[auto-ringroad-driver] newSpeed 2.4773230741441408 desAngle 0.006131940000000736 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.882745071195107
+[auto-ringroad-driver] speed-newspeed 1.9837372809407459
+[auto-ringroad-driver] newSpeed 1.9837372809407459 desAngle 0.006133762500000736 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.14028034122469
+[auto-ringroad-driver] speed-newspeed 4.643928069012052
+[auto-ringroad-driver] newSpeed 4.643928069012052 desAngle 0.026235614999982455 curAngle 0.005
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.509355112648166
+[auto-ringroad-driver] speed-newspeed 5.2559255407312815
+[auto-ringroad-driver] newSpeed 5.2559255407312815 desAngle 0.016287482500220017 curAngle 0.018
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.442342325907212
+[auto-ringroad-driver] speed-newspeed 5.320927943870002
+[auto-ringroad-driver] newSpeed 5.320927943870002 desAngle 0.016339364999764086 curAngle 0.014
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.462449069843725
+[auto-ringroad-driver] speed-newspeed 5.301424402251587
+[auto-ringroad-driver] newSpeed 5.301424402251587 desAngle 0.016391262500219925 curAngle 0.014
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.400027803620176
+[auto-ringroad-driver] speed-newspeed 5.361973030488429
+[auto-ringroad-driver] newSpeed 5.361973030488429 desAngle 0.016443174999764 curAngle 0.015
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.222238400615353
+[auto-ringroad-driver] speed-newspeed 5.534428751403106
+[auto-ringroad-driver] newSpeed 5.534428751403106 desAngle 0.016495102500219835 curAngle 0.014
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.95613422465651
+[auto-ringroad-driver] speed-newspeed 5.7925498020831885
+[auto-ringroad-driver] newSpeed 5.7925498020831885 desAngle 0.016547044999763907 curAngle 0.014
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.644306431081894
+[auto-ringroad-driver] speed-newspeed 6.095022761850562
+[auto-ringroad-driver] newSpeed 6.095022761850562 desAngle 0.016599002500219746 curAngle 0.014
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.320722735945676
+[auto-ringroad-driver] speed-newspeed 6.4088989461326955
+[auto-ringroad-driver] newSpeed 6.4088989461326955 desAngle 0.006600960000001467 curAngle 0.014
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.00330484653771
+[auto-ringroad-driver] speed-newspeed 6.716794298858423
+[auto-ringroad-driver] newSpeed 6.716794298858423 desAngle 0.016652932499763816 curAngle 0.008
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.696454763211207
+[auto-ringroad-driver] speed-newspeed 7.01443887968513
+[auto-ringroad-driver] newSpeed 7.01443887968513 desAngle 0.016704920000219656 curAngle 0.013
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.398626432560018
+[auto-ringroad-driver] speed-newspeed 7.303332360416782
+[auto-ringroad-driver] newSpeed 7.303332360416782 desAngle 0.016756922500220747 curAngle 0.012
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.1046249878906
+[auto-ringroad-driver] speed-newspeed 7.588513761746119
+[auto-ringroad-driver] newSpeed 7.588513761746119 desAngle 0.016808939999764818 curAngle 0.012
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.81136952795844
+[auto-ringroad-driver] speed-newspeed 7.872971557880312
+[auto-ringroad-driver] newSpeed 7.872971557880312 desAngle 0.006810957500001287 curAngle 0.012
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.517016867909486
+[auto-ringroad-driver] speed-newspeed 8.158493638127798
+[auto-ringroad-driver] newSpeed 8.158493638127798 desAngle 0.016862990000220658 curAngle 0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.220946194084142
+[auto-ringroad-driver] speed-newspeed 8.445682191738381
+[auto-ringroad-driver] newSpeed 8.445682191738381 desAngle 0.006865022500002381 curAngle 0.012
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.924334887228504
+[auto-ringroad-driver] speed-newspeed 8.73339515938835
+[auto-ringroad-driver] newSpeed 8.73339515938835 desAngle 0.01691706999976473 curAngle 0.005
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.626531112520077
+[auto-ringroad-driver] speed-newspeed 9.022264820855527
+[auto-ringroad-driver] newSpeed 9.022264820855527 desAngle 0.006919117500001199 curAngle 0.011
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.329167767614663
+[auto-ringroad-driver] speed-newspeed 9.310707265413775
+[auto-ringroad-driver] newSpeed 9.310707265413775 desAngle 0.01697118000022057 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.031225645394276
+[auto-ringroad-driver] speed-newspeed 9.599711123967552
+[auto-ringroad-driver] newSpeed 9.599711123967552 desAngle 0.0069732425000022915 curAngle 0.01
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.734000796242547
+[auto-ringroad-driver] speed-newspeed 9.888019227644728
+[auto-ringroad-driver] newSpeed 9.888019227644728 desAngle 0.006975305000002293 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.43622836284073
+[auto-ringroad-driver] speed-newspeed 10.176858488044491
+[auto-ringroad-driver] newSpeed 10.176858488044491 desAngle 0.006977367500002293 curAngle 0.006
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.138825465719805
+[auto-ringroad-driver] speed-newspeed 10.465339298251788
+[auto-ringroad-driver] newSpeed 10.465339298251788 desAngle 0.006979430000002294 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.84133469580049
+[auto-ringroad-driver] speed-newspeed 10.753905345073521
+[auto-ringroad-driver] newSpeed 10.753905345073521 desAngle 0.0069814925000022945 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.543888694021753
+[auto-ringroad-driver] speed-newspeed 11.042427966798902
+[auto-ringroad-driver] newSpeed 11.042427966798902 desAngle 0.006983555000002295 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.24637910729301
+[auto-ringroad-driver] speed-newspeed 11.33101226592578
+[auto-ringroad-driver] newSpeed 11.33101226592578 desAngle -0.003064397500217075 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.948863971901645
+[auto-ringroad-driver] speed-newspeed 11.619601947255402
+[auto-ringroad-driver] newSpeed 11.619601947255402 desAngle 0.006937650000001204 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.65130580429799
+[auto-ringroad-driver] speed-newspeed 11.90823336983095
+[auto-ringroad-driver] newSpeed 11.90823336983095 desAngle 0.006939697500001204 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.353815214459672
+[auto-ringroad-driver] speed-newspeed 12.196799241974116
+[auto-ringroad-driver] newSpeed 12.196799241974116 desAngle -0.003108269999761144 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.056171771866374
+[auto-ringroad-driver] speed-newspeed 12.48551338128962
+[auto-ringroad-driver] newSpeed 12.48551338128962 desAngle 0.006893762500002389 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.758594380292173
+[auto-ringroad-driver] speed-newspeed 12.774163451116591
+[auto-ringroad-driver] newSpeed 12.774163451116591 desAngle -0.003154220000216982 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.461096812743413
+[auto-ringroad-driver] speed-newspeed 13.062736091638888
+[auto-ringroad-driver] newSpeed 13.062736091638888 desAngle 0.006847797500001297 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.16352390860057
+[auto-ringroad-driver] speed-newspeed 13.351381808657447
+[auto-ringroad-driver] newSpeed 13.351381808657447 desAngle -0.0032001999997610508 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.86599397782946
+[auto-ringroad-driver] speed-newspeed 13.639985841505425
+[auto-ringroad-driver] newSpeed 13.639985841505425 desAngle -0.003248212500216889 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.568357968088453
+[auto-ringroad-driver] speed-newspeed 13.928692770954202
+[auto-ringroad-driver] newSpeed 13.928692770954202 desAngle 0.00675377500000139 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.27068750440136
+[auto-ringroad-driver] speed-newspeed 14.217433120730682
+[auto-ringroad-driver] newSpeed 14.217433120730682 desAngle -0.003294252500217979 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.973103046722784
+[auto-ringroad-driver] speed-newspeed 14.5060900446789
+[auto-ringroad-driver] newSpeed 14.5060900446789 desAngle -0.00334229499976205 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.675549080810276
+[auto-ringroad-driver] speed-newspeed 14.794717391614032
+[auto-ringroad-driver] newSpeed 14.794717391614032 desAngle 0.006659662500001481 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.377964747992367
+[auto-ringroad-driver] speed-newspeed 15.083374194447403
+[auto-ringroad-driver] newSpeed 15.083374194447403 desAngle -0.003388395000217888 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.080423914088424
+[auto-ringroad-driver] speed-newspeed 15.37198880333423
+[auto-ringroad-driver] newSpeed 15.37198880333423 desAngle -0.003436467499761957 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.782867302669635
+[auto-ringroad-driver] speed-newspeed 15.660618716410454
+[auto-ringroad-driver] newSpeed 15.660618716410454 desAngle 0.006565460000001575 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.485239581311998
+[auto-ringroad-driver] speed-newspeed 15.949317606127362
+[auto-ringroad-driver] newSpeed 15.949317606127362 desAngle -0.0034826275002177963 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.187664585088239
+[auto-ringroad-driver] speed-newspeed 16.237965352464407
+[auto-ringroad-driver] newSpeed 16.237965352464407 desAngle -0.003530729999761865 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.890108452118092
+[auto-ringroad-driver] speed-newspeed 16.52659480144545
+[auto-ringroad-driver] newSpeed 16.52659480144545 desAngle -0.0035788475002177045 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.59248905407567
+[auto-ringroad-driver] speed-newspeed 16.8152856175466
+[auto-ringroad-driver] newSpeed 16.8152856175466 desAngle -0.003626979999761774 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.294891528571007
+[auto-ringroad-driver] speed-newspeed 17.103955217286124
+[auto-ringroad-driver] newSpeed 17.103955217286124 desAngle 0.006374887500001758 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.997300253941617
+[auto-ringroad-driver] speed-newspeed 17.392618753676633
+[auto-ringroad-driver] newSpeed 17.392618753676633 desAngle -0.0036732600002176126 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.69974694017089
+[auto-ringroad-driver] speed-newspeed 17.681245468034238
+[auto-ringroad-driver] newSpeed 17.681245468034238 desAngle -0.003721422499761682 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.402171230749655
+[auto-ringroad-driver] speed-newspeed 17.969893906172835
+[auto-ringroad-driver] newSpeed 17.969893906172835 desAngle -0.003769600000217521 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.104551294371806
+[auto-ringroad-driver] speed-newspeed 18.258585244459347
+[auto-ringroad-driver] newSpeed 18.258585244459347 desAngle -0.00381779249976159 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.806967806241797
+[auto-ringroad-driver] speed-newspeed 18.547241227945456
+[auto-ringroad-driver] newSpeed 18.547241227945456 desAngle 0.006184015000001941 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.509364569218342
+[auto-ringroad-driver] speed-newspeed 18.835916367858207
+[auto-ringroad-driver] newSpeed 18.835916367858207 desAngle -0.003864192500217428 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.213823837781103
+[auto-ringroad-driver] speed-newspeed 19.12259087735233
+[auto-ringroad-driver] newSpeed 19.12259087735233 desAngle -0.003912414999761498 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.921089725879266
+[auto-ringroad-driver] speed-newspeed 19.406542965897113
+[auto-ringroad-driver] newSpeed 19.406542965897113 desAngle -0.003960652500217336 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.630360882654049
+[auto-ringroad-driver] speed-newspeed 19.68854994382557
+[auto-ringroad-driver] newSpeed 19.68854994382557 desAngle -0.004008904999761406 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.341003952370567
+[auto-ringroad-driver] speed-newspeed 19.96922616620055
+[auto-ringroad-driver] newSpeed 19.96922616620055 desAngle -0.004057172500217244 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.056879236388578
+[auto-ringroad-driver] speed-newspeed 20.24482714070308
+[auto-ringroad-driver] newSpeed 20.24482714070308 desAngle 0.0059445600000010345 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.790901264183422
+[auto-ringroad-driver] speed-newspeed 20.50282577374208
+[auto-ringroad-driver] newSpeed 20.50282577374208 desAngle -0.004103722499761314 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.52720019021962
+[auto-ringroad-driver] speed-newspeed 20.75861581548697
+[auto-ringroad-driver] newSpeed 20.75861581548697 desAngle -0.004152020000217152 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.265283738287064
+[auto-ringroad-driver] speed-newspeed 21.012674773861548
+[auto-ringroad-driver] newSpeed 21.012674773861548 desAngle -0.004200332499761221 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.009947403873191
+[auto-ringroad-driver] speed-newspeed 21.260351018243004
+[auto-ringroad-driver] newSpeed 21.260351018243004 desAngle 0.00580135500000231 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.763845235734866
+[auto-ringroad-driver] speed-newspeed 21.49907012133718
+[auto-ringroad-driver] newSpeed 21.49907012133718 desAngle -0.0042469725002170595 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.521963282496426
+[auto-ringroad-driver] speed-newspeed 21.733695615978466
+[auto-ringroad-driver] newSpeed 21.733695615978466 desAngle -0.0042953149997611295 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.286512518366518
+[auto-ringroad-driver] speed-newspeed 21.962082857184477
+[auto-ringroad-driver] newSpeed 21.962082857184477 desAngle -0.0043436725002169675 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.057418439488629
+[auto-ringroad-driver] speed-newspeed 22.18430411369603
+[auto-ringroad-driver] newSpeed 22.18430411369603 desAngle 0.0056579700000013115 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.83464942416272
+[auto-ringroad-driver] speed-newspeed 22.400390058562163
+[auto-ringroad-driver] newSpeed 22.400390058562163 desAngle -0.004390402499761037 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.618111939545972
+[auto-ringroad-driver] speed-newspeed 22.610431418640406
+[auto-ringroad-driver] newSpeed 22.610431418640406 desAngle 0.0056112250000024955 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.407642230812879
+[auto-ringroad-driver] speed-newspeed 22.814587036111508
+[auto-ringroad-driver] newSpeed 22.814587036111508 desAngle -0.004437162500216875 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.2030723210958065
+[auto-ringroad-driver] speed-newspeed 23.013019848537066
+[auto-ringroad-driver] newSpeed 23.013019848537066 desAngle -0.004485565000217966 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.004173118756611
+[auto-ringroad-driver] speed-newspeed 23.20595207480609
+[auto-ringroad-driver] newSpeed 23.20595207480609 desAngle -0.004533982499762035 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.810752427717521
+[auto-ringroad-driver] speed-newspeed 23.393570145114005
+[auto-ringroad-driver] newSpeed 23.393570145114005 desAngle 0.005467600000001497 curAngle -0.001
+INFO: auto-ringroad-driver: Starting controller: python.exe -u "auto-ringroad-driver.py" 
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+[auto-ringroad-driver] current controller is  auto-ringroad-driver
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.644893017201902
+[auto-ringroad-driver] speed-newspeed 1.2444537733141572
+[auto-ringroad-driver] newSpeed 1.2444537733141572 desAngle -0.1 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.78297219915132
+[auto-ringroad-driver] speed-newspeed 1.1105169668232178
+[auto-ringroad-driver] newSpeed 1.1105169668232178 desAngle -0.1 curAngle -0.073
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.529408548640326
+[auto-ringroad-driver] speed-newspeed 1.3564737078188833
+[auto-ringroad-driver] newSpeed 1.3564737078188833 desAngle -0.1 curAngle -0.092
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.18519858923161
+[auto-ringroad-driver] speed-newspeed 1.6903573684453392
+[auto-ringroad-driver] newSpeed 1.6903573684453392 desAngle -0.1 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.850833483097585
+[auto-ringroad-driver] speed-newspeed 2.0146915213953416
+[auto-ringroad-driver] newSpeed 2.0146915213953416 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.536547682349862
+[auto-ringroad-driver] speed-newspeed 2.3195487481206323
+[auto-ringroad-driver] newSpeed 2.3195487481206323 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.237348922704694
+[auto-ringroad-driver] speed-newspeed 2.6097715449764474
+[auto-ringroad-driver] newSpeed 2.6097715449764474 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.94531541621147
+[auto-ringroad-driver] speed-newspeed 2.8930440462748725
+[auto-ringroad-driver] newSpeed 2.8930440462748725 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.654350988750135
+[auto-ringroad-driver] speed-newspeed 3.1752795409123684
+[auto-ringroad-driver] newSpeed 3.1752795409123684 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.36149458966447
+[auto-ringroad-driver] speed-newspeed 3.4593502480254648
+[auto-ringroad-driver] newSpeed 3.4593502480254648 desAngle -0.1 curAngle -0.098
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.066269511710317
+[auto-ringroad-driver] speed-newspeed 3.745718573640993
+[auto-ringroad-driver] newSpeed 3.745718573640993 desAngle -0.1 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.7694141579678
+[auto-ringroad-driver] speed-newspeed 4.033668266771232
+[auto-ringroad-driver] newSpeed 4.033668266771232 desAngle -0.1 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.47186216813769
+[auto-ringroad-driver] speed-newspeed 4.322293696906442
+[auto-ringroad-driver] newSpeed 4.322293696906442 desAngle -0.1 curAngle -0.096
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.17424408723648
+[auto-ringroad-driver] speed-newspeed 4.610983235380614
+[auto-ringroad-driver] newSpeed 4.610983235380614 desAngle -0.1 curAngle -0.095
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.876806361316444
+[auto-ringroad-driver] speed-newspeed 4.89949782952305
+[auto-ringroad-driver] newSpeed 4.89949782952305 desAngle -0.1 curAngle -0.093
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.579533462113634
+[auto-ringroad-driver] speed-newspeed 5.187852541749776
+[auto-ringroad-driver] newSpeed 5.187852541749776 desAngle -0.1 curAngle -0.092
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.282303928913954
+[auto-ringroad-driver] speed-newspeed 5.4761651889534635
+[auto-ringroad-driver] newSpeed 5.4761651889534635 desAngle -0.1 curAngle -0.09
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.98499808662274
+[auto-ringroad-driver] speed-newspeed 5.7645518559759426
+[auto-ringroad-driver] newSpeed 5.7645518559759426 desAngle -0.1 curAngle -0.089
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.68754320907569
+[auto-ringroad-driver] speed-newspeed 6.05308308719658
+[auto-ringroad-driver] newSpeed 6.05308308719658 desAngle -0.1 curAngle -0.087
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.389915071694162
+[auto-ringroad-driver] speed-newspeed 6.341782380456663
+[auto-ringroad-driver] newSpeed 6.341782380456663 desAngle -0.1 curAngle -0.085
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.092120834320383
+[auto-ringroad-driver] speed-newspeed 6.630642790709227
+[auto-ringroad-driver] newSpeed 6.630642790709227 desAngle -0.1 curAngle -0.083
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.794180822405494
+[auto-ringroad-driver] speed-newspeed 6.919644602266671
+[auto-ringroad-driver] newSpeed 6.919644602266671 desAngle -0.1 curAngle -0.08
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.496116841839424
+[auto-ringroad-driver] speed-newspeed 7.20876666341576
+[auto-ringroad-driver] newSpeed 7.20876666341576 desAngle -0.1 curAngle -0.078
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.197947592887083
+[auto-ringroad-driver] speed-newspeed 7.497990834899528
+[auto-ringroad-driver] newSpeed 7.497990834899528 desAngle -0.1 curAngle -0.076
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.89968861108039
+[auto-ringroad-driver] speed-newspeed 7.787302047252021
+[auto-ringroad-driver] newSpeed 7.787302047252021 desAngle -0.1 curAngle -0.073
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.60135389751666
+[auto-ringroad-driver] speed-newspeed 8.07668671940884
+[auto-ringroad-driver] newSpeed 8.07668671940884 desAngle -0.1 curAngle -0.071
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.30356770446043
+[auto-ringroad-driver] speed-newspeed 8.365539326673382
+[auto-ringroad-driver] newSpeed 8.365539326673382 desAngle -0.1 curAngle -0.068
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.006885903493366
+[auto-ringroad-driver] speed-newspeed 8.653320673611436
+[auto-ringroad-driver] newSpeed 8.653320673611436 desAngle -0.1 curAngle -0.065
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.710681869342984
+[auto-ringroad-driver] speed-newspeed 8.940638586737306
+[auto-ringroad-driver] newSpeed 8.940638586737306 desAngle -0.1 curAngle -0.063
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.41439913928456
+[auto-ringroad-driver] speed-newspeed 9.228032834893979
+[auto-ringroad-driver] newSpeed 9.228032834893979 desAngle -0.1 curAngle -0.06
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.117808279557792
+[auto-ringroad-driver] speed-newspeed 9.51572596882894
+[auto-ringroad-driver] newSpeed 9.51572596882894 desAngle -0.1 curAngle -0.058
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.82086382970475
+[auto-ringroad-driver] speed-newspeed 9.803762085186394
+[auto-ringroad-driver] newSpeed 9.803762085186394 desAngle -0.1 curAngle -0.055
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.523615177931845
+[auto-ringroad-driver] speed-newspeed 10.092093277406109
+[auto-ringroad-driver] newSpeed 10.092093277406109 desAngle -0.1 curAngle -0.052
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.22665476350928
+[auto-ringroad-driver] speed-newspeed 10.380144879395997
+[auto-ringroad-driver] newSpeed 10.380144879395997 desAngle -0.1 curAngle -0.05
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.9342908245062
+[auto-ringroad-driver] speed-newspeed 10.663737900228988
+[auto-ringroad-driver] newSpeed 10.663737900228988 desAngle -0.0827936225000887 curAngle -0.048
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.644684159371053
+[auto-ringroad-driver] speed-newspeed 10.944656365410077
+[auto-ringroad-driver] newSpeed 10.944656365410077 desAngle -0.061071505000107384 curAngle -0.039
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.33357863462148
+[auto-ringroad-driver] speed-newspeed 11.246428724417164
+[auto-ringroad-driver] newSpeed 11.246428724417164 desAngle -0.03924880250012619 curAngle -0.032
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.029075317069726
+[auto-ringroad-driver] speed-newspeed 11.541796942442364
+[auto-ringroad-driver] newSpeed 11.541796942442364 desAngle -0.017325484999688112 curAngle -0.023
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.72813250686967
+[auto-ringroad-driver] speed-newspeed 11.833711468336418
+[auto-ringroad-driver] newSpeed 11.833711468336418 desAngle -0.005351537500381254 curAngle -0.015
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.429596019116836
+[auto-ringroad-driver] speed-newspeed 12.12329186145667
+[auto-ringroad-driver] newSpeed 12.12329186145667 desAngle 0.006673055000293249 curAngle -0.01
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.132453957196134
+[auto-ringroad-driver] speed-newspeed 12.411519661519748
+[auto-ringroad-driver] newSpeed 12.411519661519748 desAngle 0.028798322499819395 curAngle -0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.835462838482762
+[auto-ringroad-driver] speed-newspeed 12.699601046671722
+[auto-ringroad-driver] newSpeed 12.699601046671722 desAngle 0.04097428000003789 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.538501236251864
+[auto-ringroad-driver] speed-newspeed 12.987653800835691
+[auto-ringroad-driver] newSpeed 12.987653800835691 desAngle 0.053200942500257364 curAngle 0.007
+INFO: auto-ringroad-driver: Starting controller: python.exe -u "auto-ringroad-driver.py" 
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+[auto-ringroad-driver] current controller is  auto-ringroad-driver
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.644893017201902
+[auto-ringroad-driver] speed-newspeed 1.2444537733141572
+[auto-ringroad-driver] newSpeed 1.2444537733141572 desAngle -0.1 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.78297219915132
+[auto-ringroad-driver] speed-newspeed 1.1105169668232178
+[auto-ringroad-driver] newSpeed 1.1105169668232178 desAngle -0.1 curAngle -0.073
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.529408548640326
+[auto-ringroad-driver] speed-newspeed 1.3564737078188833
+[auto-ringroad-driver] newSpeed 1.3564737078188833 desAngle -0.1 curAngle -0.092
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.18519858923161
+[auto-ringroad-driver] speed-newspeed 1.6903573684453392
+[auto-ringroad-driver] newSpeed 1.6903573684453392 desAngle -0.1 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.850833483097585
+[auto-ringroad-driver] speed-newspeed 2.0146915213953416
+[auto-ringroad-driver] newSpeed 2.0146915213953416 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.536547682349862
+[auto-ringroad-driver] speed-newspeed 2.3195487481206323
+[auto-ringroad-driver] newSpeed 2.3195487481206323 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.237348922704694
+[auto-ringroad-driver] speed-newspeed 2.6097715449764474
+[auto-ringroad-driver] newSpeed 2.6097715449764474 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.94531541621147
+[auto-ringroad-driver] speed-newspeed 2.8930440462748725
+[auto-ringroad-driver] newSpeed 2.8930440462748725 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.654350988750135
+[auto-ringroad-driver] speed-newspeed 3.1752795409123684
+[auto-ringroad-driver] newSpeed 3.1752795409123684 desAngle -0.1 curAngle -0.099
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.36149458966447
+[auto-ringroad-driver] speed-newspeed 3.4593502480254648
+[auto-ringroad-driver] newSpeed 3.4593502480254648 desAngle -0.1 curAngle -0.098
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.066269511710317
+[auto-ringroad-driver] speed-newspeed 3.745718573640993
+[auto-ringroad-driver] newSpeed 3.745718573640993 desAngle -0.1 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.7694141579678
+[auto-ringroad-driver] speed-newspeed 4.033668266771232
+[auto-ringroad-driver] newSpeed 4.033668266771232 desAngle -0.1 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.47186216813769
+[auto-ringroad-driver] speed-newspeed 4.322293696906442
+[auto-ringroad-driver] newSpeed 4.322293696906442 desAngle -0.1 curAngle -0.096
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.17424408723648
+[auto-ringroad-driver] speed-newspeed 4.610983235380614
+[auto-ringroad-driver] newSpeed 4.610983235380614 desAngle -0.1 curAngle -0.095
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.876806361316444
+[auto-ringroad-driver] speed-newspeed 4.89949782952305
+[auto-ringroad-driver] newSpeed 4.89949782952305 desAngle -0.1 curAngle -0.093
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.579533462113634
+[auto-ringroad-driver] speed-newspeed 5.187852541749776
+[auto-ringroad-driver] newSpeed 5.187852541749776 desAngle -0.1 curAngle -0.092
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.282303928913954
+[auto-ringroad-driver] speed-newspeed 5.4761651889534635
+[auto-ringroad-driver] newSpeed 5.4761651889534635 desAngle -0.1 curAngle -0.09
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.98499808662274
+[auto-ringroad-driver] speed-newspeed 5.7645518559759426
+[auto-ringroad-driver] newSpeed 5.7645518559759426 desAngle -0.1 curAngle -0.089
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.68754320907569
+[auto-ringroad-driver] speed-newspeed 6.05308308719658
+[auto-ringroad-driver] newSpeed 6.05308308719658 desAngle -0.1 curAngle -0.087
+INFO: racing_wheel_com: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\racing_wheel_com\racing_wheel_com.exe"
+INFO: traffic_light_red: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_red\traffic_light_red.exe" 2000 0.1 r
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+INFO: auto-ringroad: Starting controller: python.exe -u "auto-ringroad.py" 
+[racing_wheel_com] controller Name: racing_wheel_com
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[auto-ringroad] current controller is  auto-ringroad
+[racing_wheel_com] 'Logitech G HUB G29 Driving Force Racing Wheel USB' detected (the following configuration file is used: 'config_logitech_g29.windows.ini').
+[auto-ringroad] ready to enter the main road
+INFO: traffic_light_green: Starting controller: "E:\OneDrive - The University of Queensland\Desktop\Webots-Ringroad-2019b-trial\controllers\traffic_light_green\traffic_light_green.exe" 0.1 2000 g
+INFO: auto-ringroad-driver: Starting controller: python.exe -u "auto-ringroad-driver.py" 
+[auto-ringroad-driver] Warning: wb_speaker_play_sound() called with a volume value greater than 1: 126.136. Setting volume to 1.
+[auto-ringroad-driver] current controller is  auto-ringroad-driver
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.87769190036788
+[auto-ringroad-driver] speed-newspeed 13.628638856643159
+[auto-ringroad-driver] newSpeed 13.628638856643159 desAngle 0.0018755625000022745 curAngle -0.015
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.384471185655727
+[auto-ringroad-driver] speed-newspeed 9.257062949913946
+[auto-ringroad-driver] newSpeed 9.257062949913946 desAngle 0.001876125000002275 curAngle -0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.89992834065073
+[auto-ringroad-driver] speed-newspeed 4.877069509568791
+[auto-ringroad-driver] newSpeed 4.877069509568791 desAngle 0.0018766875000022758 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.2588556701141
+[auto-ringroad-driver] speed-newspeed 3.5589099999893214
+[auto-ringroad-driver] newSpeed 3.5589099999893214 desAngle -0.008172765000217094 curAngle 0.002
+[auto-ringroad-driver] preVeh True gap2pred 4.65310926809109 speedDiff 0.029307557411200363
+[auto-ringroad-driver] fvdm-newspeed 2.2219563677871554
+[auto-ringroad-driver] newSpeed 2.2219563677871554 desAngle 0.0018277825000011852 curAngle -0.005
+[auto-ringroad-driver] preVeh True gap2pred 4.658735171467055 speedDiff 0.0062487022156231115
+[auto-ringroad-driver] fvdm-newspeed 1.9209721556819772
+[auto-ringroad-driver] newSpeed 1.9209721556819772 desAngle 0.0018283300000011857 curAngle 0.0
+[auto-ringroad-driver] preVeh True gap2pred 4.658627917451773 speedDiff 2.526908214278776e-05
+[auto-ringroad-driver] fvdm-newspeed 1.707484395952992
+[auto-ringroad-driver] newSpeed 1.707484395952992 desAngle 0.0018288775000011859 curAngle 0.001
+[auto-ringroad-driver] preVeh True gap2pred 4.654091628465338 speedDiff 0.003989893339595513
+[auto-ringroad-driver] fvdm-newspeed 1.3609457598700199
+[auto-ringroad-driver] newSpeed 1.3609457598700199 desAngle 0.0018294250000011863 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 29.05718901118724
+[auto-ringroad-driver] speed-newspeed 1.8145266591483777
+[auto-ringroad-driver] newSpeed 1.8145266591483777 desAngle 0.0018299725000011865 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.96835516650825
+[auto-ringroad-driver] speed-newspeed 1.9006954884869978
+[auto-ringroad-driver] newSpeed 1.9006954884869978 desAngle 0.001830520000001187 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.581846288457037
+[auto-ringroad-driver] speed-newspeed 2.2756091001966734
+[auto-ringroad-driver] newSpeed 2.2756091001966734 desAngle 0.0018310675000011874 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.006157042017755
+[auto-ringroad-driver] speed-newspeed 2.8340276692427766
+[auto-ringroad-driver] newSpeed 2.8340276692427766 desAngle 0.0018316150000011876 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.310167164291038
+[auto-ringroad-driver] speed-newspeed 3.5091378506376927
+[auto-ringroad-driver] newSpeed 3.5091378506376927 desAngle 0.001832162500001188 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.73388228528256
+[auto-ringroad-driver] speed-newspeed 3.098134183275917
+[auto-ringroad-driver] newSpeed 3.098134183275917 desAngle 0.011882725000220558 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.64871078466758
+[auto-ringroad-driver] speed-newspeed 4.1507505388724475
+[auto-ringroad-driver] newSpeed 4.1507505388724475 desAngle 0.0018832875000022807 curAngle 0.008
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.06482792312071
+[auto-ringroad-driver] speed-newspeed 4.717116914572912
+[auto-ringroad-driver] newSpeed 4.717116914572912 desAngle 0.01193386499976463 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.84519712574763
+[auto-ringroad-driver] speed-newspeed 4.930158788024796
+[auto-ringroad-driver] newSpeed 4.930158788024796 desAngle 0.01198445750022047 curAngle 0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.750439849483723
+[auto-ringroad-driver] speed-newspeed 5.0220733460007905
+[auto-ringroad-driver] newSpeed 5.0220733460007905 desAngle 0.0019850500000021913 curAngle 0.01
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.634936876766076
+[auto-ringroad-driver] speed-newspeed 5.134111229536907
+[auto-ringroad-driver] newSpeed 5.134111229536907 desAngle 0.01203565749976454 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.446852621445025
+[auto-ringroad-driver] speed-newspeed 5.316552957198326
+[auto-ringroad-driver] newSpeed 5.316552957198326 desAngle 0.01208628000022038 curAngle 0.01
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.19066441822183
+[auto-ringroad-driver] speed-newspeed 5.5650555143248255
+[auto-ringroad-driver] newSpeed 5.5650555143248255 desAngle 0.0020869025000021016 curAngle 0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.891752929621664
+[auto-ringroad-driver] speed-newspeed 5.854999658266986
+[auto-ringroad-driver] newSpeed 5.854999658266986 desAngle 0.012137539999764451 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.576134098792185
+[auto-ringroad-driver] speed-newspeed 6.161149924171582
+[auto-ringroad-driver] newSpeed 6.161149924171582 desAngle 0.012188192500220291 curAngle 0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.261204310645848
+[auto-ringroad-driver] speed-newspeed 6.4666318186735285
+[auto-ringroad-driver] newSpeed 6.4666318186735285 desAngle 0.0021888450000020123 curAngle 0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.953363875732602
+[auto-ringroad-driver] speed-newspeed 6.765237040539375
+[auto-ringroad-driver] newSpeed 6.765237040539375 desAngle 0.012239512499764363 curAngle 0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.65269278313196
+[auto-ringroad-driver] speed-newspeed 7.056888000361999
+[auto-ringroad-driver] newSpeed 7.056888000361999 desAngle 0.002240180000000831 curAngle 0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.356890570241614
+[auto-ringroad-driver] speed-newspeed 7.3438161468656356
+[auto-ringroad-driver] newSpeed 7.3438161468656356 desAngle 0.012290862500220202 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.062331895286484
+[auto-ringroad-driver] speed-newspeed 7.629538061572109
+[auto-ringroad-driver] newSpeed 7.629538061572109 desAngle 0.012341559999764272 curAngle 0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.76783272352926
+[auto-ringroad-driver] speed-newspeed 7.915202258176619
+[auto-ringroad-driver] newSpeed 7.915202258176619 desAngle 0.002342257500000741 curAngle 0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.472104601705528
+[auto-ringroad-driver] speed-newspeed 8.202058536345637
+[auto-ringroad-driver] newSpeed 8.202058536345637 desAngle 0.012392970000220112 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.175312874403268
+[auto-ringroad-driver] speed-newspeed 8.48994651182883
+[auto-ringroad-driver] newSpeed 8.48994651182883 desAngle 0.0023936825000018336 curAngle 0.008
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.8782059707127
+[auto-ringroad-driver] speed-newspeed 8.778140208408681
+[auto-ringroad-driver] newSpeed 8.778140208408681 desAngle 0.012444410000221204 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.580448941330786
+[auto-ringroad-driver] speed-newspeed 9.066964526909137
+[auto-ringroad-driver] newSpeed 9.066964526909137 desAngle 0.0024451375000029267 curAngle 0.008
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.283017405660637
+[auto-ringroad-driver] speed-newspeed 9.355473116509181
+[auto-ringroad-driver] newSpeed 9.355473116509181 desAngle 0.0024458650000029275 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.98524027266209
+[auto-ringroad-driver] speed-newspeed 9.644316935517773
+[auto-ringroad-driver] newSpeed 9.644316935517773 desAngle 0.012496607499765278 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.687720077706302
+[auto-ringroad-driver] speed-newspeed 9.932911524624888
+[auto-ringroad-driver] newSpeed 9.932911524624888 desAngle 0.0024973500000017457 curAngle 0.006
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.390368784437122
+[auto-ringroad-driver] speed-newspeed 10.221342279095992
+[auto-ringroad-driver] newSpeed 10.221342279095992 desAngle 0.0024980925000017465 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.092795672493814
+[auto-ringroad-driver] speed-newspeed 10.509988197680999
+[auto-ringroad-driver] newSpeed 10.509988197680999 desAngle 0.002498835000001747 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.79531083210885
+[auto-ringroad-driver] speed-newspeed 10.798548492854415
+[auto-ringroad-driver] newSpeed 10.798548492854415 desAngle 0.0024995775000017473 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.49778293953144
+[auto-ringroad-driver] speed-newspeed 11.0871505486545
+[auto-ringroad-driver] newSpeed 11.0871505486545 desAngle 0.01255033500022112 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.200255223165556
+[auto-ringroad-driver] speed-newspeed 11.375752433529414
+[auto-ringroad-driver] newSpeed 11.375752433529414 desAngle 0.002551092500002841 curAngle 0.005
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.902821759924258
+[auto-ringroad-driver] speed-newspeed 11.664262892873468
+[auto-ringroad-driver] newSpeed 11.664262892873468 desAngle 0.0025518500000028415 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.605166285434677
+[auto-ringroad-driver] speed-newspeed 11.952988703128362
+[auto-ringroad-driver] newSpeed 11.952988703128362 desAngle 0.0025526075000028427 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.307592383895383
+[auto-ringroad-driver] speed-newspeed 12.241635387621479
+[auto-ringroad-driver] newSpeed 12.241635387621479 desAngle 0.0025533650000028434 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.00999772347702
+[auto-ringroad-driver] speed-newspeed 12.530302208227289
+[auto-ringroad-driver] newSpeed 12.530302208227289 desAngle 0.002554122500002844 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.712433475710093
+[auto-ringroad-driver] speed-newspeed 12.81893952856121
+[auto-ringroad-driver] newSpeed 12.81893952856121 desAngle 0.002554880000002845 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.414858523290327
+[auto-ringroad-driver] speed-newspeed 13.107587232408385
+[auto-ringroad-driver] newSpeed 13.107587232408385 desAngle -0.0074943775002165244 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.11729529030289
+[auto-ringroad-driver] speed-newspeed 13.396223568406198
+[auto-ringroad-driver] newSpeed 13.396223568406198 desAngle 0.0025063650000017542 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.819772407431188
+[auto-ringroad-driver] speed-newspeed 13.684820764791747
+[auto-ringroad-driver] newSpeed 13.684820764791747 desAngle 0.002507107500001755 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.522191113508534
+[auto-ringroad-driver] speed-newspeed 13.97347461989672
+[auto-ringroad-driver] newSpeed 13.97347461989672 desAngle 0.0025078500000017554 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.224560826825158
+[auto-ringroad-driver] speed-newspeed 14.262175997979597
+[auto-ringroad-driver] newSpeed 14.262175997979597 desAngle 0.0025085925000017557 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.926965428599813
+[auto-ringroad-driver] speed-newspeed 14.550843534258181
+[auto-ringroad-driver] newSpeed 14.550843534258181 desAngle 0.0025093350000017565 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.629368963341959
+[auto-ringroad-driver] speed-newspeed 14.8395121055583
+[auto-ringroad-driver] newSpeed 14.8395121055583 desAngle -0.0075399374997605914 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.331798505881915
+[auto-ringroad-driver] speed-newspeed 15.128155449294542
+[auto-ringroad-driver] newSpeed 15.128155449294542 desAngle 0.002460790000002941 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.034280337546285
+[auto-ringroad-driver] speed-newspeed 15.416748072580104
+[auto-ringroad-driver] newSpeed 15.416748072580104 desAngle 0.0024615175000029417 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.736701757674657
+[auto-ringroad-driver] speed-newspeed 15.705399295055582
+[auto-ringroad-driver] newSpeed 15.705399295055582 desAngle 0.0024622450000029426 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.439067165977589
+[auto-ringroad-driver] speed-newspeed 15.994104849001738
+[auto-ringroad-driver] newSpeed 15.994104849001738 desAngle -0.007587042500216427 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.141474254924741
+[auto-ringroad-driver] speed-newspeed 16.282769972723003
+[auto-ringroad-driver] newSpeed 16.282769972723003 desAngle 0.0024136700000018524 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.843938702624616
+[auto-ringroad-driver] speed-newspeed 16.57137945845412
+[auto-ringroad-driver] newSpeed 16.57137945845412 desAngle 0.002414382500001853 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.546337722945946
+[auto-ringroad-driver] speed-newspeed 16.860052408742433
+[auto-ringroad-driver] newSpeed 16.860052408742433 desAngle 0.0024150950000018535 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.248707506432929
+[auto-ringroad-driver] speed-newspeed 17.14875371876006
+[auto-ringroad-driver] newSpeed 17.14875371876006 desAngle -0.007634207500217517 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.951126290212859
+[auto-ringroad-driver] speed-newspeed 17.437407498493528
+[auto-ringroad-driver] newSpeed 17.437407498493528 desAngle 0.002366490000000762 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.653606387627647
+[auto-ringroad-driver] speed-newspeed 17.726001804001182
+[auto-ringroad-driver] newSpeed 17.726001804001182 desAngle 0.0023671875000007623 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.35600724199952
+[auto-ringroad-driver] speed-newspeed 18.014672975260464
+[auto-ringroad-driver] newSpeed 18.014672975260464 desAngle 0.0023678850000007625 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.058366809064584
+[auto-ringroad-driver] speed-newspeed 18.303384195207354
+[auto-ringroad-driver] newSpeed 18.303384195207354 desAngle -0.007681432499761586 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.762697859495074
+[auto-ringroad-driver] speed-newspeed 18.59018307628978
+[auto-ringroad-driver] newSpeed 18.59018307628978 desAngle 0.002319250000001946 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.465970300498679
+[auto-ringroad-driver] speed-newspeed 18.87800880851628
+[auto-ringroad-driver] newSpeed 18.87800880851628 desAngle 0.0023199325000019468 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.168638018473008
+[auto-ringroad-driver] speed-newspeed 19.166421122081182
+[auto-ringroad-driver] newSpeed 19.166421122081182 desAngle 0.0023206150000019475 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.872830363396933
+[auto-ringroad-driver] speed-newspeed 19.453354547504976
+[auto-ringroad-driver] newSpeed 19.453354547504976 desAngle -0.007728717500217423 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.590930540703752
+[auto-ringroad-driver] speed-newspeed 19.72679737551736
+[auto-ringroad-driver] newSpeed 19.72679737551736 desAngle 0.0022719500000008565 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.311940179707797
+[auto-ringroad-driver] speed-newspeed 19.997418025683437
+[auto-ringroad-driver] newSpeed 19.997418025683437 desAngle 0.002272617500000857 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.030813233194596
+[auto-ringroad-driver] speed-newspeed 20.270111163801243
+[auto-ringroad-driver] newSpeed 20.270111163801243 desAngle -0.007776729999761492 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.765857052411551
+[auto-ringroad-driver] speed-newspeed 20.527118659160795
+[auto-ringroad-driver] newSpeed 20.527118659160795 desAngle 0.00222392250000204 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.502988893480165
+[auto-ringroad-driver] speed-newspeed 20.78210077332424
+[auto-ringroad-driver] newSpeed 20.78210077332424 desAngle 0.002224575000002041 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.242005027465268
+[auto-ringroad-driver] speed-newspeed 21.03525512335869
+[auto-ringroad-driver] newSpeed 21.03525512335869 desAngle 0.0022252275000020413 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.987448363225177
+[auto-ringroad-driver] speed-newspeed 21.28217508767158
+[auto-ringroad-driver] newSpeed 21.28217508767158 desAngle -0.007824135000217329 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.741894472653868
+[auto-ringroad-driver] speed-newspeed 21.52036236152575
+[auto-ringroad-driver] newSpeed 21.52036236152575 desAngle 0.0021765025000009507 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.500594064801795
+[auto-ringroad-driver] speed-newspeed 21.75442375714226
+[auto-ringroad-driver] newSpeed 21.75442375714226 desAngle 0.0021771400000009508 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.26573298691838
+[auto-ringroad-driver] speed-newspeed 21.982239002689173
+[auto-ringroad-driver] newSpeed 21.982239002689173 desAngle 0.002177777500000951 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 8.03722570228474
+[auto-ringroad-driver] speed-newspeed 22.2038910687838
+[auto-ringroad-driver] newSpeed 22.2038910687838 desAngle -0.007871599999761399 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.815018850916317
+[auto-ringroad-driver] speed-newspeed 22.41943171461117
+[auto-ringroad-driver] newSpeed 22.41943171461117 desAngle 0.0021290225000021343 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.599021751362223
+[auto-ringroad-driver] speed-newspeed 22.628948901178646
+[auto-ringroad-driver] newSpeed 22.628948901178646 desAngle 0.002129645000002135 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.389046295250907
+[auto-ringroad-driver] speed-newspeed 22.83262509360662
+[auto-ringroad-driver] newSpeed 22.83262509360662 desAngle -0.007919747500217235 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 7.184873162553014
+[auto-ringroad-driver] speed-newspeed 23.030673032323577
+[auto-ringroad-driver] newSpeed 23.030673032323577 desAngle 0.0020808600000010442 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.986397972225188
+[auto-ringroad-driver] speed-newspeed 23.22319396694157
+[auto-ringroad-driver] newSpeed 23.22319396694157 desAngle 0.0020814675000010445 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.793560457070274
+[auto-ringroad-driver] speed-newspeed 23.410246356641835
+[auto-ringroad-driver] newSpeed 23.410246356641835 desAngle 0.002082075000001045 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.606152696351675
+[auto-ringroad-driver] speed-newspeed 23.592031884538876
+[auto-ringroad-driver] newSpeed 23.592031884538876 desAngle 0.002082682500001045 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.423935880618313
+[auto-ringroad-driver] speed-newspeed 23.768782195800238
+[auto-ringroad-driver] newSpeed 23.768782195800238 desAngle -0.007966724999761303 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.246812780525946
+[auto-ringroad-driver] speed-newspeed 23.940591602889832
+[auto-ringroad-driver] newSpeed 23.940591602889832 desAngle 0.0020338675000022293 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.074758267633367
+[auto-ringroad-driver] speed-newspeed 24.107484480395634
+[auto-ringroad-driver] newSpeed 24.107484480395634 desAngle 0.0020344600000022296 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.907621776587476
+[auto-ringroad-driver] speed-newspeed 24.26960687671015
+[auto-ringroad-driver] newSpeed 24.26960687671015 desAngle -0.008014962500217139 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.743803312714704
+[auto-ringroad-driver] speed-newspeed 24.428510786666738
+[auto-ringroad-driver] newSpeed 24.428510786666738 desAngle 0.001985615000001139 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.585395109536535
+[auto-ringroad-driver] speed-newspeed 24.58216674374956
+[auto-ringroad-driver] newSpeed 24.58216674374956 desAngle 0.0019861925000011394 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.432053835683757
+[auto-ringroad-driver] speed-newspeed 24.730907779386754
+[auto-ringroad-driver] newSpeed 24.730907779386754 desAngle 0.0019867700000011394 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.283006871107126
+[auto-ringroad-driver] speed-newspeed 24.875483335026086
+[auto-ringroad-driver] newSpeed 24.875483335026086 desAngle 0.00198734750000114 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.133400178771428
+[auto-ringroad-driver] speed-newspeed 25.020601826591715
+[auto-ringroad-driver] newSpeed 25.020601826591715 desAngle 0.0019879250000011403 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.989603444381569
+[auto-ringroad-driver] speed-newspeed 25.160084658949877
+[auto-ringroad-driver] newSpeed 25.160084658949877 desAngle 0.0019885025000011404 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.852704307106343
+[auto-ringroad-driver] speed-newspeed 25.292876822106848
+[auto-ringroad-driver] newSpeed 25.292876822106848 desAngle -0.008060934999761208 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.72110263317548
+[auto-ringroad-driver] speed-newspeed 25.420530445819786
+[auto-ringroad-driver] newSpeed 25.420530445819786 desAngle 0.0019396275000023242 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.590631446741998
+[auto-ringroad-driver] speed-newspeed 25.54708749666026
+[auto-ringroad-driver] newSpeed 25.54708749666026 desAngle 0.001940190000002325 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.46235797959304
+[auto-ringroad-driver] speed-newspeed 25.67151275979475
+[auto-ringroad-driver] newSpeed 25.67151275979475 desAngle -0.008109262500217044 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.3405720093706925
+[auto-ringroad-driver] speed-newspeed 25.789645150910427
+[auto-ringroad-driver] newSpeed 25.789645150910427 desAngle 0.0018912850000012344 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.223584055400092
+[auto-ringroad-driver] speed-newspeed 25.90312346626191
+[auto-ringroad-driver] newSpeed 25.90312346626191 desAngle 0.0018918325000012348 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.109604134093633
+[auto-ringroad-driver] speed-newspeed 26.013683989929177
+[auto-ringroad-driver] newSpeed 26.013683989929177 desAngle -0.008157634999761115 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.990294650669586
+[auto-ringroad-driver] speed-newspeed 26.1294141888505
+[auto-ringroad-driver] newSpeed 26.1294141888505 desAngle 0.0018428975000024184 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.872805831916036
+[auto-ringroad-driver] speed-newspeed 26.243378343041446
+[auto-ringroad-driver] newSpeed 26.243378343041446 desAngle 0.0018434300000024191 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.766948070377893
+[auto-ringroad-driver] speed-newspeed 26.346060371733444
+[auto-ringroad-driver] newSpeed 26.346060371733444 desAngle 0.0018439625000024199 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.6677572042596083
+[auto-ringroad-driver] speed-newspeed 26.44227551186818
+[auto-ringroad-driver] newSpeed 26.44227551186818 desAngle 0.0018444950000024206 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.558529945410438
+[auto-ringroad-driver] speed-newspeed 26.548225952951874
+[auto-ringroad-driver] newSpeed 26.548225952951874 desAngle 0.0018450275000024214 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.4492722689901
+[auto-ringroad-driver] speed-newspeed 26.654205899079603
+[auto-ringroad-driver] newSpeed 26.654205899079603 desAngle 0.001845560000002422 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.3502088497787135
+[auto-ringroad-driver] speed-newspeed 26.75029741571465
+[auto-ringroad-driver] newSpeed 26.75029741571465 desAngle -0.008203922500216948 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.263508892854226
+[auto-ringroad-driver] speed-newspeed 26.8343963739314
+[auto-ringroad-driver] newSpeed 26.8343963739314 desAngle 0.0017965950000013312 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.18019571909441
+[auto-ringroad-driver] speed-newspeed 26.915210152478423
+[auto-ringroad-driver] newSpeed 26.915210152478423 desAngle 0.0017971125000013316 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.085476288003292
+[auto-ringroad-driver] speed-newspeed 27.007088000636806
+[auto-ringroad-driver] newSpeed 27.007088000636806 desAngle 0.001797630000001332 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.9883213352835902
+[auto-ringroad-driver] speed-newspeed 27.101328304774917
+[auto-ringroad-driver] newSpeed 27.101328304774917 desAngle 0.0017981475000013324 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.8994429216704027
+[auto-ringroad-driver] speed-newspeed 27.18754036597971
+[auto-ringroad-driver] newSpeed 27.18754036597971 desAngle -0.008251349999761015 curAngle 0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.8343807729409605
+[auto-ringroad-driver] speed-newspeed 27.25065065024727
+[auto-ringroad-driver] newSpeed 27.25065065024727 desAngle 0.0017491525000025163 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.765902196789611
+[auto-ringroad-driver] speed-newspeed 27.317074869114077
+[auto-ringroad-driver] newSpeed 27.317074869114077 desAngle 0.0017496550000025172 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.692544585696261
+[auto-ringroad-driver] speed-newspeed 27.388231751874628
+[auto-ringroad-driver] newSpeed 27.388231751874628 desAngle -0.008299857500216853 curAngle -0.0
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.6140003200382687
+[auto-ringroad-driver] speed-newspeed 27.46441968956288
+[auto-ringroad-driver] newSpeed 27.46441968956288 desAngle 0.011750645000220796 curAngle -0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.540340146351518
+[auto-ringroad-driver] speed-newspeed 27.535870058039027
+[auto-ringroad-driver] newSpeed 27.535870058039027 desAngle -0.008298867500216852 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.4780899201200626
+[auto-ringroad-driver] speed-newspeed 27.59625277748354
+[auto-ringroad-driver] newSpeed 27.59625277748354 desAngle 0.0017016200000014277 curAngle -0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.415737634824225
+[auto-ringroad-driver] speed-newspeed 27.6567344942205
+[auto-ringroad-driver] newSpeed 27.6567344942205 desAngle 0.001702107500001428 curAngle 0.003
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.3326951292415394
+[auto-ringroad-driver] speed-newspeed 27.737285724635708
+[auto-ringroad-driver] newSpeed 27.737285724635708 desAngle 0.0017025950000014284 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.4260063948628776
+[auto-ringroad-driver] speed-newspeed 27.64677379698301
+[auto-ringroad-driver] newSpeed 27.64677379698301 desAngle 0.021803112499983148 curAngle -0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.5002232734215717
+[auto-ringroad-driver] speed-newspeed 27.574783424781074
+[auto-ringroad-driver] newSpeed 27.574783424781074 desAngle -0.01829639999998038 curAngle 0.005
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.50837512876722
+[auto-ringroad-driver] speed-newspeed 27.566876125095796
+[auto-ringroad-driver] newSpeed 27.566876125095796 desAngle -0.01839594249998029 curAngle -0.009
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.3913372030201927
+[auto-ringroad-driver] speed-newspeed 27.680402913070413
+[auto-ringroad-driver] newSpeed 27.680402913070413 desAngle 0.001604515000001521 curAngle 0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.2115736678569498
+[auto-ringroad-driver] speed-newspeed 27.85477354217876
+[auto-ringroad-driver] newSpeed 27.85477354217876 desAngle 0.0016049725000015216 curAngle -0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.2491140722077283
+[auto-ringroad-driver] speed-newspeed 27.818359349958502
+[auto-ringroad-driver] newSpeed 27.818359349958502 desAngle 0.021705459999983242 curAngle 0.001
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.2601111563089162
+[auto-ringroad-driver] speed-newspeed 27.80769217838035
+[auto-ringroad-driver] newSpeed 27.80769217838035 desAngle -0.01839408249998029 curAngle 0.002
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.217949817716441
+[auto-ringroad-driver] speed-newspeed 27.84858867681505
+[auto-ringroad-driver] newSpeed 27.84858867681505 desAngle 0.0016063750000015228 curAngle -0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.1275210618094675
+[auto-ringroad-driver] speed-newspeed 27.93630457004482
+[auto-ringroad-driver] newSpeed 27.93630457004482 desAngle 0.0016068325000015234 curAngle 0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.0364920979084182
+[auto-ringroad-driver] speed-newspeed 28.024602665028834
+[auto-ringroad-driver] newSpeed 28.024602665028834 desAngle 0.02170731999998324 curAngle -0.01
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 1.8037187720823766
+[auto-ringroad-driver] speed-newspeed 28.250392791080095
+[auto-ringroad-driver] newSpeed 28.250392791080095 desAngle -0.028442237499742635 curAngle 0.016
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 1.4736493822560064
+[auto-ringroad-driver] speed-newspeed 28.570560099211672
+[auto-ringroad-driver] newSpeed 28.570560099211672 desAngle 0.03170824999974677 curAngle -0.027
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 1.0291319586562722
+[auto-ringroad-driver] speed-newspeed 29.001742000103416
+[auto-ringroad-driver] newSpeed 29.001742000103416 desAngle -0.038491322499962004 curAngle 0.034
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 0.4634784190049501
+[auto-ringroad-driver] speed-newspeed 29.550425933565197
+[auto-ringroad-driver] newSpeed 29.550425933565197 desAngle 0.041709164999965055 curAngle -0.043
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -0.34932583370423487
+[auto-ringroad-driver] speed-newspeed 30.338846058693107
+[auto-ringroad-driver] newSpeed 30.338846058693107 desAngle -0.08874048249968779 curAngle 0.058
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -0.6472356165910433
+[auto-ringroad-driver] speed-newspeed 30.627818548093313
+[auto-ringroad-driver] newSpeed 30.627818548093313 desAngle 0.03140991499974705 curAngle -0.064
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -1.2727769648486493
+[auto-ringroad-driver] speed-newspeed 31.23459365590319
+[auto-ringroad-driver] newSpeed 31.23459365590319 desAngle 0.021510342499983428 curAngle 0.058
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -1.8507235652481668
+[auto-ringroad-driver] speed-newspeed 31.79520185829072
+[auto-ringroad-driver] newSpeed 31.79520185829072 desAngle 0.0015107700000016188 curAngle -0.041
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -1.4598121447682928
+[auto-ringroad-driver] speed-newspeed 31.416017780425243
+[auto-ringroad-driver] newSpeed 31.416017780425243 desAngle -0.028638847499742447 curAngle 0.034
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -1.5653271902452204
+[auto-ringroad-driver] speed-newspeed 31.518367374537863
+[auto-ringroad-driver] newSpeed 31.518367374537863 desAngle 0.05161160999972868 curAngle -0.083
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -2.1651084839605375
+[auto-ringroad-driver] speed-newspeed 32.10015522944172
+[auto-ringroad-driver] newSpeed 32.10015522944172 desAngle -0.06873803749970597 curAngle 0.064
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -2.4814993034088175
+[auto-ringroad-driver] speed-newspeed 32.40705432430655
+[auto-ringroad-driver] newSpeed 32.40705432430655 desAngle 0.041462374999966425 curAngle -0.07
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.130558691742145
+[auto-ringroad-driver] speed-newspeed 33.03664193098988
+[auto-ringroad-driver] newSpeed 33.03664193098988 desAngle -0.018637242499978914 curAngle 0.007
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.5755305863389637
+[auto-ringroad-driver] speed-newspeed 33.468264668748795
+[auto-ringroad-driver] newSpeed 33.468264668748795 desAngle -0.1 curAngle -0.095
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -2.5475018330761827
+[auto-ringroad-driver] speed-newspeed 32.4710767780839
+[auto-ringroad-driver] newSpeed 32.4710767780839 desAngle -0.1 curAngle 0.07
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.123137062910885
+[auto-ringroad-driver] speed-newspeed 33.02944295102356
+[auto-ringroad-driver] newSpeed 33.02944295102356 desAngle -0.1 curAngle -0.004
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.917202642737905
+[auto-ringroad-driver] speed-newspeed 33.799686563455765
+[auto-ringroad-driver] newSpeed 33.799686563455765 desAngle -0.05147593750017999 curAngle 0.113
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -5.090265764671152
+[auto-ringroad-driver] speed-newspeed 34.93755779173102
+[auto-ringroad-driver] newSpeed 34.93755779173102 desAngle 0.028673665000203002 curAngle -0.063
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -5.62915866209886
+[auto-ringroad-driver] speed-newspeed 35.46028390223589
+[auto-ringroad-driver] newSpeed 35.46028390223589 desAngle 0.018773297499984635 curAngle 0.061
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -6.49069145543595
+[auto-ringroad-driver] speed-newspeed 36.295970711772874
+[auto-ringroad-driver] newSpeed 36.295970711772874 desAngle -0.04142713000041764 curAngle -0.067
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -5.915734685578293
+[auto-ringroad-driver] speed-newspeed 35.73826264501094
+[auto-ringroad-driver] newSpeed 35.73826264501094 desAngle -0.0918776924996885 curAngle 0.043
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -6.365117515711496
+[auto-ringroad-driver] speed-newspeed 36.17416399024015
+[auto-ringroad-driver] newSpeed 36.17416399024015 desAngle 0.028271789999746347 curAngle -0.095
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -6.252895083328049
+[auto-ringroad-driver] speed-newspeed 36.06530823082821
+[auto-ringroad-driver] newSpeed 36.06530823082821 desAngle -0.05197880249972478 curAngle 0.057
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -7.111896155928896
+[auto-ringroad-driver] speed-newspeed 36.89853927125103
+[auto-ringroad-driver] newSpeed 36.89853927125103 desAngle 0.0884707399996916 curAngle -0.138
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -8.815853059610347
+[auto-ringroad-driver] speed-newspeed 38.551377467822036
+[auto-ringroad-driver] newSpeed 38.551377467822036 desAngle -0.1 curAngle 0.135
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -9.875040276210143
+[auto-ringroad-driver] speed-newspeed 39.578789067923836
+[auto-ringroad-driver] newSpeed 39.578789067923836 desAngle -0.06298095499994442 curAngle -0.081
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -12.52280831968428
+[auto-ringroad-driver] speed-newspeed 42.14712407009375
+[auto-ringroad-driver] newSpeed 42.14712407009375 desAngle -0.1 curAngle 0.263
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -9.911148089619893
+[auto-ringroad-driver] speed-newspeed 39.6138136469313
+[auto-ringroad-driver] newSpeed 39.6138136469313 desAngle 0.06556628499971015 curAngle -0.097
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -8.75394694453417
+[auto-ringroad-driver] speed-newspeed 38.49132853619815
+[auto-ringroad-driver] newSpeed 38.49132853619815 desAngle 0.03576501749996463 curAngle -0.178
+[auto-ringroad-driver] preVeh True gap2pred 4.629194631860417 speedDiff 0.42787765589915905
+[auto-ringroad-driver] fvdm-newspeed 35.84558833367676
+[auto-ringroad-driver] newSpeed 35.84558833367676 desAngle 0.1 curAngle -0.202
+[auto-ringroad-driver] preVeh True gap2pred 4.572805490837151 speedDiff 0.8143454906853158
+[auto-ringroad-driver] fvdm-newspeed 37.728589583467624
+[auto-ringroad-driver] newSpeed 37.728589583467624 desAngle 0.1 curAngle -0.523
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -6.049354810893185
+[auto-ringroad-driver] speed-newspeed 35.86787416656639
+[auto-ringroad-driver] newSpeed 35.86787416656639 desAngle 0.1 curAngle -0.417
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -5.774171765057481
+[auto-ringroad-driver] speed-newspeed 35.60094661210576
+[auto-ringroad-driver] newSpeed 35.60094661210576 desAngle 0.1 curAngle -0.447
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -5.905692512514882
+[auto-ringroad-driver] speed-newspeed 35.72852173713944
+[auto-ringroad-driver] newSpeed 35.72852173713944 desAngle 0.1 curAngle -0.401
+[auto-ringroad-driver] preVeh True gap2pred 4.600731090343373 speedDiff 0.010413508111759229
+[auto-ringroad-driver] fvdm-newspeed 35.3140782037131
+[auto-ringroad-driver] newSpeed 35.3140782037131 desAngle 0.1 curAngle -0.447
+[auto-ringroad-driver] preVeh True gap2pred 4.5698943917004335 speedDiff 0.11576361315701122
+[auto-ringroad-driver] fvdm-newspeed 34.061950173854605
+[auto-ringroad-driver] newSpeed 34.061950173854605 desAngle 0.1 curAngle -0.457
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -4.380227439809872
+[auto-ringroad-driver] speed-newspeed 34.248820616615575
+[auto-ringroad-driver] newSpeed 34.248820616615575 desAngle 0.1 curAngle -0.542
+[auto-ringroad-driver] preVeh True gap2pred 4.4600619398836505 speedDiff 0.3273804929362404
+[auto-ringroad-driver] fvdm-newspeed 34.17324908424502
+[auto-ringroad-driver] newSpeed 34.17324908424502 desAngle 0.1 curAngle -0.579
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.350150890133847
+[auto-ringroad-driver] speed-newspeed 33.24964636342983
+[auto-ringroad-driver] newSpeed 33.24964636342983 desAngle 0.1 curAngle -0.617
+[auto-ringroad-driver] preVeh True gap2pred 4.320137147911442 speedDiff 0.3756975036489054
+[auto-ringroad-driver] fvdm-newspeed 33.057084923972184
+[auto-ringroad-driver] newSpeed 33.057084923972184 desAngle 0.1 curAngle -0.655
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.71499841087822
+[auto-ringroad-driver] speed-newspeed 27.366451541448125
+[auto-ringroad-driver] newSpeed 27.366451541448125 desAngle -0.1 curAngle -0.309
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.3247372431761626
+[auto-ringroad-driver] speed-newspeed 27.74500487411912
+[auto-ringroad-driver] newSpeed 27.74500487411912 desAngle -0.1 curAngle 0.155
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 0.19827469346376603
+[auto-ringroad-driver] speed-newspeed 29.807673547340148
+[auto-ringroad-driver] newSpeed 29.807673547340148 desAngle -0.1 curAngle 0.23
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 0.2734914006589513
+[auto-ringroad-driver] speed-newspeed 29.734713341360816
+[auto-ringroad-driver] newSpeed 29.734713341360816 desAngle 0.08702307999969178 curAngle 0.141
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 0.36318343298691147
+[auto-ringroad-driver] speed-newspeed 29.647712070002697
+[auto-ringroad-driver] newSpeed 29.647712070002697 desAngle 0.06737229250016553 curAngle 0.026
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -0.258286883419089
+[auto-ringroad-driver] speed-newspeed 30.250538276916515
+[auto-ringroad-driver] newSpeed 30.250538276916515 desAngle 0.1 curAngle -0.106
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -0.6514759846560736
+[auto-ringroad-driver] speed-newspeed 30.63193170511639
+[auto-ringroad-driver] newSpeed 30.63193170511639 desAngle 0.1 curAngle -0.147
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -0.42788904398671335
+[auto-ringroad-driver] speed-newspeed 30.415052372667112
+[auto-ringroad-driver] newSpeed 30.415052372667112 desAngle -0.1 curAngle 0.013
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -2.1331834451525182
+[auto-ringroad-driver] speed-newspeed 32.06918794179794
+[auto-ringroad-driver] newSpeed 32.06918794179794 desAngle -0.1 curAngle 0.031
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -1.7907654237390567
+[auto-ringroad-driver] speed-newspeed 31.737042461026885
+[auto-ringroad-driver] newSpeed 31.737042461026885 desAngle -0.1 curAngle 0.132
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -2.697982923688876
+[auto-ringroad-driver] speed-newspeed 32.61704343597821
+[auto-ringroad-driver] newSpeed 32.61704343597821 desAngle 0.07631756749992888 curAngle 0.019
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.069231420249608
+[auto-ringroad-driver] speed-newspeed 32.97715447764212
+[auto-ringroad-driver] newSpeed 32.97715447764212 desAngle -0.03383357999974242 curAngle 0.017
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.2161799050850632
+[auto-ringroad-driver] speed-newspeed 33.119694507932515
+[auto-ringroad-driver] newSpeed 33.119694507932515 desAngle -0.023934757500435826 curAngle -0.107
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.873199661021289
+[auto-ringroad-driver] speed-newspeed 33.75700367119065
+[auto-ringroad-driver] newSpeed 33.75700367119065 desAngle -0.1 curAngle -0.036
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -3.680586022368381
+[auto-ringroad-driver] speed-newspeed 33.57016844169733
+[auto-ringroad-driver] newSpeed 33.57016844169733 desAngle -0.02453744249998053 curAngle -0.136
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -5.7007548861753605
+[auto-ringroad-driver] speed-newspeed 35.529732239590096
+[auto-ringroad-driver] newSpeed 35.529732239590096 desAngle -0.1 curAngle 0.092
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -6.599193016709137
+[auto-ringroad-driver] speed-newspeed 36.40121722620786
+[auto-ringroad-driver] newSpeed 36.40121722620786 desAngle 0.00450925749976454 curAngle -0.056
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -6.3154833218078394
+[auto-ringroad-driver] speed-newspeed 36.126018822153604
+[auto-ringroad-driver] newSpeed 36.126018822153604 desAngle -0.06579247499994414 curAngle 0.057
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -7.028758623610862
+[auto-ringroad-driver] speed-newspeed 36.81789586490254
+[auto-ringroad-driver] newSpeed 36.81789586490254 desAngle 0.07460591249992815 curAngle -0.136
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -9.192679391637277
+[auto-ringroad-driver] speed-newspeed 38.91689900988816
+[auto-ringroad-driver] newSpeed 38.91689900988816 desAngle -0.1 curAngle 0.166
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -8.135023950312153
+[auto-ringroad-driver] speed-newspeed 37.89097323180279
+[auto-ringroad-driver] newSpeed 37.89097323180279 desAngle 0.1 curAngle -0.236
+[auto-ringroad-driver] preVeh True gap2pred 4.667309545704081 speedDiff 0.432889914282404
+[auto-ringroad-driver] fvdm-newspeed 31.619986732797283
+[auto-ringroad-driver] newSpeed 31.619986732797283 desAngle -0.1 curAngle 0.054
+[auto-ringroad-driver] preVeh True gap2pred 4.702035524467856 speedDiff 0.7532881380402268
+[auto-ringroad-driver] fvdm-newspeed 27.783697517833193
+[auto-ringroad-driver] newSpeed 27.783697517833193 desAngle 0.05309764749994771 curAngle -0.271
+[auto-ringroad-driver] preVeh True gap2pred 4.711508457962682 speedDiff 0.858988433153498
+[auto-ringroad-driver] fvdm-newspeed 27.266152302265798
+[auto-ringroad-driver] newSpeed 27.266152302265798 desAngle -0.006904414999997715 curAngle -0.107
+[auto-ringroad-driver] preVeh True gap2pred 4.693555534962473 speedDiff 0.8364751407014435
+[auto-ringroad-driver] fvdm-newspeed 27.36636259321747
+[auto-ringroad-driver] newSpeed 27.36636259321747 desAngle 0.0835436574996915 curAngle -0.452
+[auto-ringroad-driver] preVeh True gap2pred 4.651002162943817 speedDiff 0.8361140648914578
+[auto-ringroad-driver] fvdm-newspeed 26.750546899169642
+[auto-ringroad-driver] newSpeed 26.750546899169642 desAngle 0.0337417900004212 curAngle -0.285
+[auto-ringroad-driver] preVeh True gap2pred 4.574762615238895 speedDiff 0.9052660087158388
+[auto-ringroad-driver] fvdm-newspeed 27.209453307042303
+[auto-ringroad-driver] newSpeed 27.209453307042303 desAngle 0.1 curAngle -0.639
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.396855653273629
+[auto-ringroad-driver] speed-newspeed 25.73505001632458
+[auto-ringroad-driver] newSpeed 25.73505001632458 desAngle 0.1 curAngle -0.532
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 10.60650305273002
+[auto-ringroad-driver] speed-newspeed 19.711692038851883
+[auto-ringroad-driver] newSpeed 19.711692038851883 desAngle 0.1 curAngle -0.854
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.060537373263358
+[auto-ringroad-driver] speed-newspeed 13.451278747934545
+[auto-ringroad-driver] newSpeed 13.451278747934545 desAngle 0.1 curAngle -0.539
+[auto-ringroad-driver] preVeh True gap2pred 3.2887983219028394 speedDiff 4.62429835657019
+[auto-ringroad-driver] fvdm-newspeed 11.931946045345546
+[auto-ringroad-driver] newSpeed 11.931946045345546 desAngle 0.1 curAngle -0.542
+[auto-ringroad-driver] preVeh True gap2pred 3.0865957771716617 speedDiff 4.7211008370230285
+[auto-ringroad-driver] fvdm-newspeed 17.817676330865805
+[auto-ringroad-driver] newSpeed 17.817676330865805 desAngle 0.1 curAngle -0.154
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.6551958081142715
+[auto-ringroad-driver] speed-newspeed 24.514460066129157
+[auto-ringroad-driver] newSpeed 24.514460066129157 desAngle 0.1 curAngle 0.109
+[auto-ringroad-driver] preVeh True gap2pred 3.0566338032196296 speedDiff 6.0678439092704535
+[auto-ringroad-driver] fvdm-newspeed 27.71427618520865
+[auto-ringroad-driver] newSpeed 27.71427618520865 desAngle 0.1 curAngle 0.503
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.648545822949359
+[auto-ringroad-driver] speed-newspeed 26.460910551739122
+[auto-ringroad-driver] newSpeed 26.460910551739122 desAngle -0.1 curAngle 0.87
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 9.402968714382261
+[auto-ringroad-driver] speed-newspeed 20.879120347049206
+[auto-ringroad-driver] newSpeed 20.879120347049206 desAngle -0.1 curAngle 1.172
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 17.60047317397926
+[auto-ringroad-driver] speed-newspeed 12.927541021240117
+[auto-ringroad-driver] newSpeed 12.927541021240117 desAngle -0.1 curAngle 1.372
+[auto-ringroad-driver] preVeh True gap2pred 4.664679532974517 speedDiff 10.636539596890575
+[auto-ringroad-driver] fvdm-newspeed 9.661283453989995
+[auto-ringroad-driver] newSpeed 9.661283453989995 desAngle -0.1 curAngle 1.415
+[auto-ringroad-driver] preVeh True gap2pred 4.683424550796439 speedDiff 11.267456731145534
+[auto-ringroad-driver] fvdm-newspeed 16.815342093399074
+[auto-ringroad-driver] newSpeed 16.815342093399074 desAngle 0.012339654999764263 curAngle 1.275
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 5.560274650368218
+[auto-ringroad-driver] speed-newspeed 24.606533589142828
+[auto-ringroad-driver] newSpeed 24.606533589142828 desAngle 0.1 curAngle 0.977
+[auto-ringroad-driver] preVeh True gap2pred 3.6957909254784354 speedDiff 12.260949740380736
+[auto-ringroad-driver] fvdm-newspeed 29.074132818149522
+[auto-ringroad-driver] newSpeed 29.074132818149522 desAngle 0.1 curAngle 0.507
+[auto-ringroad-driver] preVeh True gap2pred 7.319464179736431 speedDiff 12.860749664953786
+[auto-ringroad-driver] fvdm-newspeed 28.315572853108655
+[auto-ringroad-driver] newSpeed 28.315572853108655 desAngle -0.05665733749994333 curAngle -0.151
+[auto-ringroad-driver] preVeh True gap2pred 2.9860438944966226 speedDiff 13.571225121074564
+[auto-ringroad-driver] fvdm-newspeed 21.77931137870114
+[auto-ringroad-driver] newSpeed 21.77931137870114 desAngle -0.0971564899999065 curAngle -0.904
+[auto-ringroad-driver] preVeh True gap2pred 3.3363870512817284 speedDiff 14.303128801625387
+[auto-ringroad-driver] fvdm-newspeed 13.731560954379127
+[auto-ringroad-driver] newSpeed 13.731560954379127 desAngle 0.09329449249969178 curAngle -1.49
+[auto-ringroad-driver] preVeh True gap2pred 4.012822210301955 speedDiff 15.005549176276192
+[auto-ringroad-driver] fvdm-newspeed 16.843168864922923
+[auto-ringroad-driver] newSpeed 16.843168864922923 desAngle 0.1 curAngle -2.136
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 3.6674047023529575
+[auto-ringroad-driver] speed-newspeed 26.44261743871763
+[auto-ringroad-driver] newSpeed 26.44261743871763 desAngle 0.1 curAngle -2.722
+[auto-ringroad-driver] preVeh True gap2pred 4.70580284513118 speedDiff 15.900210608270232
+[auto-ringroad-driver] fvdm-newspeed 32.54184742203509
+[auto-ringroad-driver] newSpeed 32.54184742203509 desAngle -0.1 curAngle -3.235
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff -1.6395974851850639
+[auto-ringroad-driver] speed-newspeed 31.590409560629514
+[auto-ringroad-driver] newSpeed 31.590409560629514 desAngle 0.1 curAngle -3.676
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.259634798170534
+[auto-ringroad-driver] speed-newspeed 17.138154245774583
+[auto-ringroad-driver] newSpeed 17.138154245774583 desAngle -0.07678115749970678 curAngle -3.895
+[auto-ringroad-driver] preVeh True gap2pred 7.391881212565319 speedDiff 9.866393792295208
+[auto-ringroad-driver] fvdm-newspeed 10.757779879641648
+[auto-ringroad-driver] newSpeed 10.757779879641648 desAngle 0.033416869999965626 curAngle -4.102
+[auto-ringroad-driver] preVeh True gap2pred 3.005728739404683 speedDiff 9.548193105542062
+[auto-ringroad-driver] fvdm-newspeed 9.04483175716733
+[auto-ringroad-driver] newSpeed 9.04483175716733 desAngle 0.1 curAngle -4.435
+[auto-ringroad-driver] preVeh True gap2pred 3.057455553273397 speedDiff 9.420269273720281
+[auto-ringroad-driver] fvdm-newspeed 13.61978695811228
+[auto-ringroad-driver] newSpeed 13.61978695811228 desAngle 0.1 curAngle -4.542
+[auto-ringroad-driver] preVeh True gap2pred 3.395252457960178 speedDiff 9.112527969734922
+[auto-ringroad-driver] fvdm-newspeed 19.5209826289513
+[auto-ringroad-driver] newSpeed 19.5209826289513 desAngle 0.1 curAngle -4.851
+[auto-ringroad-driver] preVeh True gap2pred 3.891573263155828 speedDiff 8.934761013835262
+[auto-ringroad-driver] fvdm-newspeed 24.385119842439682
+[auto-ringroad-driver] newSpeed 24.385119842439682 desAngle 0.1 curAngle -4.94
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 2.5691504476538114
+[auto-ringroad-driver] speed-newspeed 27.507924065775804
+[auto-ringroad-driver] newSpeed 27.507924065775804 desAngle 0.1 curAngle -5.192
+[auto-ringroad-driver] preVeh True gap2pred 4.673469707144342 speedDiff 8.45814143693083
+[auto-ringroad-driver] fvdm-newspeed 28.273360812308717
+[auto-ringroad-driver] newSpeed 28.273360812308717 desAngle 0.1 curAngle -5.309
+[auto-ringroad-driver] preVeh True gap2pred 4.714392380397003 speedDiff 8.21893893141922
+[auto-ringroad-driver] fvdm-newspeed 26.760283825947404
+[auto-ringroad-driver] newSpeed 26.760283825947404 desAngle 0.0005253150000023661 curAngle -5.533
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 6.976167798171375
+[auto-ringroad-driver] speed-newspeed 23.233117235773765
+[auto-ringroad-driver] newSpeed 23.233117235773765 desAngle -0.06982463250016216 curAngle -5.699
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.121746770693008
+[auto-ringroad-driver] speed-newspeed 18.241905632427784
+[auto-ringroad-driver] newSpeed 18.241905632427784 desAngle -0.07017505250016298 curAngle -5.954
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 16.313440631581983
+[auto-ringroad-driver] speed-newspeed 14.175962587365474
+[auto-ringroad-driver] newSpeed 14.175962587365474 desAngle 0.029974940000201816 curAngle -6.23
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.699174365906941
+[auto-ringroad-driver] speed-newspeed 14.771800865070267
+[auto-ringroad-driver] newSpeed 14.771800865070267 desAngle 0.1 curAngle -6.621
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 11.02933775562732
+[auto-ringroad-driver] speed-newspeed 19.3015423770415
+[auto-ringroad-driver] newSpeed 19.3015423770415 desAngle 0.1 curAngle -7.087
+[auto-ringroad-driver] preVeh True gap2pred 3.0980515285980768 speedDiff 8.173696160171803
+[auto-ringroad-driver] fvdm-newspeed 23.486054817266425
+[auto-ringroad-driver] newSpeed 23.486054817266425 desAngle 0.1 curAngle -7.622
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 4.634024026353071
+[auto-ringroad-driver] speed-newspeed 25.504996694437523
+[auto-ringroad-driver] newSpeed 25.504996694437523 desAngle 0.1 curAngle -8.17
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.718850955121393
+[auto-ringroad-driver] speed-newspeed 16.69271457353225
+[auto-ringroad-driver] newSpeed 16.69271457353225 desAngle 0.1 curAngle -8.571
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.6240636372777
+[auto-ringroad-driver] speed-newspeed 16.78465827184063
+[auto-ringroad-driver] newSpeed 16.78465827184063 desAngle 0.1 curAngle -9.066
+[auto-ringroad-driver] preVeh True gap2pred 4.534076306401106 speedDiff 6.340981855101306
+[auto-ringroad-driver] fvdm-newspeed 16.72212286701611
+[auto-ringroad-driver] newSpeed 16.72212286701611 desAngle -0.1 curAngle -9.474
+[auto-ringroad-driver] preVeh True gap2pred 4.6830250891260965 speedDiff 6.280989173270899
+[auto-ringroad-driver] fvdm-newspeed 16.855910792017905
+[auto-ringroad-driver] newSpeed 16.855910792017905 desAngle 0.1 curAngle -9.946
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.374314914373873
+[auto-ringroad-driver] speed-newspeed 17.026914533057344
+[auto-ringroad-driver] newSpeed 17.026914533057344 desAngle 0.1 curAngle -10.35
+[auto-ringroad-driver] preVeh True gap2pred 4.3640539784193 speedDiff 6.1708399205682
+[auto-ringroad-driver] fvdm-newspeed 16.196058775351204
+[auto-ringroad-driver] newSpeed 16.196058775351204 desAngle 0.1 curAngle -10.793
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.57346471419219
+[auto-ringroad-driver] speed-newspeed 15.863739227233577
+[auto-ringroad-driver] newSpeed 15.863739227233577 desAngle 0.1 curAngle -11.181
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.30802937417053
+[auto-ringroad-driver] speed-newspeed 15.151211507054585
+[auto-ringroad-driver] newSpeed 15.151211507054585 desAngle 0.1 curAngle -11.59
+[auto-ringroad-driver] preVeh True gap2pred 7.332258625723922 speedDiff 6.010735330250201
+[auto-ringroad-driver] fvdm-newspeed 14.297523496918748
+[auto-ringroad-driver] newSpeed 14.297523496918748 desAngle 0.1 curAngle -11.958
+[auto-ringroad-driver] preVeh True gap2pred 3.0027930932086653 speedDiff 5.959038335800178
+[auto-ringroad-driver] fvdm-newspeed 14.134997359122162
+[auto-ringroad-driver] newSpeed 14.134997359122162 desAngle 0.1 curAngle -12.342
+[auto-ringroad-driver] preVeh True gap2pred 2.989795821992377 speedDiff 5.918720275415991
+[auto-ringroad-driver] fvdm-newspeed 14.35399076614253
+[auto-ringroad-driver] newSpeed 14.35399076614253 desAngle -0.1 curAngle -12.708
+[auto-ringroad-driver] preVeh True gap2pred 3.17010651936543 speedDiff 5.877515862883753
+[auto-ringroad-driver] fvdm-newspeed 14.808659273497646
+[auto-ringroad-driver] newSpeed 14.808659273497646 desAngle 0.1 curAngle -13.091
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.71941256339794
+[auto-ringroad-driver] speed-newspeed 15.722169813503998
+[auto-ringroad-driver] newSpeed 15.722169813503998 desAngle 0.1 curAngle -13.471
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.229666988570825
+[auto-ringroad-driver] speed-newspeed 16.197223021086298
+[auto-ringroad-driver] newSpeed 16.197223021086298 desAngle 0.1 curAngle -13.869
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.904766250514136
+[auto-ringroad-driver] speed-newspeed 16.512376737001286
+[auto-ringroad-driver] newSpeed 16.512376737001286 desAngle 0.1 curAngle -14.271
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.813195021455112
+[auto-ringroad-driver] speed-newspeed 16.601200829188542
+[auto-ringroad-driver] newSpeed 16.601200829188542 desAngle 0.1 curAngle -14.685
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 13.959463609186457
+[auto-ringroad-driver] speed-newspeed 16.459320299089136
+[auto-ringroad-driver] newSpeed 16.459320299089136 desAngle 0.1 curAngle -15.099
+[auto-ringroad-driver] preVeh True gap2pred 4.610525328484209 speedDiff 5.618835928701604
+[auto-ringroad-driver] fvdm-newspeed 15.795278014247842
+[auto-ringroad-driver] newSpeed 15.795278014247842 desAngle 0.1 curAngle -15.509
+[auto-ringroad-driver] preVeh True gap2pred 4.36883353481887 speedDiff 5.572458773208131
+[auto-ringroad-driver] fvdm-newspeed 15.555602757352212
+[auto-ringroad-driver] newSpeed 15.555602757352212 desAngle 0.1 curAngle -15.903
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.487572408835792
+[auto-ringroad-driver] speed-newspeed 15.947054763429282
+[auto-ringroad-driver] newSpeed 15.947054763429282 desAngle 0.1 curAngle -16.279
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.146714908425384
+[auto-ringroad-driver] speed-newspeed 16.27768653882738
+[auto-ringroad-driver] newSpeed 16.27768653882738 desAngle 0.1 curAngle -16.63
+[auto-ringroad-driver] preVeh True gap2pred 7.348745108502656 speedDiff 5.4486493401228415
+[auto-ringroad-driver] fvdm-newspeed 16.56884852873007
+[auto-ringroad-driver] newSpeed 16.56884852873007 desAngle 0.1 curAngle -16.961
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 12.589563160797926
+[auto-ringroad-driver] speed-newspeed 17.788123734026012
+[auto-ringroad-driver] newSpeed 17.788123734026012 desAngle 0.1 curAngle -17.275
+[auto-ringroad-driver] preVeh True gap2pred 2.974267263081493 speedDiff 5.396744411824561
+[auto-ringroad-driver] fvdm-newspeed 18.284799757656273
+[auto-ringroad-driver] newSpeed 18.284799757656273 desAngle 0.1 curAngle -17.58
+[auto-ringroad-driver] preVeh True gap2pred 3.059111323735285 speedDiff 3.763348015502207
+[auto-ringroad-driver] fvdm-newspeed 19.0545246116412
+[auto-ringroad-driver] newSpeed 19.0545246116412 desAngle 0.1 curAngle -17.776
+[auto-ringroad-driver] preVeh True gap2pred 3.2433815004460866 speedDiff 4.017369017374406
+[auto-ringroad-driver] fvdm-newspeed 18.21061658929771
+[auto-ringroad-driver] newSpeed 18.21061658929771 desAngle 0.1 curAngle -17.858
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 14.57976798401681
+[auto-ringroad-driver] speed-newspeed 15.857625055503695
+[auto-ringroad-driver] newSpeed 15.857625055503695 desAngle 0.1 curAngle -18.016
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 18.93877385798536
+[auto-ringroad-driver] speed-newspeed 11.629389357754201
+[auto-ringroad-driver] newSpeed 11.629389357754201 desAngle 0.1 curAngle -18.126
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.452350913004054
+[auto-ringroad-driver] speed-newspeed 7.25121961438607
+[auto-ringroad-driver] newSpeed 7.25121961438607 desAngle 0.1 curAngle -18.24
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.16372696199506
+[auto-ringroad-driver] speed-newspeed 6.561184846864791
+[auto-ringroad-driver] newSpeed 6.561184846864791 desAngle 0.1 curAngle -18.295
+[auto-ringroad-driver] preVeh True gap2pred 4.664300550611233 speedDiff 6.283924295209596
+[auto-ringroad-driver] fvdm-newspeed 10.077660944357763
+[auto-ringroad-driver] newSpeed 10.077660944357763 desAngle 0.1 curAngle -18.302
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 15.449466775510485
+[auto-ringroad-driver] speed-newspeed 15.01401722775483
+[auto-ringroad-driver] newSpeed 15.01401722775483 desAngle 0.1 curAngle -18.227
+[auto-ringroad-driver] preVeh True gap2pred 4.306595926089176 speedDiff 6.765324690858162
+[auto-ringroad-driver] fvdm-newspeed 18.42891869032405
+[auto-ringroad-driver] newSpeed 18.42891869032405 desAngle 0.1 curAngle -18.076
+[auto-ringroad-driver] preVeh True gap2pred 3.8930887110995114 speedDiff 6.907189305155443
+[auto-ringroad-driver] fvdm-newspeed 20.97240678617026
+[auto-ringroad-driver] newSpeed 20.97240678617026 desAngle 0.1 curAngle -17.838
+[auto-ringroad-driver] preVeh True gap2pred 3.4607734375222154 speedDiff 7.007588226313581
+[auto-ringroad-driver] fvdm-newspeed 22.06138871557641
+[auto-ringroad-driver] newSpeed 22.06138871557641 desAngle 0.1 curAngle -17.518
+[auto-ringroad-driver] preVeh True gap2pred 3.13450399801098 speedDiff 7.08364189451361
+[auto-ringroad-driver] fvdm-newspeed 21.587947909323997
+[auto-ringroad-driver] newSpeed 21.587947909323997 desAngle 0.1 curAngle -17.126
+[auto-ringroad-driver] preVeh True gap2pred 3.01306561720984 speedDiff 7.1547522916891575
+[auto-ringroad-driver] fvdm-newspeed 19.560976454217066
+[auto-ringroad-driver] newSpeed 19.560976454217066 desAngle 0.1 curAngle -16.684
+[auto-ringroad-driver] preVeh True gap2pred 3.0874476491900413 speedDiff 2.4999997086285806
+[auto-ringroad-driver] fvdm-newspeed 11.304078993046707
+[auto-ringroad-driver] newSpeed 11.304078993046707 desAngle 0.1 curAngle -16.339
+[auto-ringroad-driver] preVeh True gap2pred 3.2381340894949338 speedDiff 2.5389485945461803
+[auto-ringroad-driver] fvdm-newspeed 10.032693214272006
+[auto-ringroad-driver] newSpeed 10.032693214272006 desAngle 0.1 curAngle -15.989
+[auto-ringroad-driver] preVeh True gap2pred 3.452237514005132 speedDiff 2.5613768222795983
+[auto-ringroad-driver] fvdm-newspeed 8.834844554432106
+[auto-ringroad-driver] newSpeed 8.834844554432106 desAngle 0.1 curAngle -15.641
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.186929029358545
+[auto-ringroad-driver] speed-newspeed 8.478678841522209
+[auto-ringroad-driver] newSpeed 8.478678841522209 desAngle 0.1 curAngle -15.294
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.91791311891197
+[auto-ringroad-driver] speed-newspeed 7.769624274655392
+[auto-ringroad-driver] newSpeed 7.769624274655392 desAngle 0.1 curAngle -14.955
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.28429334877568
+[auto-ringroad-driver] speed-newspeed 7.41423545168759
+[auto-ringroad-driver] newSpeed 7.41423545168759 desAngle 0.1 curAngle -14.62
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.294362577508668
+[auto-ringroad-driver] speed-newspeed 7.404468299816592
+[auto-ringroad-driver] newSpeed 7.404468299816592 desAngle 0.1 curAngle -14.293
+[auto-ringroad-driver] preVeh True gap2pred 4.636552250241118 speedDiff 2.6106401829197194
+[auto-ringroad-driver] fvdm-newspeed 7.000822536089462
+[auto-ringroad-driver] newSpeed 7.000822536089462 desAngle 0.1 curAngle -13.969
+[auto-ringroad-driver] preVeh True gap2pred 4.722072666152644 speedDiff 2.619488702966895
+[auto-ringroad-driver] fvdm-newspeed 7.444224950541429
+[auto-ringroad-driver] newSpeed 7.444224950541429 desAngle 0.1 curAngle -13.648
+[auto-ringroad-driver] preVeh True gap2pred 4.7190317617669235 speedDiff 2.62796691788672
+[auto-ringroad-driver] fvdm-newspeed 7.9693502383860935
+[auto-ringroad-driver] newSpeed 7.9693502383860935 desAngle 0.1 curAngle -13.326
+[auto-ringroad-driver] preVeh True gap2pred 4.626933871510904 speedDiff 2.6358822574587366
+[auto-ringroad-driver] fvdm-newspeed 8.505312482015762
+[auto-ringroad-driver] newSpeed 8.505312482015762 desAngle 0.1 curAngle -12.998
+[auto-ringroad-driver] preVeh True gap2pred 4.454721317953003 speedDiff 2.642863117732438
+[auto-ringroad-driver] fvdm-newspeed 9.002426307740544
+[auto-ringroad-driver] newSpeed 9.002426307740544 desAngle 0.1 curAngle -12.662
+[auto-ringroad-driver] preVeh True gap2pred 4.2200290484600815 speedDiff 2.648608175169308
+[auto-ringroad-driver] fvdm-newspeed 9.429320815483562
+[auto-ringroad-driver] newSpeed 9.429320815483562 desAngle 0.1 curAngle -12.315
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 20.218788819073595
+[auto-ringroad-driver] speed-newspeed 10.387774845498615
+[auto-ringroad-driver] newSpeed 10.387774845498615 desAngle 0.1 curAngle -11.956
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 19.984691179856558
+[auto-ringroad-driver] speed-newspeed 10.61484955553914
+[auto-ringroad-driver] newSpeed 10.61484955553914 desAngle 0.1 curAngle -11.585
+[auto-ringroad-driver] preVeh True gap2pred 3.4051708315097478 speedDiff 2.6583651919915576
+[auto-ringroad-driver] fvdm-newspeed 10.11761566649581
+[auto-ringroad-driver] newSpeed 10.11761566649581 desAngle 0.1 curAngle -11.204
+[auto-ringroad-driver] preVeh True gap2pred 3.1934882469919184 speedDiff 2.6605312658245728
+[auto-ringroad-driver] fvdm-newspeed 10.136030621822286
+[auto-ringroad-driver] newSpeed 10.136030621822286 desAngle 0.1 curAngle -10.816
+[auto-ringroad-driver] preVeh True gap2pred 3.053539992711837 speedDiff 2.663072802749062
+[auto-ringroad-driver] fvdm-newspeed 10.062478567395738
+[auto-ringroad-driver] newSpeed 10.062478567395738 desAngle 0.1 curAngle -10.424
+[auto-ringroad-driver] preVeh True gap2pred 3.000538651982105 speedDiff 2.6661965893853763
+[auto-ringroad-driver] fvdm-newspeed 9.92591443530137
+[auto-ringroad-driver] newSpeed 9.92591443530137 desAngle 0.1 curAngle -10.028
+[auto-ringroad-driver] preVeh True gap2pred 3.0404259616721854 speedDiff 2.6697276895440787
+[auto-ringroad-driver] fvdm-newspeed 9.77995626371273
+[auto-ringroad-driver] newSpeed 9.77995626371273 desAngle 0.1 curAngle -9.63
+[auto-ringroad-driver] preVeh True gap2pred 3.169129607018205 speedDiff 2.673208390478485
+[auto-ringroad-driver] fvdm-newspeed 9.70667680392943
+[auto-ringroad-driver] newSpeed 9.70667680392943 desAngle 0.1 curAngle -9.229
+[auto-ringroad-driver] preVeh True gap2pred 3.372897003839389 speedDiff 2.6760553019950493
+[auto-ringroad-driver] fvdm-newspeed 9.806878912583013
+[auto-ringroad-driver] newSpeed 9.806878912583013 desAngle 0.1 curAngle -8.823
+[auto-ringroad-driver] preVeh True gap2pred 3.5504124315770222 speedDiff 1.3403925696040961
+[auto-ringroad-driver] fvdm-newspeed 8.468496327581772
+[auto-ringroad-driver] newSpeed 8.468496327581772 desAngle 0.1 curAngle -8.453
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.69967326952009
+[auto-ringroad-driver] speed-newspeed 8.951316928565513
+[auto-ringroad-driver] newSpeed 8.951316928565513 desAngle 0.1 curAngle -8.12
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 21.87903785663395
+[auto-ringroad-driver] speed-newspeed 8.777333279065068
+[auto-ringroad-driver] newSpeed 8.777333279065068 desAngle 0.1 curAngle -7.763
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.018744496097707
+[auto-ringroad-driver] speed-newspeed 8.641817838785224
+[auto-ringroad-driver] newSpeed 8.641817838785224 desAngle 0.1 curAngle -7.407
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.117083267778874
+[auto-ringroad-driver] speed-newspeed 8.546429230254493
+[auto-ringroad-driver] newSpeed 8.546429230254493 desAngle 0.1 curAngle -7.045
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.17115729899038
+[auto-ringroad-driver] speed-newspeed 8.493977419979332
+[auto-ringroad-driver] newSpeed 8.493977419979332 desAngle 0.1 curAngle -6.684
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.17846453840391
+[auto-ringroad-driver] speed-newspeed 8.486889397748207
+[auto-ringroad-driver] newSpeed 8.486889397748207 desAngle 0.1 curAngle -6.323
+[auto-ringroad-driver] preVeh True gap2pred 4.673545964238478 speedDiff 1.3386647474189028
+[auto-ringroad-driver] fvdm-newspeed 7.811089990392371
+[auto-ringroad-driver] newSpeed 7.811089990392371 desAngle 0.1 curAngle -5.963
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 22.050889327613554
+[auto-ringroad-driver] speed-newspeed 8.610637352214853
+[auto-ringroad-driver] newSpeed 8.610637352214853 desAngle 0.1 curAngle -5.603
+[auto-ringroad-driver] preVeh True gap2pred 4.7062988691592365 speedDiff 1.3369164425585565
+[auto-ringroad-driver] fvdm-newspeed 8.025517156179944
+[auto-ringroad-driver] newSpeed 8.025517156179944 desAngle 0.1 curAngle -5.244
+[auto-ringroad-driver] preVeh True gap2pred 4.6557318773723555 speedDiff 1.3365308135972231
+[auto-ringroad-driver] fvdm-newspeed 8.19223553922096
+[auto-ringroad-driver] newSpeed 8.19223553922096 desAngle 0.1 curAngle -4.879
+[auto-ringroad-driver] preVeh True gap2pred 4.563439378164511 speedDiff 1.3361691734244765
+[auto-ringroad-driver] fvdm-newspeed 8.392424146464148
+[auto-ringroad-driver] newSpeed 8.392424146464148 desAngle 0.1 curAngle -4.51
+[auto-ringroad-driver] preVeh True gap2pred 4.447690448187416 speedDiff 1.0845315914092555
+[auto-ringroad-driver] fvdm-newspeed 6.824305571415655
+[auto-ringroad-driver] newSpeed 6.824305571415655 desAngle 0.1 curAngle -4.163
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.29934088053225
+[auto-ringroad-driver] speed-newspeed 7.399639345883719
+[auto-ringroad-driver] newSpeed 7.399639345883719 desAngle 0.1 curAngle -3.802
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.566656699464012
+[auto-ringroad-driver] speed-newspeed 7.140343001519909
+[auto-ringroad-driver] newSpeed 7.140343001519909 desAngle 0.1 curAngle -3.438
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.784344095263844
+[auto-ringroad-driver] speed-newspeed 6.929186227594072
+[auto-ringroad-driver] newSpeed 6.929186227594072 desAngle 0.1 curAngle -3.044
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.90477469658161
+[auto-ringroad-driver] speed-newspeed 6.812368544315837
+[auto-ringroad-driver] newSpeed 6.812368544315837 desAngle 0.1 curAngle -2.627
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.931108084743055
+[auto-ringroad-driver] speed-newspeed 6.786825157799235
+[auto-ringroad-driver] newSpeed 6.786825157799235 desAngle 0.1 curAngle -2.188
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.862266094203502
+[auto-ringroad-driver] speed-newspeed 6.8536018886226024
+[auto-ringroad-driver] newSpeed 6.8536018886226024 desAngle 0.1 curAngle -1.738
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.697941240571136
+[auto-ringroad-driver] speed-newspeed 7.012996996645999
+[auto-ringroad-driver] newSpeed 7.012996996645999 desAngle 0.1 curAngle -1.29
+[auto-ringroad-driver] preVeh True gap2pred 3.2249661474872124 speedDiff 1.0405122971454084
+[auto-ringroad-driver] fvdm-newspeed 6.514709642003262
+[auto-ringroad-driver] newSpeed 6.514709642003262 desAngle 0.1 curAngle -0.933
+[auto-ringroad-driver] preVeh True gap2pred 3.194718647910978 speedDiff 0.13288081646188532
+[auto-ringroad-driver] fvdm-newspeed 6.015217999743796
+[auto-ringroad-driver] newSpeed 6.015217999743796 desAngle 0.1 curAngle -0.717
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.122584410577478
+[auto-ringroad-driver] speed-newspeed 6.601093121739846
+[auto-ringroad-driver] newSpeed 6.601093121739846 desAngle 0.1 curAngle -0.499
+[auto-ringroad-driver] preVeh True gap2pred 3.1318019925126293 speedDiff 0.15517849245544024
+[auto-ringroad-driver] fvdm-newspeed 5.6132917417490935
+[auto-ringroad-driver] newSpeed 5.6132917417490935 desAngle 0.1 curAngle -0.343
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.44463385443367
+[auto-ringroad-driver] speed-newspeed 6.288705161199342
+[auto-ringroad-driver] newSpeed 6.288705161199342 desAngle 0.1 curAngle -0.258
+[auto-ringroad-driver] preVeh True gap2pred 3.067575570208768 speedDiff 0.18591691935259194
+[auto-ringroad-driver] fvdm-newspeed 5.431443195367499
+[auto-ringroad-driver] newSpeed 5.431443195367499 desAngle 0.1 curAngle -0.199
+[auto-ringroad-driver] preVeh True gap2pred 3.037201754493263 speedDiff 0.20371175915425066
+[auto-ringroad-driver] fvdm-newspeed 5.501015893689912
+[auto-ringroad-driver] newSpeed 5.501015893689912 desAngle 0.1 curAngle -0.153
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 24.221275780982
+[auto-ringroad-driver] speed-newspeed 6.50536249244746
+[auto-ringroad-driver] newSpeed 6.50536249244746 desAngle 0.0466718124998553 curAngle -0.122
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 23.889957134200188
+[auto-ringroad-driver] speed-newspeed 6.826741579825817
+[auto-ringroad-driver] newSpeed 6.826741579825817 desAngle 0.006062034999891136 curAngle -0.14
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.508283666956466
+[auto-ringroad-driver] speed-newspeed 5.256964843052227
+[auto-ringroad-driver] newSpeed 5.256964843052227 desAngle -0.1 curAngle -0.157
+[auto-ringroad-driver] preVeh True gap2pred 2.9751660275734855 speedDiff 0.04985591615588514
+[auto-ringroad-driver] fvdm-newspeed 4.4044191297810125
+[auto-ringroad-driver] newSpeed 4.4044191297810125 desAngle -0.1 curAngle -0.21
+[auto-ringroad-driver] preVeh True gap2pred 2.9698220103764763 speedDiff 0.05898122728788446
+[auto-ringroad-driver] fvdm-newspeed 4.614288043434398
+[auto-ringroad-driver] newSpeed 4.614288043434398 desAngle -0.1 curAngle -0.217
+[auto-ringroad-driver] preVeh True gap2pred 2.969931518247432 speedDiff 0.046682748779761085
+[auto-ringroad-driver] fvdm-newspeed 3.9785733928229035
+[auto-ringroad-driver] newSpeed 3.9785733928229035 desAngle -0.1 curAngle -0.208
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 25.704690180423867
+[auto-ringroad-driver] speed-newspeed 5.066450524988848
+[auto-ringroad-driver] newSpeed 5.066450524988848 desAngle -0.1 curAngle -0.2
+[auto-ringroad-driver] preVeh True gap2pred 2.9789970318408305 speedDiff 0.11409989358573225
+[auto-ringroad-driver] fvdm-newspeed 2.3437721022495515
+[auto-ringroad-driver] newSpeed 2.3437721022495515 desAngle 0.05889502999983648 curAngle -0.121
+[auto-ringroad-driver] preVeh True gap2pred 2.9896600880743907 speedDiff 0.11684353054119145
+[auto-ringroad-driver] fvdm-newspeed 2.1137507734153775
+[auto-ringroad-driver] newSpeed 2.1137507734153775 desAngle 0.05858292749983565 curAngle -0.013
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.821779780464254
+[auto-ringroad-driver] speed-newspeed 3.012873612949675
+[auto-ringroad-driver] newSpeed 3.012873612949675 desAngle 0.0482207050000725 curAngle 0.014
+[auto-ringroad-driver] preVeh True gap2pred 3.022365349189651 speedDiff 0.11634998573430888
+[auto-ringroad-driver] fvdm-newspeed 2.4465337555153224
+[auto-ringroad-driver] newSpeed 2.4465337555153224 desAngle 0.04785836250007286 curAngle 0.031
+[auto-ringroad-driver] preVeh True gap2pred 3.0527347323021403 speedDiff 0.19780831369535234
+[auto-ringroad-driver] fvdm-newspeed 2.7285902938983635
+[auto-ringroad-driver] newSpeed 2.7285902938983635 desAngle 0.1 curAngle 0.056
+[auto-ringroad-driver] preVeh True gap2pred 3.0970783736527676 speedDiff 0.26810216784546803
+[auto-ringroad-driver] fvdm-newspeed 3.38810102951628
+[auto-ringroad-driver] newSpeed 3.38810102951628 desAngle 0.1 curAngle 0.113
+[auto-ringroad-driver] preVeh True gap2pred 6.767726450099043 speedDiff 0.459231984195842
+[auto-ringroad-driver] fvdm-newspeed 3.814872655158535
+[auto-ringroad-driver] newSpeed 3.814872655158535 desAngle 0.06772124500005605 curAngle 0.113
+[auto-ringroad-driver] preVeh True gap2pred 6.874907453199746 speedDiff 0.6164059413343228
+[auto-ringroad-driver] fvdm-newspeed 4.436793790170078
+[auto-ringroad-driver] newSpeed 4.436793790170078 desAngle 0.017208662499873517 curAngle 0.088
+[auto-ringroad-driver] preVeh True gap2pred 6.842171029659419 speedDiff 0.09995203801248395
+[auto-ringroad-driver] fvdm-newspeed 2.0760080439108823
+[auto-ringroad-driver] newSpeed 2.0760080439108823 desAngle -0.02350414500009057 curAngle 0.038
+[auto-ringroad-driver] preVeh True gap2pred 6.817788279728202 speedDiff 0.03054114289169435
+[auto-ringroad-driver] fvdm-newspeed 1.4027824782378984
+[auto-ringroad-driver] newSpeed 1.4027824782378984 desAngle 0.05618294249983585 curAngle 0.005
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 28.276057243794607
+[auto-ringroad-driver] speed-newspeed 2.5722244735192317
+[auto-ringroad-driver] newSpeed 2.5722244735192317 desAngle 0.09606998500025549 curAngle 0.056
+[auto-ringroad-driver] preVeh True gap2pred 6.813913364231928 speedDiff 0.004578337658236453
+[auto-ringroad-driver] fvdm-newspeed 2.0302206082275602
+[auto-ringroad-driver] newSpeed 2.0302206082275602 desAngle 0.09595698249979975 curAngle 0.09
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 27.279885419729553
+[auto-ringroad-driver] speed-newspeed 3.5385111428623324
+[auto-ringroad-driver] newSpeed 3.5385111428623324 desAngle 0.06569389000005468 curAngle 0.094
+[auto-ringroad-driver] preVeh True gap2pred 6.833718329521513 speedDiff 0.007539665540332918
+[auto-ringroad-driver] fvdm-newspeed 3.2303241592678598
+[auto-ringroad-driver] newSpeed 3.2303241592678598 desAngle 0.07548072250027432 curAngle 0.077
+[auto-ringroad-driver] preVeh True gap2pred 6.837290917843981 speedDiff 0.0017006055439555967
+[auto-ringroad-driver] fvdm-newspeed 3.3073722508241175
+[auto-ringroad-driver] newSpeed 3.3073722508241175 desAngle 0.04511743499961757 curAngle 0.077
+[auto-ringroad-driver] preVeh True gap2pred 6.838898111660406 speedDiff 0.0010263542020203797
+[auto-ringroad-driver] fvdm-newspeed 3.3310875186996682
+[auto-ringroad-driver] newSpeed 3.3310875186996682 desAngle 0.04475402750007269 curAngle 0.055
+[auto-ringroad-driver] preVeh True gap2pred 6.8394809164088795 speedDiff 0.0004350124189722304
+[auto-ringroad-driver] fvdm-newspeed 3.324036209752175
+[auto-ringroad-driver] newSpeed 3.324036209752175 desAngle 0.04439050000007305 curAngle 0.05
+[auto-ringroad-driver] preVeh True gap2pred 6.8397998472063 speedDiff 0.0003528385793437616
+[auto-ringroad-driver] fvdm-newspeed 3.3025918257479163
+[auto-ringroad-driver] newSpeed 3.3025918257479163 desAngle 0.03397683749985404 curAngle 0.047
+[auto-ringroad-driver] preVeh True gap2pred 6.840054696989276 speedDiff 0.0003207089491527662
+[auto-ringroad-driver] fvdm-newspeed 3.275753471178954
+[auto-ringroad-driver] newSpeed 3.275753471178954 desAngle 0.03356304000031034 curAngle 0.038
+[auto-ringroad-driver] preVeh True gap2pred 6.84023159352703 speedDiff 0.00020950338867301715
+[auto-ringroad-driver] fvdm-newspeed 3.2475182254576938
+[auto-ringroad-driver] newSpeed 3.2475182254576938 desAngle 0.04319912250007424 curAngle 0.035
+[auto-ringroad-driver] preVeh True gap2pred 6.840381066848146 speedDiff 0.00018984143449953667
+[auto-ringroad-driver] fvdm-newspeed 3.218437266427152
+[auto-ringroad-driver] newSpeed 3.218437266427152 desAngle 0.04283508499961758 curAngle 0.04
+[auto-ringroad-driver] preVeh True gap2pred 6.840540554421275 speedDiff 0.00026601163510078796
+[auto-ringroad-driver] fvdm-newspeed 3.1885498569685073
+[auto-ringroad-driver] newSpeed 3.1885498569685073 desAngle 0.04247092750007268 curAngle 0.041
+[auto-ringroad-driver] preVeh False gap2pred 77 speedDiff 26.81218536240499
+[auto-ringroad-driver] speed-newspeed 3.9921801984671625
+[auto-ringroad-driver] newSpeed 3.9921801984671625 desAngle 0.04210665000007305 curAngle 0.04
+[auto-ringroad-driver] preVeh True gap2pred 6.839644306352238 speedDiff 0.0003895978352050078
+[auto-ringroad-driver] fvdm-newspeed 3.3534178044480645
+[auto-ringroad-driver] newSpeed 3.3534178044480645 desAngle 0.04174225250007341 curAngle 0.04
+[auto-ringroad-driver] preVeh True gap2pred 6.839769079731758 speedDiff 0.0003038407989803052
+[auto-ringroad-driver] fvdm-newspeed 3.346984099673856
+[auto-ringroad-driver] newSpeed 3.346984099673856 desAngle 0.03132771999985441 curAngle 0.04
+[auto-ringroad-driver] preVeh True gap2pred 6.8401969186636515 speedDiff 0.00030047861470475223
+[auto-ringroad-driver] fvdm-newspeed 3.3348857128608316
+[auto-ringroad-driver] newSpeed 3.3348857128608316 desAngle 0.040963067500073044 curAngle 0.033
+[auto-ringroad-driver] preVeh True gap2pred 6.84054696247699 speedDiff 0.00020359328093847578
+[auto-ringroad-driver] fvdm-newspeed 3.3172494929179455
+[auto-ringroad-driver] newSpeed 3.3172494929179455 desAngle 0.05064830999983576 curAngle 0.038
+[auto-ringroad-driver] preVeh True gap2pred 6.840739731945197 speedDiff 0.0002722046525862054
+[auto-ringroad-driver] fvdm-newspeed 3.2938023011098907
+[auto-ringroad-driver] newSpeed 3.2938023011098907 desAngle 0.04028343250007259 curAngle 0.045
+[auto-ringroad-driver] preVeh True gap2pred 6.840782701510788 speedDiff 0.0003748493851753673
+[auto-ringroad-driver] fvdm-newspeed 3.2663110534926014
+[auto-ringroad-driver] newSpeed 3.2663110534926014 desAngle 0.03991843500007296 curAngle 0.039
+[auto-ringroad-driver] preVeh True gap2pred 6.840731854371912 speedDiff 0.00028050809222236045
+[auto-ringroad-driver] fvdm-newspeed 3.237956206712081
+[auto-ringroad-driver] newSpeed 3.237956206712081 desAngle 0.04960333249983566 curAngle 0.039
+[auto-ringroad-driver] preVeh True gap2pred 6.840621884735594 speedDiff 0.00027027097962002006
+[auto-ringroad-driver] fvdm-newspeed 3.208939444741926
+[auto-ringroad-driver] newSpeed 3.208939444741926 desAngle 0.03923811000007249 curAngle 0.045
+[auto-ringroad-driver] preVeh True gap2pred 6.840450500708195 speedDiff 0.00035374121248746976
+[auto-ringroad-driver] fvdm-newspeed 3.1792166707480702
+[auto-ringroad-driver] newSpeed 3.1792166707480702 desAngle 0.048922782500292236 curAngle 0.039
+[auto-ringroad-driver] preVeh True gap2pred 6.8402690687448136 speedDiff 0.0002635889786542084
+[auto-ringroad-driver] fvdm-newspeed 3.1505921645679247
+[auto-ringroad-driver] newSpeed 3.1505921645679247 desAngle 0.04860734999983668 curAngle 0.045
+[auto-ringroad-driver] preVeh True gap2pred 6.840027174713775 speedDiff 0.0003408140150805983
+[auto-ringroad-driver] fvdm-newspeed 3.121589454031172
+[auto-ringroad-driver] newSpeed 3.121589454031172 desAngle 0.04829181249983586 curAngle 0.046
+[auto-ringroad-driver] preVeh True gap2pred 6.839745324786851 speedDiff 0.0003470040495244242
+[auto-ringroad-driver] fvdm-newspeed 3.093037633698241
+[auto-ringroad-driver] newSpeed 3.093037633698241 desAngle 0.058026185000054395 curAngle 0.046
+[auto-ringroad-driver] preVeh True gap2pred 6.839424141122906 speedDiff 0.0003462708185099639
+[auto-ringroad-driver] fvdm-newspeed 3.0648942961563552
+[auto-ringroad-driver] newSpeed 3.0648942961563552 desAngle 0.04771045250029232 curAngle 0.053
+[auto-ringroad-driver] preVeh True gap2pred 6.839009358691957 speedDiff 0.0004457274285367546
+[auto-ringroad-driver] fvdm-newspeed 3.0362565580337413
+[auto-ringroad-driver] newSpeed 3.0362565580337413 desAngle 0.05744463000005613 curAngle 0.047
+[auto-ringroad-driver] preVeh True gap2pred 6.838600843710538 speedDiff 0.00035010213692937553
+[auto-ringroad-driver] fvdm-newspeed 3.008894886500195
+[auto-ringroad-driver] newSpeed 3.008894886500195 desAngle 0.05717871749959938 curAngle 0.053
+[auto-ringroad-driver] preVeh True gap2pred 6.838092786312782 speedDiff 0.000435336287399328
+[auto-ringroad-driver] fvdm-newspeed 2.981013401238173
+[auto-ringroad-driver] newSpeed 2.981013401238173 desAngle 0.04686270000029205 curAngle 0.054
+[auto-ringroad-driver] preVeh True gap2pred 6.837532906348929 speedDiff 0.0004380007113783668
+[auto-ringroad-driver] fvdm-newspeed 2.95352402092095
+[auto-ringroad-driver] newSpeed 2.95352402092095 desAngle 0.06664660749981821 curAngle 0.048
+[auto-ringroad-driver] preVeh True gap2pred 6.83700601209982 speedDiff 0.0003318602149781705
+[auto-ringroad-driver] fvdm-newspeed 2.9272521818133557
+[auto-ringroad-driver] newSpeed 2.9272521818133557 desAngle 0.056380425000054954 curAngle 0.06
